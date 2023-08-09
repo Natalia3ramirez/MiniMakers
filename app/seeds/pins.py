@@ -3,7 +3,7 @@ from sqlalchemy.sql import alt_text
 from datetime import datetime, timedelta
 import random
 
-def seed_pins()
+def seed_pins():
 
   pin1 = Pin(
     user_id= 1,
