@@ -10,7 +10,7 @@ def seed_users():
         last_name='Lition',
         about_me='Hey there, I am Demo, a parent on a mission to fill childhood with joy and imagination. We will explore interactive ways to nurture skills, from early literacy to problem-solving, all while having a blast!',
         email='demo@aa.io',
-        hashed_password='password',
+        password='password',
         birthdate=date(1992, 1, 1),
         image='https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=400&q=60')
     marnie = User(
