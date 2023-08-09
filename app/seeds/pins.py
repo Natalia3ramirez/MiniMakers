@@ -3,7 +3,7 @@ from sqlalchemy.sql import alt_text
 from datetime import datetime, timedelta
 import random
 
-def seed_pins():
+def seed_pins()
 
   pin1 = Pin(
     user_id= 1,
@@ -12,7 +12,7 @@ def seed_pins():
     description= "Japanese bento with cute octopus shaped sausage, broccoli, grape, tomato, and rice, popular with children.",
     created_at= datetime(year=2023, month=8, day=1, hour=12, minute=30, second=0)
   )
-    pin2 = Pin(
+  pin2 = Pin(
     user_id= 1,
     title= "Crafty Paper Plate Animals",
     images= "https://i.pinimg.com/564x/a3/99/d9/a399d977381503b439fd68eec9a27cd5.jpg",
