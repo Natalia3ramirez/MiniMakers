@@ -1,5 +1,5 @@
 from app.models import db, Pin, environment, SCHEMA
-from sqlalchemy.sql import alt_text
+from sqlalchemy.sql import text
 from datetime import datetime, timedelta
 import random
 
