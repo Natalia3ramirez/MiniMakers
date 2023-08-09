@@ -44,25 +44,24 @@ function SignupFormModal() {
 	}, [email, firstName, lastName, confirmPassword, password])
 
 
-
+	console.log('PROFILE IMAGE--->', image)
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
 		const formData = new FormData();
-    formData.append("image", image);
+		formData.append("first_name", firstName);
+		formData.append("last_name", lastName);
+		formData.append("about_me", aboutMe);
+		formData.append("email", email);
+		formData.append("password", password);
+		formData.append("birthdate", birthdate);
+		formData.append("image", image); // Append the image file
 
 		setImageLoading(true);
 
 		if (password === confirmPassword) {
-			const data = await dispatch(signUp(formData))
-				// firstName,
-				// lastName,
-				// aboutMe,
-				// email,
-				// image,
-				// email,
-				// password));
+			const data = await dispatch(signUp(formData));
 
 			if (data) {
 				setErrors(data);
@@ -75,6 +74,38 @@ function SignupFormModal() {
 			]);
 		}
 	};
+
+
+	// const handleSubmit = async (e) => {
+	// 	e.preventDefault();
+
+	// 	const formData = new FormData();
+  //   formData.append("image", image);
+	// 	console.log("The form data----->", formData)
+
+	// 	setImageLoading(true);
+
+	// 	if (password === confirmPassword) {
+	// 		const data = await dispatch(signUp(
+	// 			firstName,
+	// 			lastName,
+	// 			aboutMe,
+	// 			email,
+	// 			image,
+	// 			email,
+	// 			password));
+
+	// 		if (data) {
+	// 			setErrors(data);
+	// 		} else {
+	// 			closeModal();
+	// 		}
+	// 	} else {
+	// 		setErrors([
+	// 			"Confirm Password field must be the same as the Password field",
+	// 		]);
+	// 	}
+	// };
 
 	return (
 		<>

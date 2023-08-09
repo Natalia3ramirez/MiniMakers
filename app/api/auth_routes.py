@@ -61,6 +61,10 @@ def sign_up():
     """
     Creates a new user and logs them in
     """
+
+
+    image_file = request.files.get('image')
+
     form = SignUpForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
@@ -72,7 +76,7 @@ def sign_up():
         upload = upload_file_to_s3(image_file)
         print(upload)
 
-        
+
 
 
         user = User(
