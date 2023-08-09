@@ -1,7 +1,6 @@
 from app.models import db, Pin, environment, SCHEMA
 from sqlalchemy.sql import text
-from datetime import datetime, timedelta
-import random
+from datetime import datetime
 
 def seed_pins():
 
