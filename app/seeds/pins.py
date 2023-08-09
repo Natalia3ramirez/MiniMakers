@@ -23,7 +23,7 @@ def seed_pins():
     user_id= 1,
     title= "DIY Rainbow Slime",
     images= "https://i.pinimg.com/564x/79/b4/8e/79b48e602758a8950dbb7c8e778e1cdf.jpg",
-    description= "Create colorful and squishy slime with this easy DIY recipe. Six 6 oz bottles clear Elmer’s Glue (one bottle for each color) (or 4 ½ cups clear glue divided into 3/4 cup increments), 1/4 cup warm water for EACH color,1 tablespoon contact lens solution (containing boric acid), for EACH color, your choice of food coloring.",
+    description= "Create colorful and squishy slime with this easy DIY recipe.",
     created_at= datetime(year=2023, month=8, day=1, hour=12, minute=30, second=0)
   )
   pin4 = Pin(
