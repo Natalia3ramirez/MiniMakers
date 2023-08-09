@@ -83,14 +83,14 @@ def seed_pins():
     created_at= datetime(year=2022, month=11, day=10, hour=10, minute=30, second=0)
   )
   pin12 = Pin(
-    user_id=1
+    user_id=1,
     title="Artistic Salt Painting",
     images="https://i.pinimg.com/564x/07/03/9f/07039fd0208e630db026c600aa77ca06.jpg",
     description="Create beautiful watercolor-like paintings using salt and liquid watercolors.",
     created_at= datetime(year=2023, month=6, day=10, hour=9, minute=30, second=0)
   )
   pin13 = Pin(
-    user_id=1
+    user_id=1,
    title="Homemade Veggie Chips",
    images="https://i.pinimg.com/564x/7a/c4/f2/7ac4f2f35b15e32636758cddefb14c86.jpg",
    description="Bake crispy and flavorful veggie chips using a variety of colorful vegetables.",
@@ -113,7 +113,7 @@ def seed_pins():
   pin16 = Pin(
     user_id= 1,
     title= "Healthy Banana Oat Cookies",
-    images= ,
+    images= "https://i.pinimg.com/564x/5f/1e/2d/5f1e2d99bd1859e374e3c824dce7567f.jpg",
     description= "These healthy and chewy Banana Oat cookies require only two ingredients - bananas and oats, plus your favorite add-ins! Perfect for breakfast on the go!",
     created_at= datetime(year=2023, month=4, day=5, hour=14, minute=30, second=0)
   )
@@ -223,7 +223,7 @@ pin11, pin12, pin13, pin14, pin15, pin16, pin17, pin18, pin19, pin20]
   db.session.commit()
 
 
-def undo_users():
+def undo_pins():
     if environment == "production":
         db.session.execute(f"TRUNCATE table {SCHEMA}.pins RESTART IDENTITY CASCADE;")
     else:
