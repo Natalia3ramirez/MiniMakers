@@ -8,7 +8,7 @@ def seed_users():
     demo = User(
         first_name='Demo',
         last_name='Lition',
-        about_me='Hey there, I am Demo, a parent on a mission to fill childhood with joy and imagination. Join me as we dive into a world of fun activities, educational games, and memorable moments that make parenting an adventure. From DIY crafts that spark imagination to hands-on science experiments that ignite curiosity, I am here to help fellow parents turn ordinary days into extraordinary experiences for our little ones. Discover how playtime can be a powerful learning tool. We will explore interactive ways to nurture skills, from early literacy to problem-solving, all while having a blast!',
+        about_me='Hey there, I am Demo, a parent on a mission to fill childhood with joy and imagination. We will explore interactive ways to nurture skills, from early literacy to problem-solving, all while having a blast!',
         email='demo@aa.io',
         hashed_password='password',
         birthdate=date(1992, 1, 1),
