@@ -13,6 +13,7 @@ pin_routes = Blueprint('pins', __name__)
 # @login_required
 def get_all_pins():
   all_pins = Pin.query.all()
+  print("this is the current user ---------->", current_user)
   return [pin.to_dict() for pin in all_pins]
 
 
@@ -59,3 +60,22 @@ def createNewPin():
   print(form.errors)
   return {"errors": validation_errors_to_error_messages(form.errors)}
 
+
+
+# Delete a Pin
+
+@pin_routes.route('/<int:pin_id>', methods=['DELETE'])
+@login_required
+def delete_pin(pin_id):
+  current_user_id = current_user.to_dict()['id']
+  current_pin = Pin.query.get(pin_id)
+
+  if not current_pin:
+    return {'errors': "pin not found"}, 400
+  if (current_user_id != current_pin.user_id):
+    return {'errors': "can only delete your own pin"}, 401
+
+  db.session.delete(current_pin)
+  db.session.commit()
+
+  return {"message":f"Successfully deleted review {pin_id}"}

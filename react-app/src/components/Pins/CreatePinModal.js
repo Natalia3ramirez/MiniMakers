@@ -22,7 +22,7 @@ const CreatePinModal = () => {
   const [frontendErrors, setFrontendErrors] = useState({});
   const [errors, setErrors] = useState([]);
 
- 
+
 
   useEffect(() => {
 		const frontendErrors = {}
@@ -98,16 +98,11 @@ const CreatePinModal = () => {
 					/>
 				</label>
 				{frontendErrors.title && <p className='on-submit-errors'>{frontendErrors.title}</p>}
-        <label>
+        <div>
 					{user.first_name}
           <img src={user.image} style={{ width: '50px', height: '50px' }} alt={user.firstName} />
-					<textarea
-						type="text"
-            placeholder='Tell everyone what your pin is about 😃'
-						value={description}
-						onChange={(e) => setDescription(e.target.value)}
-					/>
-				</label>
+
+				</div>
 				<label>
 					Description
 					<textarea
