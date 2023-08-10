@@ -56,17 +56,20 @@ function SignupFormModal() {
 		formData.append("email", email);
 		formData.append("password", password);
 		formData.append("birthdate", birthdate);
-		formData.append("image", image); // Append the image file
+		formData.append("image", image);
 
 		setImageLoading(true);
+
+
 
 		if (password === confirmPassword) {
 			const data = await dispatch(signUp(formData));
 
+
 			if (data) {
 				setErrors(data);
 			} else {
-				closeModal();
+				await closeModal();
 			}
 		} else {
 			setErrors([
@@ -110,7 +113,8 @@ function SignupFormModal() {
 	return (
 		<>
 			<h1>Sign Up</h1>
-			<form onSubmit={handleSubmit} encType="multipart/form-data">
+			<form onSubmit={handleSubmit}
+			encType="multipart/form-data">
 				<ul>
 					{errors.map((error, idx) => (
 						<li key={idx}>{error}</li>
@@ -164,7 +168,7 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
-				{frontendErrors.birthdate && birthdate.length > 0 && <p className='on-submit-errors'>{frontendErrors.birthdate}</p>}
+				{frontendErrors.birthdate && <p className='on-submit-errors'>{frontendErrors.birthdate}</p>}
 				<label>
 					Profile Image
 					<input

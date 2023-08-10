@@ -57,7 +57,6 @@ def logout():
 
 @auth_routes.route('/signup', methods=['POST'])
 def sign_up():
-    print("THIS IS THE RESPONSE ----->", request.json)
     """
     Creates a new user and logs them in
     """
@@ -69,7 +68,7 @@ def sign_up():
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
 
-        console.log("The form------>", form)
+        print("The form------>", form)
 
         image_file = form.data["image"]
         image_file.filename = get_unique_filename(image_file.filename)

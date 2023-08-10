@@ -87,7 +87,7 @@ export const signUp = (formData) => async (dispatch) => {
 
 	if (response.ok) {
 		const data = await response.json();
-		console.log("data before fetch----->", data)
+		console.log("data from thunk----->", data)
 		dispatch(setUser(data));
 		return null;
 	} else if (response.status < 500) {
