@@ -1,6 +1,7 @@
 const GET_ALL_PINS = "pins/GET_ALL_PINS";
 const GET_SINGLE_PIN = "pins/GET_ONE_PIN";
-const NEW_PIN = 'pins/NEW_PIN'
+const NEW_PIN = 'pins/NEW_PIN';
+const DELETE_PIN = 'pins/DELETE_PIN'
 
 
 // Action Creator
@@ -17,6 +18,11 @@ export const getSinglePin = (pin) => ({
 export const createNewPin = (pin) => ({
   type: NEW_PIN,
   pin
+})
+
+export const deletePin = (pinId) => ({
+  type: DELETE_PIN,
+  pinId
 })
 
 
@@ -44,23 +50,35 @@ export const getSinglePinThunk = (pinId) => async (dispatch) => {
 
 }
 
-// export const createNewPinThunk = (formData) = async (dispatch) => {
-//   const response = await fetch(`/api/pins/new`, {
-//     method: "POST",
-//     body: formData,
-//   });
+
 export const createNewPinThunk = (formData) => async (dispatch) => {
 	const response = await fetch("/api/pins/new", {
 		method: "POST",
 		body: formData,
 
 	});
-
-
   if (response.ok) {
     const data = await response.json();
     dispatch(createNewPin(data))
     return null
+  } else if (response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors;
+    }
+  }
+}
+
+export const deletePinThunk = (pinId) => async (dispatch) => {
+  const response = await fetch(`/api/pins/${pinId}`, {
+    method: "DELETE",
+  });
+
+  if(response.ok){
+    const data = await response.json();
+    console.log("thunk pinId ----->", pinId)
+    dispatch(deletePin(pinId));
+    return response
   } else if (response.status < 500) {
     const data = await response.json();
     if (data.errors) {
@@ -98,6 +116,11 @@ export default function reducer(state = initialState, action) {
       // const newPin = action.pin
       // newState.singlePin = newPin
       // newState.allPins[newPin.id] = newPin
+      return newState
+
+    case DELETE_PIN:
+      newState = { ...state, allPins: { ...state.allPins}, singlePin: {}}
+      delete newState.allPins[action.pinId]
       return newState
 
     default:
