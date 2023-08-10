@@ -9,6 +9,8 @@ import ProtectedRoute from "./components/auth/ProtectedRoute";
 import LandingPage from "./components/LandingPage";
 import SinglePin from "./components/Pins/SinglePinDetails"
 
+import CreatePinModal from "./components/Pins/CreatePinModal";
+
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -30,6 +32,11 @@ function App() {
           <Route path="/home">
             <ProtectedRoute>
               <LandingPage />
+            </ProtectedRoute>
+          </Route>
+          <Route path="/pins/new">
+            <ProtectedRoute>
+              <CreatePinModal />
             </ProtectedRoute>
           </Route>
           <Route path="/pins/:pinId">

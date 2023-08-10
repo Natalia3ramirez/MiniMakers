@@ -21,7 +21,7 @@ export default function SinglePin() {
   return (
     <div className="single-pin-container">
       <div>
-        <img src={pin.images} alt={pin.name} />
+        <img style={{ width: '250px', height: '300px' }} src={pin.images} alt={pin.name} />
       </div>
       <div>
         <div>
