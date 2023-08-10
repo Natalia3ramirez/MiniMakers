@@ -79,36 +79,7 @@ function SignupFormModal() {
 	};
 
 
-	// const handleSubmit = async (e) => {
-	// 	e.preventDefault();
-
-	// 	const formData = new FormData();
-  //   formData.append("image", image);
-	// 	console.log("The form data----->", formData)
-
-	// 	setImageLoading(true);
-
-	// 	if (password === confirmPassword) {
-	// 		const data = await dispatch(signUp(
-	// 			firstName,
-	// 			lastName,
-	// 			aboutMe,
-	// 			email,
-	// 			image,
-	// 			email,
-	// 			password));
-
-	// 		if (data) {
-	// 			setErrors(data);
-	// 		} else {
-	// 			closeModal();
-	// 		}
-	// 	} else {
-	// 		setErrors([
-	// 			"Confirm Password field must be the same as the Password field",
-	// 		]);
-	// 	}
-	// };
+	
 
 	return (
 		<>

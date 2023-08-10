@@ -48,6 +48,7 @@ class Pin(db.Model):
                 'id': self.user.id,
                 'firstName': self.user.first_name,
                 'lastName': self.user.last_name,
+                'image': self.user.image
             }
         }
 
