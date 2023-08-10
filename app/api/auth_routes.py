@@ -75,7 +75,8 @@ def sign_up():
         upload = upload_file_to_s3(image_file)
         print(upload)
 
-
+        if 'url' not in upload:
+            return upload['errors']
 
 
         user = User(

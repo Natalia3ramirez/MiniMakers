@@ -44,7 +44,7 @@ function SignupFormModal() {
 	}, [email, firstName, lastName, confirmPassword, password])
 
 
-	console.log('PROFILE IMAGE--->', image)
+	// console.log('PROFILE IMAGE--->', image)
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -79,7 +79,7 @@ function SignupFormModal() {
 	};
 
 
-	
+
 
 	return (
 		<>
