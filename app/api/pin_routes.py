@@ -2,8 +2,9 @@ from flask import Blueprint, jsonify, session, request
 from app.models import Pin, db
 from flask_login import current_user, login_user, logout_user, login_required
 from .AWS_helpers import upload_file_to_s3, get_unique_filename
-from app.forms import PinForm
+from app.forms import PinForm, UpdatePinForm
 from .auth_routes import validation_errors_to_error_messages
+
 
 pin_routes = Blueprint('pins', __name__)
 
@@ -79,5 +80,24 @@ def createNewPin():
   return {"errors": validation_errors_to_error_messages(form.errors)}
 
 
+# Edit a pin
+@pin_routes.route('/update/<int:pinId>', methods=['PUT'])
+@login_required
+def editPin(pinId):
 
+  form = PinForm()
+  form['csrf_token'].data = request.cookies['csrf_token']
 
+  if form.validate_on_submit():
+    pin = Pin.query.get(pinId)
+
+    pin.title= form.data['title'],
+    pin.description= form.data['description'],
+    pin.alt_text= form.data['alt_text'],
+    pin.website= form.data['website']
+
+    db.session.commit()
+
+    return pin.to_dict()
+  print(form.errors)
+  return {'errors': "Could not edit review"}, 500
