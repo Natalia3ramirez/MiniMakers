@@ -1,5 +1,5 @@
 const GET_ALL_PINS = "pins/GET_ALL_PINS";
-const GET_SINGLE_PIN ="pins/GET_ONE_PIN";
+const GET_SINGLE_PIN = "pins/GET_ONE_PIN";
 
 
 // Action Creator
@@ -19,22 +19,22 @@ export const getAllPinsThunk = () => async (dispatch) => {
   const response = await fetch('/api/pins');
 
   if (response.ok) {
-      const pins = await response.json();
-      dispatch(getAllPins(pins));
-      return response;
+    const data = await response.json();
+    dispatch(getAllPins(data));
+    return response;
   }
 }
 
 export const getSinglePinThunk = (pinId) => async (dispatch) => {
   const response = await fetch(`/api/pins/${pinId}`)
   if (response.ok) {
-      const pin = await response.json()
-      dispatch(getSinglePin(pin))
-      return response
-    } else {
-      const errors = await response.json();
-      return errors
-    }
+    const pin = await response.json()
+    dispatch(getSinglePin(pin))
+    return response
+  } else {
+    const errors = await response.json();
+    return errors
+  }
 
 }
 
@@ -49,17 +49,17 @@ const initialState = {
 export default function reducer(state = initialState, action) {
   let newState;
   switch (action.type) {
-  case GET_ALL_PINS:
-          newState = { ...state, allPins: {}, singlePin: {} };
-          action.pins.forEach((pin) => {
-              newState.allPins[pin.id] = pin;
-          });
-          return newState
-  case GET_SINGLE_PIN:
-          newState = { ...state, allPins: {}, singlePin: {} };
-          newState.singlePin = action.pin
-          return newState
-      default:
-          return state;
+    case GET_ALL_PINS:
+      newState = { ...state, allPins: {}, singlePin: {} };
+      action.pins.forEach((pin) => {
+        newState.allPins[pin.id] = pin;
+      });
+      return newState
+    case GET_SINGLE_PIN:
+      newState = { ...state, allPins: {}, singlePin: {} };
+      newState.singlePin = action.pin
+      return newState
+    default:
+      return state;
   }
 }

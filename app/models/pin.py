@@ -35,12 +35,19 @@ class Pin(db.Model):
         return {
             'id': self.id,
             'user_id': self.user_id,
-            'name': self.name,
+            'title': self.title,
+            'images': self.images,
             'description': self.description,
             'alt_text': self.alt_text,
-            'website': self,
-            'user': self.user,
+            'website': self.website,
+            'user_id': self.user_id,
             'pinned_boards': [pinned_board.to_dict() for pinned_board in self.pinned_boards],
             'created_at': self.created_at,
-            'updated_at': self.updated_at
+            'updated_at': self.updated_at,
+            'user': {
+                'id': self.user.id,
+                'firstName': self.user.first_name,
+                'lastName': self.user.last_name,
+            }
         }
+
