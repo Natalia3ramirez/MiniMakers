@@ -10,6 +10,7 @@ import LandingPage from "./components/LandingPage";
 import SinglePin from "./components/Pins/SinglePinDetails"
 
 import CreatePinModal from "./components/Pins/CreatePinModal";
+import UserProfilePage from "./components/UserProfile";
 
 function App() {
   const dispatch = useDispatch();
@@ -42,6 +43,11 @@ function App() {
           <Route path="/pins/:pinId">
             <ProtectedRoute>
               <SinglePin />
+            </ProtectedRoute>
+          </Route>
+          <Route path="/profile">
+            <ProtectedRoute>
+              <UserProfilePage />
             </ProtectedRoute>
           </Route>
         </Switch>
