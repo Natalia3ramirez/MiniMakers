@@ -6,6 +6,7 @@ import { useModal } from '../../context/Modal';
 import DeletePinModal from './DeletePinModal';
 import OpenModalButton from '../OpenModalButton';
 import './Pins.css'
+import UpdatePinModal from './UpdatePinModal';
 
 
 export default function SinglePin() {
@@ -60,6 +61,11 @@ export default function SinglePin() {
               buttonText="Delete"
               // onItemClick={closeMenu}
               modalComponent={<DeletePinModal pinId={pin.id} />}
+            />
+            <OpenModalButton
+              buttonText="Edit"
+              // onItemClick={closeMenu}
+              modalComponent={<UpdatePinModal  pin={pin} />}
             />
         </div>
       </div>

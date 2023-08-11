@@ -102,4 +102,4 @@ def editPin(pinId):
     return pin.to_dict()
 
   print(form.errors)
-  return {'errors': "Could not edit review"}, 500
+  return {"errors": validation_errors_to_error_messages(form.errors)}

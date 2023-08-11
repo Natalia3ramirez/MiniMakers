@@ -4,7 +4,6 @@ from wtforms.validators import DataRequired, URL, NumberRange, Length
 
 
 class UpdatePinForm(FlaskForm):
-  user_id = IntegerField('UserId', validators=[DataRequired()])
   title = StringField('Title', validators=[DataRequired()])
   description = description = StringField('Description')
   alt_text = StringField('Alt text')

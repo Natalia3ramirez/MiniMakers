@@ -50,13 +50,44 @@ export const getSinglePinThunk = (pinId) => async (dispatch) => {
 
 }
 
+// export const updatePinThunk = (pin, pinId, title, description, alt_text, website) => async (dispatch) => {
+//   const response = await fetch(`/api/pins/update/${pinId}`, {
+//     method: "PUT",
+//     headers: { "Content-Type": "application/json" },
+//     body: JSON.stringify({
+//       title,
+//       description,
+//       alt_text,
+//       website
+//     }),
+//   });
+
+export const updatePinThunk = (formData, pinId) => async (dispatch) => {
+  const response = await fetch(`/api/pins/update/${pinId}`, {
+    method: "PUT",
+    body: formData
+  });
+
+  if (response.ok) {
+    const data = await response.json();
+
+    dispatch(createNewPin(formData));
+    return data;
+  } else if (response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors;
+    }
+  }
+}
+
 
 export const createNewPinThunk = (formData) => async (dispatch) => {
-	const response = await fetch("/api/pins/new", {
-		method: "POST",
-		body: formData,
+  const response = await fetch("/api/pins/new", {
+    method: "POST",
+    body: formData,
 
-	});
+  });
   if (response.ok) {
     const data = await response.json();
     dispatch(createNewPin(data))
@@ -74,7 +105,7 @@ export const deletePinThunk = (pinId) => async (dispatch) => {
     method: "DELETE",
   });
 
-  if(response.ok){
+  if (response.ok) {
     const data = await response.json();
     // console.log("thunk pinId ----->", pinId)
     dispatch(deletePin(pinId));
@@ -112,14 +143,14 @@ export default function reducer(state = initialState, action) {
       return newState
 
     case NEW_PIN:
-      newState = { ...state, allPins: { ...state.allPins }, singlePin: {...action.pin} }
+      newState = { ...state, allPins: { ...state.allPins }, singlePin: { ...action.pin } }
       // const newPin = action.pin
       // newState.singlePin = newPin
       // newState.allPins[newPin.id] = newPin
       return newState
 
     case DELETE_PIN:
-      newState = { ...state, allPins: { ...state.allPins}, singlePin: {}}
+      newState = { ...state, allPins: { ...state.allPins }, singlePin: {} }
       delete newState.allPins[action.pinId]
       return newState
 
