@@ -85,19 +85,21 @@ def createNewPin():
 @login_required
 def editPin(pinId):
 
-  form = PinForm()
+
+  form = UpdatePinForm()
   form['csrf_token'].data = request.cookies['csrf_token']
 
   if form.validate_on_submit():
     pin = Pin.query.get(pinId)
 
-    pin.title= form.data['title'],
-    pin.description= form.data['description'],
-    pin.alt_text= form.data['alt_text'],
+    pin.title= form.data['title']
+    pin.description= form.data['description']
+    pin.alt_text= form.data['alt_text']
     pin.website= form.data['website']
 
     db.session.commit()
 
     return pin.to_dict()
+
   print(form.errors)
   return {'errors': "Could not edit review"}, 500
