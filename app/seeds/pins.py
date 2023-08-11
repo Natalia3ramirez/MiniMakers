@@ -89,18 +89,18 @@ def seed_pins():
     created_at= datetime(year=2023, month=6, day=10, hour=9, minute=30, second=0)
   )
   pin13 = Pin(
-    user_id=1,
+   user_id=1,
    title="Homemade Veggie Chips",
    images="https://i.pinimg.com/564x/7a/c4/f2/7ac4f2f35b15e32636758cddefb14c86.jpg",
    description="Bake crispy and flavorful veggie chips using a variety of colorful vegetables.",
-    created_at= datetime(year=2023, month=7, day=28, hour=11, minute=45, second=0)
+   created_at= datetime(year=2023, month=7, day=28, hour=11, minute=45, second=0)
   )
   pin14 = Pin(
-    user_id=1,
+   user_id=1,
    title="Upcycled Cardboard Crafts",
    images="https://i.pinimg.com/564x/60/16/ae/6016aebc0519927fb9fa31a916cf0769.jpg",
    description="Turn cardboard boxes into imaginative crafts like cars, houses, and robots.",
-    created_at= datetime(year=2023, month=8, day=15, hour=14, minute=0, second=0)
+   created_at= datetime(year=2023, month=8, day=15, hour=14, minute=0, second=0)
   )
   pin15 = Pin(
     user_id= 1,
