@@ -1,0 +1,9 @@
+.on-submit-errors {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+button {
+  cursor: pointer;
+}

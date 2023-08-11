@@ -76,7 +76,7 @@ export const deletePinThunk = (pinId) => async (dispatch) => {
 
   if(response.ok){
     const data = await response.json();
-    console.log("thunk pinId ----->", pinId)
+    // console.log("thunk pinId ----->", pinId)
     dispatch(deletePin(pinId));
     return response
   } else if (response.status < 500) {

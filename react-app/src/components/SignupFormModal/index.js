@@ -82,10 +82,13 @@ function SignupFormModal() {
 
 
 	return (
-		<>
-			<h1>Sign Up</h1>
+		<div className='signup-modal-container'>
+			<div className='signup-header'>
+				<h1>Welcome to MiniMakers</h1>
+				<p>Find new parenting tips to try</p>
+			</div>
 			<form onSubmit={handleSubmit}
-			encType="multipart/form-data">
+				encType="multipart/form-data">
 				<ul>
 					{errors.map((error, idx) => (
 						<li key={idx}>{error}</li>
@@ -94,6 +97,7 @@ function SignupFormModal() {
 				<label>
 					First Name
 					<input
+					placeholder="First Name"
 						type="text"
 						value={firstName}
 						onChange={(e) => setFirstName(e.target.value)}
@@ -104,6 +108,7 @@ function SignupFormModal() {
 				<label>
 					Last Name
 					<input
+					placeholder="Last Name"
 						type="text"
 						value={lastName}
 						onChange={(e) => setLastName(e.target.value)}
@@ -114,6 +119,7 @@ function SignupFormModal() {
 				<label>
 					About Me
 					<textarea
+						placeholder="Tell your story"
 						type="text"
 						value={aboutMe}
 						onChange={(e) => setAboutMe(e.target.value)}
@@ -123,6 +129,7 @@ function SignupFormModal() {
 				<label>
 					Email
 					<input
+					placeholder="Email"
 						type="text"
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
@@ -140,17 +147,18 @@ function SignupFormModal() {
 					/>
 				</label>
 				{frontendErrors.birthdate && <p className='on-submit-errors'>{frontendErrors.birthdate}</p>}
-				<label>
+				<label className='profile-image'>
 					Profile Image
 					<input
-              type="file"
-              accept="image/*, image/jpeg, image/jpg, image/gif"
-              onChange={(e) => setImage(e.target.files[0])}
-            />
+						type="file"
+						accept="image/*, image/jpeg, image/jpg, image/gif"
+						onChange={(e) => setImage(e.target.files[0])}
+					/>
 				</label>
 				<label>
 					Password
 					<input
+					placeholder="Password"
 						type="password"
 						value={password}
 						onChange={(e) => setPassword(e.target.value)}
@@ -161,6 +169,7 @@ function SignupFormModal() {
 				<label>
 					Confirm Password
 					<input
+					placeholder="Confirm Password"
 						type="password"
 						value={confirmPassword}
 						onChange={(e) => setConfirmPassword(e.target.value)}
@@ -169,9 +178,9 @@ function SignupFormModal() {
 				</label>
 				{frontendErrors.confirmPassword && confirmPassword.length > 0 && <p className='on-submit-errors'>{frontendErrors.confirmPassword}</p>}
 				<button type="submit">Sign Up</button>
-				{(imageLoading)&& <p>Loading...</p>}
+				{(imageLoading) && <p>Loading...</p>}
 			</form>
-		</>
+		</div>
 	);
 }
 
