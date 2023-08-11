@@ -41,7 +41,7 @@ class Pin(db.Model):
             'alt_text': self.alt_text,
             'website': self.website,
             'user_id': self.user_id,
-            'pinned_boards': [pinned_board.to_dict() for pinned_board in self.pinned_boards],
+            # 'pinned_boards': [pinned_board.to_dict() for pinned_board in self.pinned_boards],
             'created_at': self.created_at,
             'updated_at': self.updated_at,
             'user': {

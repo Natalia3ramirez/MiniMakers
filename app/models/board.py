@@ -37,5 +37,6 @@ class Board(db.Model):
             'description': self.description,
             'type': self.type,
             'created_at': self.created_at,
-            'updated_at': self.updated_at
+            'updated_at': self.updated_at,
+            # 'pinned_boards': [pinned_board.to_dict() for pinned_board in self.pinned_boards]
         }
