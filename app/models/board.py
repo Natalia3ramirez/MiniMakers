@@ -1,6 +1,8 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from datetime import datetime
 from sqlalchemy.sql import func
+from .pin import Pin
+from .pinned_board import PinnedBoard
 
 
 class Board(db.Model):
@@ -26,17 +28,35 @@ class Board(db.Model):
     # Relationships go here
     user = db.relationship("User", back_populates='boards')
     pinned_boards = db.relationship("PinnedBoard", back_populates='boards', cascade="all, delete-orphan")
-
+    # pins = db.relationship("Pin", secondary="pinned_boards", back_populates="boards")
 
 
     def to_dict(self):
+
+
+        pinnedBoard = Pin.query.join(PinnedBoard).filter(PinnedBoard.board_id == self.id).all()
+
+
+        # pinnedBoard = Pin.query.join(PinnedBoard).filter(PinnedBoard.board_id == self.id).all()
+        pinLen = len(pinnedBoard)
+        # print("the pinnedboard", pinnedBoard)
+
+        boardImages = []
+
+        if pinLen > 0:
+            boardImages = [pin.images for pin in pinnedBoard]
+
+        # print("the images", boardImages)
         return {
             'id': self.id,
             'user_id': self.user_id,
             'name': self.name,
             'description': self.description,
             'type': self.type,
+            'boardImages': boardImages,
+            'pinLen': pinLen,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
             # 'pinned_boards': [pinned_board.to_dict() for pinned_board in self.pinned_boards]
         }
+

@@ -1,35 +1,70 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getAllPinnedBoardsThunk } from "../../store/board";
+import { getAllBoardsThunk } from "../../store/board";
 import { useHistory } from "react-router-dom";
 import PinBoardCard from "./PinBoardCard";
+import PinCard from "../LandingPage/PinCard";
+import { getAllPins, getAllPinsThunk } from "../../store/pin";
 
 
 const UserProfilePage = () => {
   const dispatch = useDispatch();
   const history = useHistory()
-  const pins = useSelector(state => console.log("this is the state", state));
+  const user = useSelector(state => state.session.user);
+
+  const pins = useSelector(state => state.pins.allPins);
+  const pinsArr = pins ? Object.values(pins) : [];
+  const boards =  useSelector(state => state.pinnedBoards.allPinnedBoards)
+  const boardsArr = boards ? Object.values(boards) : [];
+  console.log(" the pins ---->", pins)
+
+  const filteredBoards = boardsArr.filter(board => board.user_id === user.id)
+  const filteredPins = pinsArr.filter(pin => pin.user_id === user.id)
+  console.log(" the boards ---->", filteredBoards)
+
+  // const imagesArray = []
+
+
+  // const imagesArray = filteredBoards.map((board => board.pin))
+
 
   useEffect(() => {
-    dispatch(getAllPinnedBoardsThunk())
+    dispatch(getAllBoardsThunk())
+    dispatch(getAllPinsThunk())
   }, [dispatch])
 
-  // if(!pins.length) return null
 
   return (
     <>
-      <h1>Landing Page</h1>
-      {/* < div >
+      <div className='profile-user-image'>
+      <img style={{ width: '75px', height: '75px' }} src={user.image} alt={user.name} />
+      </div>
+      <div>
+        <h2>{user.first_name}</h2>
+        <p>@{user.first_name}</p>
+        <p>{user.about_me}</p>
+      </div>
+      <div className='profile-pins'>
         <h2>List of Pins</h2>
-
-          {pins.map((pin) => (
-
+        <div>
+          {filteredPins.map((pin) => (
 
               <PinCard key={pin.id} pin={pin}/>
-
           ))}
+        </div>
+        <div>
+          {filteredBoards.map((board) => (
 
-      </div > */}
+              <PinBoardCard key={board.id} board={board}/>
+          ))}
+        </div>
+
+          {/* <div>
+          <PinBoardCard  />
+          </div> */}
+      </div>
+
+
 
 
     </>

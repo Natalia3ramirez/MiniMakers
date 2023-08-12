@@ -1,13 +1,13 @@
-const GET_ALL_PINNED_BOARDS = "pins/GET_ALL_PINNED_BOARDS";
+const GET_ALL_BOARDS = "pins/GET_ALL_BOARDS";
 // const GET_SINGLE_BOARD = "pins/GET_SINGLE_BOARD";
 // const NEW_Board = 'pins/NEW_Board';
 // const DELETE_BOARD = 'pins/DELETE_BOARD'
 
 
 // Action Creator
-export const getAllPinnedBoards = (pinnedBoards) => ({
-  type: GET_ALL_PINNED_BOARDS,
-  pinnedBoards
+export const getAllBoards = (boards) => ({
+  type: GET_ALL_BOARDS,
+  boards
 });
 
 // export const getSinglePin = (pin) => ({
@@ -27,13 +27,16 @@ export const getAllPinnedBoards = (pinnedBoards) => ({
 
 
 // Thunk
-export const getAllPinnedBoardsThunk = () => async (dispatch) => {
+export const getAllBoardsThunk = () => async (dispatch) => {
   const response = await fetch('/api/boards');
 
   if (response.ok) {
     const data = await response.json();
-    dispatch(getAllPinnedBoards(data));
+    dispatch(getAllBoards(data));
     return response;
+   } else {
+    const errors = await response.json();
+    return errors
   }
 }
 
@@ -120,10 +123,10 @@ export default function reducer(state = initialState, action) {
   let newState;
   switch (action.type) {
 
-    case GET_ALL_PINNED_BOARDS:
+    case GET_ALL_BOARDS:
       newState = { ...state, allPinnedBoards: {}, singlePinnedBoard: {} };
-      action.pinnedBoards.forEach((pinnedBoard) => {
-        newState.allPinnedBoards[pinnedBoard.id] = pinnedBoard;
+      action.boards.forEach((board) => {
+        newState.allPinnedBoards[board.id] = board;
       });
       return newState
 

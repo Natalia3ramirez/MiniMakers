@@ -30,13 +30,19 @@ def seed_boards():
     created_at= datetime(year=2023, month=7, day=15, hour=10, minute=0, second=0)
   )
   board5 = Board(
-    user_id= 1,
+    user_id= 2,
     name= "DIY for kids!",
     description= "Let them do it themselves!",
     created_at= datetime(year=2023, month=6, day=20, hour=14, minute=45, second=0)
   )
+  board6 = Board(
+    user_id= 2,
+    name= "Empty Board",
+    description= "This is EMPTY",
+    created_at= datetime(year=2023, month=6, day=20, hour=14, minute=45, second=0)
+  )
 
-  board_item_list = [board1, board2, board3, board4, board5]
+  board_item_list = [board1, board2, board3, board4, board5, board6]
 
   boards_list = [db.session.add(board_item) for board_item in board_item_list]
   db.session.commit()
