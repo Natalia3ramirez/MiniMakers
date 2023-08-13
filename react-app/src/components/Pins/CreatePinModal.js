@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
-import { createNewPinThunk } from '../../store/pin'
+import { createNewPinThunk, getAllPinsThunk } from '../../store/pin'
 import './Pins.css'
 import { useModal } from '../../context/Modal'
 
@@ -56,12 +56,13 @@ const CreatePinModal = () => {
 
 
 		const data = await dispatch(createNewPinThunk(formData));
+		await dispatch(getAllPinsThunk())
 
 
 		if (data) {
 			setErrors(data);
 		} else {
-      await history.push('/home')
+      await history.push('/profile')
 			await closeModal();
 		}
 

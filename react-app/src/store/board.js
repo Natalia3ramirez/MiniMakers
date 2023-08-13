@@ -1,6 +1,6 @@
 const GET_ALL_BOARDS = "pins/GET_ALL_BOARDS";
 // const GET_SINGLE_BOARD = "pins/GET_SINGLE_BOARD";
-// const NEW_Board = 'pins/NEW_Board';
+const NEW_BOARD = 'pins/NEW_BOARD';
 // const DELETE_BOARD = 'pins/DELETE_BOARD'
 
 
@@ -15,10 +15,10 @@ export const getAllBoards = (boards) => ({
 //   pin
 // })
 
-// export const createNewPin = (pin) => ({
-//   type: NEW_PIN,
-//   pin
-// })
+export const createNewBoard = (board) => ({
+  type: NEW_BOARD,
+  board
+})
 
 // export const deletePin = (pinId) => ({
 //   type: DELETE_PIN,
@@ -75,23 +75,23 @@ export const getAllBoardsThunk = () => async (dispatch) => {
 // }
 
 
-// export const createNewPinThunk = (formData) => async (dispatch) => {
-//   const response = await fetch("/api/pins/new", {
-//     method: "POST",
-//     body: formData,
+export const createNewBoardThunk = (formData) => async (dispatch) => {
+  const response = await fetch("/api/boards/new", {
+    method: "POST",
+    body: formData,
 
-//   });
-//   if (response.ok) {
-//     const data = await response.json();
-//     dispatch(createNewPin(data))
-//     return null
-//   } else if (response.status < 500) {
-//     const data = await response.json();
-//     if (data.errors) {
-//       return data.errors;
-//     }
-//   }
-// }
+  });
+  if (response.ok) {
+    const data = await response.json();
+    await dispatch(createNewBoard(data))
+    return null
+  } else if (response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors;
+    }
+  }
+}
 
 // export const deletePinThunk = (pinId) => async (dispatch) => {
 //   const response = await fetch(`/api/pins/${pinId}`, {
@@ -135,9 +135,9 @@ export default function reducer(state = initialState, action) {
     //   newState.singlePin = action.pin
     //   return newState
 
-    // case NEW_PIN:
-    //   newState = { ...state, allPins: { ...state.allPins }, singlePin: { ...action.pin } }
-    //   return newState
+    case NEW_BOARD:
+      newState = { ...state, allPinnedBoards: { ...state.allPins }, singlePinnedBoards: { ...action.pin } }
+      return newState
 
     // case DELETE_PIN:
     //   newState = { ...state, allPins: { ...state.allPins }, singlePin: {} }
