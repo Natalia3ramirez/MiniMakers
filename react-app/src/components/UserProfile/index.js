@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import PinBoardCard from "./PinBoardCard";
 import PinCard from "../LandingPage/PinCard";
 import { getAllPins, getAllPinsThunk } from "../../store/pin";
+import UserCard from "./UserCard";
 
 
 const UserProfilePage = () => {
@@ -37,6 +38,7 @@ const UserProfilePage = () => {
   return (
     <>
       <div className='profile-user-image'>
+    {/* <UserCard user={user}/> */}
       <img style={{ width: '75px', height: '75px' }} src={user.image} alt={user.name} />
       </div>
       <div>

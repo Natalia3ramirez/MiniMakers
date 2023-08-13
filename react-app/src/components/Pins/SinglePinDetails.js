@@ -7,15 +7,18 @@ import DeletePinModal from './DeletePinModal';
 import OpenModalButton from '../OpenModalButton';
 import './Pins.css'
 import UpdatePinModal from './UpdatePinModal';
+import UserCard from '../UserProfile/UserCard';
+import { useHistory } from 'react-router';
 
 
 export default function SinglePin() {
   const { pinId } = useParams();
   const dispatch = useDispatch();
+  const history = useHistory()
   const { closeModal } = useModal();
   const pin = useSelector((state) => state.pins.singlePin)
   const user = pin.user
-  // console.log("this is the pin---->", user)
+  console.log("this is the pin---->", user)
 
   // useEffect(() => {
   //   if (!showMenu) return;
@@ -37,6 +40,10 @@ export default function SinglePin() {
 
   if (!pin.id) return null
 
+  const onClick = () => {
+    history.push('/profile')
+  }
+
   // const closeMenu = () => setShowMenu(false);
 
   return (
@@ -52,21 +59,32 @@ export default function SinglePin() {
         <div>
           <button >Save</button>
         </div>
-        <div>
+        {/* <div>
           <img src={user.image} style={{ width: '50px', height: '50px' }} alt={user.firstName} />
           <p>{user.firstName}</p>
+        </div> */}
+        <div>
+          {/* <UserCard user={user}/> */}
+          <div onClick={onClick}>
+            <div>
+              <div className='profile-user-image'>
+                <img style={{ width: '75px', height: '75px' }} src={user.image} alt={user.name} />
+                <p>@{user.firstName}</p>
+              </div>
+            </div>
+          </div>
         </div>
         <div>
-        <OpenModalButton
-              buttonText="Delete"
-              // onItemClick={closeMenu}
-              modalComponent={<DeletePinModal pinId={pin.id} />}
-            />
-            <OpenModalButton
-              buttonText="Edit"
-              // onItemClick={closeMenu}
-              modalComponent={<UpdatePinModal  pin={pin} />}
-            />
+          <OpenModalButton
+            buttonText="Delete"
+            // onItemClick={closeMenu}
+            modalComponent={<DeletePinModal pinId={pin.id} />}
+          />
+          <OpenModalButton
+            buttonText="Edit"
+            // onItemClick={closeMenu}
+            modalComponent={<UpdatePinModal pin={pin} />}
+          />
         </div>
       </div>
 
