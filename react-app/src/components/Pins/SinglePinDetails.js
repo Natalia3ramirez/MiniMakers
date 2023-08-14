@@ -9,6 +9,7 @@ import './Pins.css'
 import UpdatePinModal from './UpdatePinModal';
 import UserCard from '../UserProfile/UserCard';
 import { useHistory } from 'react-router';
+import AddPinToBoard from '../Boards/AddPinToBoardModal';
 
 
 export default function SinglePin() {
@@ -57,7 +58,11 @@ export default function SinglePin() {
           <p>{pin.description}</p>
         </div>
         <div>
-          <button >Save</button>
+        <OpenModalButton
+            buttonText="Save"
+            // onItemClick={closeMenu}
+            modalComponent={<AddPinToBoard pin_id={pin.id} />}
+          />
         </div>
         {/* <div>
           <img src={user.image} style={{ width: '50px', height: '50px' }} alt={user.firstName} />

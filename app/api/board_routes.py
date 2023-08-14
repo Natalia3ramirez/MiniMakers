@@ -138,13 +138,13 @@ def addPinToBoard():
       return {"error": "Invalid board_id or pin_id"}, 400
 
 
-    print("this is the board------>", type(board.pinned_boards))
-    print("this is the pin------>", type(pin))
-    print("the pinned boards ------------>", board.pinned_boards)
+    # print("this is the board------>", type(board.pinned_boards))
+    # print("this is the pin------>", type(pin))
+    # print("the pinned boards ------------>", board.pinned_boards)
 
 
     board.pinned_boards.append(PinnedBoard(pin_id=pin.id))
-   
+
 
 
     db.session.commit()

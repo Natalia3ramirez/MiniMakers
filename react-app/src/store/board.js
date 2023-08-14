@@ -111,7 +111,7 @@ export const deleteBoardThunk = (boardId) => async (dispatch) => {
 }
 
 export const addPinToBoardThunk = (formData) => async (dispatch) => {
-  const response = await fetch('/boards/add', {
+  const response = await fetch('/api/boards/add', {
     method: "PUT",
     body: formData
   })

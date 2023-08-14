@@ -19,20 +19,12 @@ const LandingPage = () => {
 
   return (
     <>
-      <h1>Landing Page</h1>
       < div >
-        <h2>List of Pins</h2>
 
           {pins.map((pin) => (
-
-
               <PinCard key={pin.id} pin={pin}/>
-
           ))}
-
       </div >
-
-
     </>
   )
 }

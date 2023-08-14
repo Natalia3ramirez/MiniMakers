@@ -17,11 +17,10 @@ const UserProfilePage = () => {
   const pinsArr = pins ? Object.values(pins) : [];
   const boards =  useSelector(state => state.pinnedBoards.allPinnedBoards)
   const boardsArr = boards ? Object.values(boards) : [];
-  console.log(" the pins ---->", pins)
 
   const filteredBoards = boardsArr.filter(board => board.user_id === user.id)
   const filteredPins = pinsArr.filter(pin => pin.user_id === user.id)
-  console.log(" the boards ---->", filteredBoards)
+
 
   // const imagesArray = []
 
