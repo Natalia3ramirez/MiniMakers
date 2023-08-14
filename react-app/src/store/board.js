@@ -1,5 +1,5 @@
 const GET_ALL_BOARDS = "pins/GET_ALL_BOARDS";
-// const GET_SINGLE_BOARD = "pins/GET_SINGLE_BOARD";
+const GET_SINGLE_BOARD = "pins/GET_SINGLE_BOARD";
 const NEW_BOARD = 'pins/NEW_BOARD';
 // const DELETE_BOARD = 'pins/DELETE_BOARD'
 
@@ -10,10 +10,10 @@ export const getAllBoards = (boards) => ({
   boards
 });
 
-// export const getSinglePin = (pin) => ({
-//   type: GET_SINGLE_PIN,
-//   pin
-// })
+export const getSingleBoard = (board) => ({
+  type: GET_SINGLE_BOARD,
+  board
+})
 
 export const createNewBoard = (board) => ({
   type: NEW_BOARD,
@@ -40,39 +40,39 @@ export const getAllBoardsThunk = () => async (dispatch) => {
   }
 }
 
-// export const getSinglePinThunk = (pinId) => async (dispatch) => {
-//   const response = await fetch(`/api/pins/${pinId}`)
-//   if (response.ok) {
-//     const pin = await response.json()
-//     dispatch(getSinglePin(pin))
-//     return response
-//   } else {
-//     const errors = await response.json();
-//     return errors
-//   }
+export const getSingleBoardThunk = (boardId) => async (dispatch) => {
+  const response = await fetch(`/api/boards/${boardId}`)
+  if (response.ok) {
+    const board = await response.json()
+    dispatch(getSingleBoard(board))
+    return response
+  } else {
+    const errors = await response.json();
+    return errors
+  }
 
-// }
+}
 
 
 
-// export const updatePinThunk = (formData, pinId) => async (dispatch) => {
-//   const response = await fetch(`/api/pins/update/${pinId}`, {
-//     method: "PUT",
-//     body: formData
-//   });
+export const updateBoardThunk = (formData, boardId) => async (dispatch) => {
+  const response = await fetch(`/api/boards/update/${boardId}`, {
+    method: "PUT",
+    body: formData
+  });
 
-//   if (response.ok) {
-//     const data = await response.json();
+  if (response.ok) {
+    const data = await response.json();
 
-//     dispatch(createNewPin(formData));
-//     return data;
-//   } else if (response.status < 500) {
-//     const data = await response.json();
-//     if (data.errors) {
-//       return data.errors;
-//     }
-//   }
-// }
+    dispatch(createNewBoard(formData));
+    return data;
+  } else if (response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors;
+    }
+  }
+}
 
 
 export const createNewBoardThunk = (formData) => async (dispatch) => {
@@ -130,10 +130,10 @@ export default function reducer(state = initialState, action) {
       });
       return newState
 
-    // case GET_SINGLE_PIN:
-    //   newState = { ...state, allPins: {}, singlePin: {} };
-    //   newState.singlePin = action.pin
-    //   return newState
+    case GET_SINGLE_BOARD:
+      newState = { ...state, allPinnedBoards: {}, singlePinnedBoard: {} };
+      newState.singlePinnedBoard = action.board
+      return newState
 
     case NEW_BOARD:
       newState = { ...state, allPinnedBoards: { ...state.allPins }, singlePinnedBoards: { ...action.pin } }

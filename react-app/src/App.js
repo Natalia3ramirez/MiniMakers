@@ -7,10 +7,13 @@ import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import LandingPage from "./components/LandingPage";
-import SinglePin from "./components/Pins/SinglePinDetails"
+import SinglePin from "./components/Pins/SinglePinDetails";
+
 
 import CreatePinModal from "./components/Pins/CreatePinModal";
 import UserProfilePage from "./components/UserProfile";
+import SingleBoard from "./components/Boards/SingleBoardDetailsPage";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -48,6 +51,11 @@ function App() {
           <Route path="/profile">
             <ProtectedRoute>
               <UserProfilePage />
+            </ProtectedRoute>
+          </Route>
+          <Route path="/boards/:boardId">
+            <ProtectedRoute>
+              <SingleBoard />
             </ProtectedRoute>
           </Route>
         </Switch>

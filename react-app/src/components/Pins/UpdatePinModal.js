@@ -1,8 +1,3 @@
-// import { useDispatch } from "react-redux";
-// import { useModal } from "../../../context/Modal";
-// import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-// import { deletePin } from "../../store/pin";
-
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
