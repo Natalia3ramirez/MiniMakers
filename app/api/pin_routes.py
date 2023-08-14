@@ -32,7 +32,6 @@ def delete_pin(pinId):
 # @login_required
 def get_all_pins():
   all_pins = Pin.query.all()
-  print("this is the current user ---------->", current_user)
   return [pin.to_dict() for pin in all_pins]
 
 

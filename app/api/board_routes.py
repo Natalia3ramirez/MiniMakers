@@ -9,52 +9,20 @@ board_routes = Blueprint('boards', __name__)
 
 
 
-# Remove Pin from Board
-
-# @board_routes.route('/<int:board_id>/deletePin/<int:pin_id>', methods=['DELETE'])
-# def remove_pin(board_id, pin_id):
-
-#         # Retrieve the board and pin
-#       board = Board.query.get(board_id)
-#       pin = Pin.query.get(pin_id)
-
-#       print("the board id---->", board_id)
-#       print("the pin id---->", pin_id)
-
-#       print("the pin pin---->", pin)
-#       print("the pin pinned_boards ---->", board.pinned_boards)
-
-
-#       if board is None or pin is None:
-#         return jsonify({'error': 'Board or pin not found'}), 404
-
-#         # Check if the pin is associated with the board
-
-#             # Remove the pin from the board
-#           # board.pinned_boards.remove(pin)
-#       board.pinned_boards.remove(PinnedBoard(pin_id=pin.id))
-#       db.session.commit()
-#       return board.to_dict()
-
-
-
-
 
 # Remove Pin from Board
 @board_routes.route('/<int:boardId>/deletePin/<int:pinId>', methods=['DELETE'])
 @login_required
 def deletePinToBoard(boardId, pinId):
 
-  print("the board id---->", boardId)
-  print("the pin id---->", pinId)
+
 
   board = Board.query.get(boardId)
-  print("the pinned boards---->", board.pinned_boards)
-
-  # board.pinned_boards = [pin for pin in board.pinned_boards if pinId != pin.id]
-  # db.session.commit()
-  board.pins = [pin for pin in board.pins if pinId != pin.id]
-  db.session.commit()
+  if board.user_id != current_user.id:
+     return {"message":f"Board does not belong to current user"}
+  else:
+    board.pins = [pin for pin in board.pins if pinId != pin.id]
+    db.session.commit()
 
   return board.to_dict()
 

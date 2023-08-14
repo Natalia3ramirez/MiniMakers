@@ -21,20 +21,6 @@ export default function SinglePin() {
   const user = pin.user
   console.log("this is the pin---->", user)
 
-  // useEffect(() => {
-  //   if (!showMenu) return;
-
-  //   const closeMenu = (e) => {
-  //     if (!ulRef.current.contains(e.target)) {
-  //       setShowMenu(false);
-  //     }
-  //   };
-
-  //   document.addEventListener("click", closeMenu);
-
-  //   return () => document.removeEventListener("click", closeMenu);
-  // }, [showMenu]);
-
   useEffect(() => {
     dispatch(getSinglePinThunk(pinId))
   }, [dispatch, pinId])

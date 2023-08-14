@@ -60,9 +60,7 @@ const UserProfilePage = () => {
           ))}
         </div>
 
-          {/* <div>
-          <PinBoardCard  />
-          </div> */}
+         
       </div>
 
 

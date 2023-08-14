@@ -6,11 +6,11 @@ import { useModal } from '../../context/Modal';
 import OpenModalButton from '../OpenModalButton';
 import PinCard from '../LandingPage/PinCard';
 import './Boards.css'
-import UserCard from '../UserProfile/UserCard';
 import { useHistory } from 'react-router';
 import { getAllPinsThunk } from '../../store/pin';
 import UpdateBoardModal from './UpdateBoardModal';
 import DeleteBoardModal from './DeleteBoardModal';
+import DeletePinFromBoard from './DeletePinFromBoardModal';
 
 
 const SingleBoard = () => {
@@ -80,7 +80,7 @@ const SingleBoard = () => {
         <OpenModalButton
           buttonText="Delete"
           onItemClick={closeMenu}
-          modalComponent={< DeleteBoardModal boardId={boardId}/>}
+          modalComponent={< DeleteBoardModal boardId={boardId} />}
         />
 
       </div>
@@ -88,9 +88,15 @@ const SingleBoard = () => {
       <div>
         {pins.length ? (
           <div>
-
             {pins.map((pin) => (
-              <PinCard key={pin.id} pin={pin} />
+              <div>
+                <PinCard key={pin.id} pin={pin} />
+                <OpenModalButton
+                  buttonText="Delete"
+                  onItemClick={closeMenu}
+                  modalComponent={<DeletePinFromBoard boardId={boardId} pinId={pin.id}/>}
+                />
+              </div>
             ))}
           </div>
 

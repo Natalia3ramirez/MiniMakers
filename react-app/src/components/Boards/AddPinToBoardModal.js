@@ -19,7 +19,7 @@ const AddPinToBoard = ({pin_id}) => {
 
   const userBoards = boardsArr.length ? boardsArr.filter(board => board.user_id === user.id) : [];
 
-    console.log("the user boards", userBoards)
+   
   const[board_id, setBoardId] = useState('');
   // const [description, setDescription] = useState('');
   // const [frontendErrors, setFrontendErrors] = useState({});
@@ -48,7 +48,7 @@ const AddPinToBoard = ({pin_id}) => {
     await history.push(`/boards/${board_id}`)
     await closeModal();
 
-	
+
 
 	};
 
@@ -69,39 +69,7 @@ const AddPinToBoard = ({pin_id}) => {
           ))}
           <button onClick={handleSubmit}>Add Pin</button>
       </div >
-      {/* <form onSubmit={handleSubmit}
-			encType="multipart/form-data">
-				<ul>
-					{errors.map((error, idx) => (
-						<li key={idx}>{error}</li>
-					))}
-				</ul>
 
-				<label>
-					Name
-					<input
-						type="text"
-            placeholder='Like "Activities for Kids"  or "Recipes for Kids"'
-						value={name}
-						onChange={(e) => setName(e.target.value)}
-						required
-					/>
-				</label>
-				{frontendErrors.name && <p className='on-submit-errors'>{frontendErrors.name}</p>}
-        <label>
-					Description
-					<textarea
-						type="text"
-            placeholder='Tell everyone what your Board is about 😃'
-						value={description}
-						onChange={(e) => setDescription(e.target.value)}
-					/>
-				</label>
-
-
-				<button type="submit" onClick={handleSubmit} className="save-pin-button" >Create </button>
-
-			</form> */}
 
     </div>
 
