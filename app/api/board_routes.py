@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, session, request
 from app.models import Board, db, PinnedBoard, Pin
 from flask_login import current_user, login_user, logout_user, login_required
-from app.forms import PinForm, UpdatePinForm, BoardForm
+from app.forms import PinForm, UpdatePinForm, BoardForm, UpdateBoardForm
 from .auth_routes import validation_errors_to_error_messages
 
 
@@ -23,7 +23,7 @@ def get_board(id):
   one_board = Board.query.get(id)
   return one_board.to_dict()
 
-
+# Create a Board
 @board_routes.route('/new', methods=['POST'])
 @login_required
 def createNewBoard():
@@ -48,6 +48,28 @@ def createNewBoard():
   return {"errors": validation_errors_to_error_messages(form.errors)}
 
 
+#Edit a board
+@board_routes.route('/update/<int:boardId>', methods=['PUT'])
+@login_required
+def editBoard(boardId):
+
+
+  form = UpdateBoardForm()
+  form['csrf_token'].data = request.cookies['csrf_token']
+
+  if form.validate_on_submit():
+    board = Board.query.get(boardId)
+
+    board.name= form.data['name']
+    board.description= form.data['description']
+
+
+    db.session.commit()
+
+    return board.to_dict()
+
+  print(form.errors)
+  return {"errors": validation_errors_to_error_messages(form.errors)}
 
 
 # Get all PinnedBoards
