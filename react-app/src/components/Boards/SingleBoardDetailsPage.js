@@ -6,11 +6,11 @@ import { useModal } from '../../context/Modal';
 import OpenModalButton from '../OpenModalButton';
 import PinCard from '../LandingPage/PinCard';
 import './Boards.css'
-
 import UserCard from '../UserProfile/UserCard';
 import { useHistory } from 'react-router';
 import { getAllPinsThunk } from '../../store/pin';
 import UpdateBoardModal from './UpdateBoardModal';
+import DeleteBoardModal from './DeleteBoardModal';
 
 
 const SingleBoard = () => {
@@ -72,36 +72,42 @@ const SingleBoard = () => {
       <h1>{board.name}</h1>
       <div>
 
-      <OpenModalButton
-              buttonText="Edit"
-              onItemClick={closeMenu}
-              modalComponent={<UpdateBoardModal />}
-            />
+        <OpenModalButton
+          buttonText="Edit"
+          onItemClick={closeMenu}
+          modalComponent={<UpdateBoardModal />}
+        />
+        <OpenModalButton
+          buttonText="Delete"
+          onItemClick={closeMenu}
+          modalComponent={< DeleteBoardModal boardId={boardId}/>}
+        />
+
       </div>
 
-<div>
-  {pins.length ? (
-    <div>
+      <div>
+        {pins.length ? (
+          <div>
 
-      {pins.map((pin) => (
-        <PinCard key={pin.id} pin={pin} />
-      ))}
-    </div>
+            {pins.map((pin) => (
+              <PinCard key={pin.id} pin={pin} />
+            ))}
+          </div>
 
-  )
-  :
-  (
-    <div>
+        )
+          :
+          (
+            <div>
 
-      <h1> New Board</h1>
-      <p>There aren’t any Pins on this board yet</p>
-    </div>
+              <h1> New Board</h1>
+              <p>There aren’t any Pins on this board yet</p>
+            </div>
 
-  )
-  }
+          )
+        }
 
 
-</div>
+      </div>
 
 
 
