@@ -110,6 +110,22 @@ export const deleteBoardThunk = (boardId) => async (dispatch) => {
   }
 }
 
+export const addPinToBoardThunk = (formData) => async (dispatch) => {
+  const response = await fetch('/boards/add', {
+    method: "PUT",
+    body: formData
+  })
+  if (response.ok) {
+    const data = await response.json();
+    return response
+  } else if (response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors;
+    }
+  }
+}
+
 
 // Initial State
 const initialState = {
