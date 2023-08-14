@@ -21,13 +21,12 @@ const SingleBoard = () => {
   const ulRef = useRef();
   const { closeModal } = useModal();
   const board = useSelector((state) => state.pinnedBoards.singlePinnedBoard)
-  console.log("the board---->", board)
+  // console.log("the board---->", board)
   const allPins = useSelector((state) => state.pins.allPins)
   const pinsArr = Object.values(allPins)
-  console.log("the pins------->", pinsArr)
-  // const user = board.user
-  // const p
-  const pins = pinsArr.filter(pin => board.boardImages.some(image => pin.images.includes(image)));
+  // console.log("the pins------->", pinsArr)
+
+  const pins = board.boardImages ? pinsArr.filter(pin => board.boardImages.some(image => pin.images.includes(image))) : [];
 
   // pins = pins.filter(pin => )
 

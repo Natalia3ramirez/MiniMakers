@@ -72,18 +72,35 @@ def editBoard(boardId):
   return {"errors": validation_errors_to_error_messages(form.errors)}
 
 
-# Get all PinnedBoards
-@board_routes.route('/pinned')
-def get_boards_with_pins():
-    all_boards = PinnedBoard.query.all()
-    print("these are all boards-------->", [board.to_dict() for board in all_boards])
-    return [board.to_dict() for board in all_boards]
-
-# Get PinnedBoard by ID
-@board_routes.route('/pinned/<int:id>')
+#  Delete a board
+@board_routes.route('/<int:boardId>', methods=['DELETE'])
 @login_required
-def get_pinned_board(id):
-  one_pinned_board = PinnedBoard.query.get(id)
-  return one_pinned_board.to_dict()
+def delete_board(boardId):
+  current_user_id = current_user.to_dict()['id']
+  current_board = Board.query.get(boardId)
+
+  if not current_board:
+    return {'errors': "board not found"}, 400
+  if (current_user_id != current_board.user_id):
+    return {'errors': "can only delete your own pin"}, 401
+
+  db.session.delete(current_board)
+  db.session.commit()
+
+  return {"message":f"Successfully deleted Board {boardId}"}
+
+# # Get all PinnedBoards
+# @board_routes.route('/pinned')
+# def get_boards_with_pins():
+#     all_boards = PinnedBoard.query.all()
+#     print("these are all boards-------->", [board.to_dict() for board in all_boards])
+#     return [board.to_dict() for board in all_boards]
+
+# # Get PinnedBoard by ID
+# @board_routes.route('/pinned/<int:id>')
+# @login_required
+# def get_pinned_board(id):
+#   one_pinned_board = PinnedBoard.query.get(id)
+#   return one_pinned_board.to_dict()
 
 
