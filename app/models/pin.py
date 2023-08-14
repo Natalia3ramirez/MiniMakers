@@ -28,7 +28,8 @@ class Pin(db.Model):
     # Relationships go here
     user = db.relationship("User", back_populates='pins')
     pinned_boards = db.relationship("PinnedBoard", back_populates='pins', cascade="all, delete-orphan")
-   
+    boards = db.relationship("Board", secondary="pinned_boards", back_populates="pins")
+
 
 
     def to_dict(self):
@@ -41,7 +42,6 @@ class Pin(db.Model):
             'alt_text': self.alt_text,
             'website': self.website,
             'user_id': self.user_id,
-            # 'pinned_boards': [pinned_board.to_dict() for pinned_board in self.pinned_boards],
             'created_at': self.created_at,
             'updated_at': self.updated_at,
             'user': {

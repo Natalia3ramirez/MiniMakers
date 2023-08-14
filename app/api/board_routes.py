@@ -8,6 +8,57 @@ from .auth_routes import validation_errors_to_error_messages
 board_routes = Blueprint('boards', __name__)
 
 
+
+# Remove Pin from Board
+
+# @board_routes.route('/<int:board_id>/deletePin/<int:pin_id>', methods=['DELETE'])
+# def remove_pin(board_id, pin_id):
+
+#         # Retrieve the board and pin
+#       board = Board.query.get(board_id)
+#       pin = Pin.query.get(pin_id)
+
+#       print("the board id---->", board_id)
+#       print("the pin id---->", pin_id)
+
+#       print("the pin pin---->", pin)
+#       print("the pin pinned_boards ---->", board.pinned_boards)
+
+
+#       if board is None or pin is None:
+#         return jsonify({'error': 'Board or pin not found'}), 404
+
+#         # Check if the pin is associated with the board
+
+#             # Remove the pin from the board
+#           # board.pinned_boards.remove(pin)
+#       board.pinned_boards.remove(PinnedBoard(pin_id=pin.id))
+#       db.session.commit()
+#       return board.to_dict()
+
+
+
+
+
+# Remove Pin from Board
+@board_routes.route('/<int:boardId>/deletePin/<int:pinId>', methods=['DELETE'])
+@login_required
+def deletePinToBoard(boardId, pinId):
+
+  print("the board id---->", boardId)
+  print("the pin id---->", pinId)
+
+  board = Board.query.get(boardId)
+  print("the pinned boards---->", board.pinned_boards)
+
+  # board.pinned_boards = [pin for pin in board.pinned_boards if pinId != pin.id]
+  # db.session.commit()
+  board.pins = [pin for pin in board.pins if pinId != pin.id]
+  db.session.commit()
+
+  return board.to_dict()
+
+
 # get all boards
 @board_routes.route('/')
 def get_all_board():
@@ -72,6 +123,8 @@ def editBoard(boardId):
   return {"errors": validation_errors_to_error_messages(form.errors)}
 
 
+
+
 #  Delete a board
 @board_routes.route('/<int:boardId>', methods=['DELETE'])
 @login_required
@@ -92,35 +145,6 @@ def delete_board(boardId):
 
 
 #  Add pin to board
-# @board_routes.route('/add', methods=['PUT'])
-# @login_required
-# def addPinToBoard():
-#     form = PinnedBoardForm()
-#     form['csrf_token'].data = request.cookies['csrf_token']
-
-#     if form.validate_on_submit():
-#         board_id = form.data['board_id']
-#         pin_id = form.data['pin_id']
-
-#         # Retrieve the board and pin objects from the database
-#         board = Board.query.get(board_id)
-#         pin = Pin.query.get(pin_id)
-
-#         if not board or not pin:
-#             return {"error": "Invalid board_id or pin_id"}, 400
-
-#         # Check if the pin is already associated with the board
-#         if any(pinned_pin.id == pin_id for pinned_pin in board.pinned_boards):
-#             return {"error": "Pin already added to the board"}, 400
-
-#         # Create a new PinnedBoard entry and associate it with the board and pin
-#         pinned_board = PinnedBoard(board=board, pin=pin)
-#         db.session.add(pinned_board)
-#         db.session.commit()
-
-#         return {"message": "Pin added to the board successfully"}
-
-#     return {"errors": validation_errors_to_error_messages(form.errors)}, 400
 
 @board_routes.route('/add', methods=['PUT'])
 @login_required
@@ -138,11 +162,6 @@ def addPinToBoard():
       return {"error": "Invalid board_id or pin_id"}, 400
 
 
-    # print("this is the board------>", type(board.pinned_boards))
-    # print("this is the pin------>", type(pin))
-    # print("the pinned boards ------------>", board.pinned_boards)
-
-
     board.pinned_boards.append(PinnedBoard(pin_id=pin.id))
 
 
@@ -153,6 +172,10 @@ def addPinToBoard():
 
   print(form.errors)
   return {"errors": validation_errors_to_error_messages(form.errors)}
+
+
+
+
 
 
 
