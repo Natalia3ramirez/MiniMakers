@@ -16,7 +16,7 @@ const DeletePinModal = ({ pinId }) => {
     e.preventDefault()
 
     await dispatch(deletePinThunk(pinId))
-    await history.push('/home')
+    await history.push('/profile')
     await closeModal();
   };
 

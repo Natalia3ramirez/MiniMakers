@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, session, request
 from app.models import Board, db, PinnedBoard, Pin
 from flask_login import current_user, login_user, logout_user, login_required
-from app.forms import PinForm, UpdatePinForm, BoardForm, UpdateBoardForm
+from app.forms import PinForm, UpdatePinForm, BoardForm, UpdateBoardForm, PinnedBoardForm
 from .auth_routes import validation_errors_to_error_messages
 
 
@@ -88,6 +88,73 @@ def delete_board(boardId):
   db.session.commit()
 
   return {"message":f"Successfully deleted Board {boardId}"}
+
+
+
+#  Add pin to board
+# @board_routes.route('/add', methods=['PUT'])
+# @login_required
+# def addPinToBoard():
+#     form = PinnedBoardForm()
+#     form['csrf_token'].data = request.cookies['csrf_token']
+
+#     if form.validate_on_submit():
+#         board_id = form.data['board_id']
+#         pin_id = form.data['pin_id']
+
+#         # Retrieve the board and pin objects from the database
+#         board = Board.query.get(board_id)
+#         pin = Pin.query.get(pin_id)
+
+#         if not board or not pin:
+#             return {"error": "Invalid board_id or pin_id"}, 400
+
+#         # Check if the pin is already associated with the board
+#         if any(pinned_pin.id == pin_id for pinned_pin in board.pinned_boards):
+#             return {"error": "Pin already added to the board"}, 400
+
+#         # Create a new PinnedBoard entry and associate it with the board and pin
+#         pinned_board = PinnedBoard(board=board, pin=pin)
+#         db.session.add(pinned_board)
+#         db.session.commit()
+
+#         return {"message": "Pin added to the board successfully"}
+
+#     return {"errors": validation_errors_to_error_messages(form.errors)}, 400
+
+@board_routes.route('/add', methods=['PUT'])
+@login_required
+def addPinToBoard():
+
+  form = PinnedBoardForm()
+  form['csrf_token'].data = request.cookies['csrf_token']
+
+
+  if form.validate_on_submit():
+    board = Board.query.get(form.data['board_id'])
+    pin = Pin.query.get(form.data['pin_id'])
+
+    if not board or not pin:
+      return {"error": "Invalid board_id or pin_id"}, 400
+
+
+    print("this is the board------>", type(board.pinned_boards))
+    print("this is the pin------>", type(pin))
+    print("the pinned boards ------------>", board.pinned_boards)
+
+
+    board.pinned_boards.append(PinnedBoard(pin_id=pin.id))
+   
+
+
+    db.session.commit()
+    return board.to_dict()
+
+
+  print(form.errors)
+  return {"errors": validation_errors_to_error_messages(form.errors)}
+
+
 
 # # Get all PinnedBoards
 # @board_routes.route('/pinned')
