@@ -5,6 +5,7 @@ import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import CreateButton from "./CreateButton";
+import './Navigation.css';
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -40,14 +41,10 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu}>
+      <button className="user-icon" onClick={openMenu}>
         <i className="fas fa-user-circle" />
       </button>
-      <div>
-        {user && (
-          <CreateButton user={user} />
-        )}
-      </div>
+    
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
           <>
