@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { logout } from "../../store/session";
+import { useHistory } from 'react-router';
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
@@ -9,6 +10,7 @@ import './Navigation.css';
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
 
@@ -39,20 +41,30 @@ function ProfileButton({ user }) {
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
   const closeMenu = () => setShowMenu(false);
 
+  const onClick = (e) => {
+    history.push('/profile')
+  };
+
   return (
     <>
       <button className="user-icon" onClick={openMenu}>
-        <i className="fas fa-user-circle" />
+        <div className="user-icon-container">
+          <span class="material-symbols-outlined">expand_more</span>
+
+        </div>
       </button>
-    
-      <ul className={ulClassName} ref={ulRef}>
+
+      <div className={ulClassName} ref={ulRef}>
         {user ? (
           <>
-            <li>{user.username}</li>
-            <li>{user.email}</li>
-            <li>
-              <button onClick={handleLogout}>Log Out</button>
-            </li>
+            <div>Currently in</div>
+            <div className='user-menu-dropdown-container' onClick={onClick}>
+              <img className="dropdown-user-icon" style={{ width: '55px', height: '55px' }} src={user.image} alt={user.first_name} />
+              <span>{user.first_name}</span>
+            </div>
+            <p>
+              <button className="logout-button" onClick={handleLogout}>Log Out</button>
+            </p>
 
           </>
         ) : (
@@ -70,7 +82,7 @@ function ProfileButton({ user }) {
             />
           </>
         )}
-      </ul>
+      </div>
     </>
   );
 }

@@ -13,10 +13,153 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  height: 50px;
+  position: relative;
 }
 
 .home-create-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.home-button {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  font-size: 14px;
+  border-radius: 24px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+
+.navlink-create {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 24px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+
+.navlink-create button {
+  border: none;
+  background-color: white;
+  font-size: 14px;
+}
+
+
+.navlink-create > .dropdown-menu {
+  position: relative;
+}
+
+.navlink-create  {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+
+/*
+.profile-dropdown {
+  position: relative;
+} */
+
+/* .profile-dropdown-list {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 200px;
+  padding: 10px;
+  background-color: white;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  z-index: 1;
+} */
+
+/* .profile-dropdown-list.active {
+  display: block;
+} */
+
+/* .profile-dropdown-item {
+  list-style: none;
+  padding: 8px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+} */
+
+/* .profile-dropdown-item:hover {
+  background-color: gray
+} */
+
+
+.user-icon {
+  background: white;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.user-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.material-symbols-outlined {
+  font-size: 24px;
+  color: #333; /* Adjust color as needed */
+}
+
+
+.user-menu {
+  /* margin-top: 15px;
+  margin-right: 100px; */
+  position: absolute;
+  left: 100%; /* Position to the right edge of the button */
+  transform: translateX(-50px)
+
+}
+
+
+.user-menu .profile-dropdown {
+  transform: translateX(-70px);
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+  /* padding-bottom: 20px; */
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100px
+
+}
+
+.logout-button {
+  border: none;
+  background: white;
+}
+
+
+.dropdown-user-icon {
+  border-radius: 50px;
+  object-fit: cover;
+}
+
+.dropdown-user-icon:hover {
+  cursor: pointer
 }

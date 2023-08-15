@@ -15,7 +15,7 @@ import AddPinToBoard from '../Boards/AddPinToBoardModal';
 export default function SinglePin() {
   const { pinId } = useParams();
   const dispatch = useDispatch();
-  const history = useHistory()
+  const history = useHistory();
   const { closeModal } = useModal();
   const pin = useSelector((state) => state.pins.singlePin)
   const user = useSelector((state) => state.session.user)

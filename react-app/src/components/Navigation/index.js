@@ -11,11 +11,12 @@ function Navigation({ isLoaded }) {
 	return (
 		<div className="navigation">
 			<div className="home-create-container">
-				<div>
-					<NavLink exact to="/home">Home</NavLink>
+				<div className="navlink-home">
+					<NavLink exact to="/home" className="home-button">Home</NavLink>
 				</div>
-				<div>
+				<div className="navlink-create">
 					{sessionUser && (
+						
 						<CreateButton user={sessionUser} />
 
 					)}

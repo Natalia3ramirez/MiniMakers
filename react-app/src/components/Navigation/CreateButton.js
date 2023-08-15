@@ -45,19 +45,25 @@ function CreateButton({ user }) {
       </button>
       <ul className={ulClassName} ref={ulRef}>
 
-          <>
-            <OpenModalButton
-              buttonText="Create Pin"
-              onItemClick={closeMenu}
-              modalComponent={<CreatePinModal />}
-            />
+        <>
+        <div>
 
-            <OpenModalButton
-              buttonText="Create Board"
-              onItemClick={closeMenu}
-              modalComponent={<CreateBoardModal />}
-            />
-          </>
+          <OpenModalButton
+            buttonText="Create Board"
+            onItemClick={closeMenu}
+            modalComponent={<CreateBoardModal />}
+          />
+        </div>
+        <div>
+
+          <OpenModalButton
+            buttonText="Create Pin"
+            onItemClick={closeMenu}
+            modalComponent={<CreatePinModal />}
+          />
+        </div>
+
+        </>
 
       </ul>
     </>
