@@ -19,7 +19,7 @@ const LandingPage = () => {
 
   return (
     <>
-      < div >
+      < div className="landing-page-container">
 
           {pins.map((pin) => (
               <PinCard key={pin.id} pin={pin}/>

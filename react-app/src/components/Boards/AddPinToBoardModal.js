@@ -104,7 +104,6 @@ const AddPinToBoard = ({ pin_id }) => {
         <div>
           <div>Create a Board First!</div>
           <div>
-
             <OpenModalButton
               buttonText="Create Board"
               onItemClick={closeMenu}

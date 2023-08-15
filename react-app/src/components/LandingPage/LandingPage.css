@@ -9,3 +9,18 @@ button {
 }
 
 
+.landing-page-container {
+  gap: 5px;
+  display: grid;
+  grid-template-columns: repeat(6, 2fr);
+  grid-gap: 5px;
+  padding-left: 50px;
+  width: 800px;
+}
+
+.pin-image {
+  width: 161px;
+  height: 250px;
+  object-fit: cover;
+  cursor: pointer;
+}

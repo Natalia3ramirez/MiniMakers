@@ -7,7 +7,7 @@ const PinCard = ({ pin }) => {
         history.push(`/pins/${pin.id}`)
     }
     return (
-        <div onClick={onClick}>
+        <div className="single-pin-wrapper" onClick={onClick}>
             <div className='single-pin-wrapper'>
                 <img className='pin-image' src={pin.images} alt="Pin" />
 

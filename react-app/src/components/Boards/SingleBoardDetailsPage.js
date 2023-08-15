@@ -69,6 +69,7 @@ const SingleBoard = () => {
   const boardUser =  user.id === board.user_id
 
   return (
+
     <div className="single-pin-container">
       <h1>{board.name}</h1>
       {user && boardUser && (
@@ -89,9 +90,9 @@ const SingleBoard = () => {
       </div>
       )}
 
-      <div>
+      <div className='pin-card-container'>
         {pins.length ? (
-          <div>
+          <div className="landing-page-container">
             {pins.map((pin) => (
               <div>
                 <PinCard key={pin.id} pin={pin} />

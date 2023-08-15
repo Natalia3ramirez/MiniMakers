@@ -5,6 +5,12 @@ import { signUp } from "../../store/session";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import "./SignupForm.css";
 
+
+function hasEmptySpaces(string) {
+	const regex = /\s/;
+	return regex.test(string);
+}
+
 function SignupFormModal() {
 	const dispatch = useDispatch();
 	const history = useHistory();
@@ -18,19 +24,26 @@ function SignupFormModal() {
 	const [imageLoading, setImageLoading] = useState(false);
 	const [confirmPassword, setConfirmPassword] = useState("");
 	const [errors, setErrors] = useState([]);
+	const [submitted, setSubmitted] = useState(false)
 	const { closeModal } = useModal();
 	const [frontendErrors, setFrontendErrors] = useState({})
 
 
 	useEffect(() => {
 		const frontendErrors = {}
-		if (firstName.length < 2) {
-			frontendErrors.firstName = "First Name is required"
+		if (!firstName || firstName.length < 2 || firstName.length > 50) {
+			frontendErrors.firstName = "First Name must be between 2 and 50 characters"
 		}
-		if (lastName.length < 2) {
-			frontendErrors.lastName = "Last Name is required"
+		if (hasEmptySpaces(firstName)){
+			frontendErrors.firstName = "Characters are required in the Name"
 		}
-		if (email.length < 2) {
+		if (!lastName || lastName.length < 2 || lastName.length > 50) {
+			frontendErrors.firstName = "Last Name must be between 2 and 50 characters"
+		}
+		if (hasEmptySpaces(lastName)){
+			frontendErrors.lastName = "Characters are required in the Last Name"
+		}
+		if (!email.length || email.length < 5 ) {
 			frontendErrors.email = "Email is required"
 		}
 		if (birthdate.length < 2) {
@@ -50,6 +63,7 @@ function SignupFormModal() {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		setSubmitted(true)
 
 		const formData = new FormData();
 		formData.append("first_name", firstName);
@@ -70,6 +84,8 @@ function SignupFormModal() {
 
 			if (data) {
 				setErrors(data);
+			} else if (frontendErrors){
+				setFrontendErrors(frontendErrors)
 			} else {
 				await history.push('/home')
 				await closeModal();
@@ -107,7 +123,7 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
-				{frontendErrors.firstName && firstName.length > 0 && <p className='on-submit-errors'>{frontendErrors.firstName}</p>}
+				{frontendErrors.firstName && submitted  && <p className='on-submit-errors'>{frontendErrors.firstName}</p>}
 				<label>
 					Last Name
 					<input
@@ -118,16 +134,18 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
-				{frontendErrors.lastName && lastName.length > 0 && <p className='on-submit-errors'>{frontendErrors.lastName}</p>}
-				<label>
+				{frontendErrors.lastName && submitted && <p className='on-submit-errors'>{frontendErrors.lastName}</p>}
+				<label className="about-me-label">
 					About Me
 					<textarea
+						className="about-me-text"
 						placeholder="Tell your story"
 						type="text"
 						value={aboutMe}
 						onChange={(e) => setAboutMe(e.target.value)}
 						required
 					/>
+					Describe yourself in 500 characters or less!
 				</label>
 				<label>
 					Email
@@ -139,7 +157,7 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
-				{frontendErrors.email && email.length > 0 && <p className='on-submit-errors'>{frontendErrors.email}</p>}
+				{frontendErrors.email && submitted &&  <p className='on-submit-errors'>{frontendErrors.email}</p>}
 				<label >
 					Birthday
 					<input
@@ -149,7 +167,7 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
-				{frontendErrors.birthdate && <p className='on-submit-errors'>{frontendErrors.birthdate}</p>}
+				{frontendErrors.birthdate && submitted && <p className='on-submit-errors'>{frontendErrors.birthdate}</p>}
 				<label className='profile-image'>
 					Profile Image
 					<input
@@ -168,7 +186,7 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
-				{frontendErrors.password && password.length > 0 && <p className='on-submit-errors'>{frontendErrors.password}</p>}
+				{frontendErrors.password && submitted && <p className='on-submit-errors'>{frontendErrors.password}</p>}
 				<label>
 					Confirm Password
 					<input
@@ -179,7 +197,7 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
-				{frontendErrors.confirmPassword && confirmPassword.length > 0 && <p className='on-submit-errors'>{frontendErrors.confirmPassword}</p>}
+				{frontendErrors.confirmPassword && submitted && <p className='on-submit-errors'>{frontendErrors.confirmPassword}</p>}
 				<button type="submit">Sign Up</button>
 				{(imageLoading) && <p>Loading...</p>}
 			</form>

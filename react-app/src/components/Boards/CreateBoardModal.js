@@ -5,6 +5,11 @@ import { createNewBoardThunk, getAllBoardsThunk } from '../../store/board'
 import './Boards.css'
 import { useModal } from '../../context/Modal'
 
+function hasEmptySpaces(string) {
+	const regex = /\s/;
+	return regex.test(string);
+}
+
 
 const CreateBoardModal = () => {
 
@@ -17,21 +22,29 @@ const CreateBoardModal = () => {
   const [description, setDescription] = useState('');
   const [frontendErrors, setFrontendErrors] = useState({});
   const [errors, setErrors] = useState([]);
+	const [submitted, setSubmitted] = useState(false)
 
 
 
   useEffect(() => {
 		const frontendErrors = {}
-		if (!name) {
-			frontendErrors.name = "Name is required to create a Pin"
-		}
 
+		if (hasEmptySpaces(name)){
+			frontendErrors.name = "Characters are required in the name"
+		}
+		if (name.length < 3) {
+			frontendErrors.name = "Name is must be at least 3 characters to create a Pin"
+		}
+		if (name.length > 50) {
+			frontendErrors.name = "Name is must be 50 characters or less to create a Pin"
+		}
 
 		setFrontendErrors(frontendErrors)
 	}, [name])
 
   const handleSubmit = async (e) => {
 		e.preventDefault();
+		setSubmitted(true)
 
 		const formData = new FormData();
 		formData.append("name", name);
@@ -42,11 +55,15 @@ const CreateBoardModal = () => {
 
 
 		const data = await dispatch(createNewBoardThunk(formData));
+
     await dispatch(getAllBoardsThunk())
+
 
 		if (data) {
 			setErrors(data);
-		} else {
+		} else if (frontendErrors.name){
+			setFrontendErrors(frontendErrors)
+		}else {
       // await history.push('/profile')
 			await closeModal();
 		}
@@ -75,7 +92,7 @@ const CreateBoardModal = () => {
 						required
 					/>
 				</label>
-				{frontendErrors.name && <p className='on-submit-errors'>{frontendErrors.name}</p>}
+				{frontendErrors.name && submitted && <p className='on-submit-errors'>{frontendErrors.name}</p>}
         <label>
 					Description
 					<textarea
@@ -87,7 +104,7 @@ const CreateBoardModal = () => {
 				</label>
 
 
-				<button type="submit" onClick={handleSubmit} className="save-pin-button" >Create </button>
+				<button type="submit"  className="save-pin-button" >Create </button>
 
 			</form>
 

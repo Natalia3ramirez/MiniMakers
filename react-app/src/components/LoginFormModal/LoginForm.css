@@ -112,7 +112,7 @@
   font-size: 14px;
 }
 
-.login-modal-container button {
+.login-modal-container .submit-button {
   background-color: #e60023;
   color: white;
   padding: 10px 20px;
@@ -123,7 +123,18 @@
   cursor: pointer;
 }
 
-.login-modal-container button:hover {
+.login-modal-container .demo-user-button {
+  background-color: rgb(70, 116, 243);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.login-modal-container .submit-button:hover {
   background-color: #c8001e;
 }
 

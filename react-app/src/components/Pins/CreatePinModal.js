@@ -21,14 +21,22 @@ const CreatePinModal = () => {
   const [website, setWebsite] = useState('');
   const [frontendErrors, setFrontendErrors] = useState({});
   const [errors, setErrors] = useState([]);
+	const [submitted, setSubmitted] = useState(false)
 
 
 
   useEffect(() => {
 		const frontendErrors = {}
+		if (title.length < 3) {
+			frontendErrors.title = "Title is must be at least 3 characters to create a Pin"
+		}
+		if (title.length > 50) {
+			frontendErrors.title = "Title is must be 50 characters or less to create a Pin"
+		}
 		if (!title) {
 			frontendErrors.title = "Title is required to create a Pin"
 		}
+
 		if (!images) {
 			frontendErrors.images = "An image is required to create a Pin."
 		}
@@ -38,6 +46,7 @@ const CreatePinModal = () => {
 
   const handleSubmit = async (e) => {
 		e.preventDefault();
+		setSubmitted(true)
 
 		const formData = new FormData();
 		formData.append("title", title);
@@ -61,7 +70,9 @@ const CreatePinModal = () => {
 
 		if (data) {
 			setErrors(data);
-		} else {
+		}  else if (frontendErrors){
+			setFrontendErrors(frontendErrors)
+		}else {
       await history.push('/profile')
 			await closeModal();
 		}
@@ -87,7 +98,7 @@ const CreatePinModal = () => {
               onChange={(e) => setImages(e.target.files[0])}
             />
 				</label>
-				{frontendErrors.images && <p className='on-submit-errors'>{frontendErrors.images}</p>}
+				{frontendErrors.images && submitted && <p className='on-submit-errors'>{frontendErrors.images}</p>}
 				<label>
 					Title
 					<input
@@ -98,7 +109,7 @@ const CreatePinModal = () => {
 						required
 					/>
 				</label>
-				{frontendErrors.title && <p className='on-submit-errors'>{frontendErrors.title}</p>}
+				{frontendErrors.title && submitted && <p className='on-submit-errors'>{frontendErrors.title}</p>}
         <div>
 					{user.first_name}
           <img src={user.image} style={{ width: '50px', height: '50px' }} alt={user.firstName} />
@@ -134,7 +145,7 @@ const CreatePinModal = () => {
 
 
 
-				<button type="submit" onClick={handleSubmit} className="save-pin-button" disabled={Object.keys(frontendErrors).length > 0}>Save</button>
+				<button type="submit" onClick={handleSubmit} className="save-pin-button" >Save</button>
 				{(imageLoading)&& <p>Loading...</p>}
 			</form>
 
