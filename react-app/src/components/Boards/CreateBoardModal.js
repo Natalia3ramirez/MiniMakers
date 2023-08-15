@@ -47,7 +47,7 @@ const CreateBoardModal = () => {
 		if (data) {
 			setErrors(data);
 		} else {
-      await history.push('/profile')
+      // await history.push('/profile')
 			await closeModal();
 		}
 

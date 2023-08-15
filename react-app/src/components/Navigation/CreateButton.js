@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
-import { logout } from "../../store/session";
 import OpenModalButton from "../OpenModalButton";
 import './Navigation.css';
 import CreatePinModal from "../Pins/CreatePinModal"
@@ -42,7 +41,7 @@ function CreateButton({ user }) {
     <>
       <button onClick={openMenu}>
         Create
-        
+
       </button>
       <ul className={ulClassName} ref={ulRef}>
 
