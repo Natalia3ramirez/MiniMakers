@@ -66,23 +66,10 @@ const UpdatePinModal = ({ pin }) => {
 
   return (
     <div>
-      <h1>New Pin</h1>
+      <h1>Edit this Pin</h1>
       <form onSubmit={handleSubmit}
         encType="multipart/form-data">
-        {/* <ul>
-          {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
-          ))}
-        </ul> */}
-        <img src={pin.images} style={{ width: '200px', height: '300px' }} alt={pin.title} />
-        {/* <label>
-					Image
-					<input
-              type="file"
-              accept="image/*, image/jpeg, image/jpg, image/gif"
-              onChange={(e) => setImages(e.target.files[0])}
-            />
-				</label> */}
+
         {frontendErrors.images && <p className='on-submit-errors'>{frontendErrors.images}</p>}
         <label>
           Title
@@ -127,6 +114,9 @@ const UpdatePinModal = ({ pin }) => {
             onChange={(e) => setWebsite(e.target.value)}
           />
         </label>
+        <div>
+        <img  src={pin.images} alt={pin.title} />
+        </div>
 
 
 
