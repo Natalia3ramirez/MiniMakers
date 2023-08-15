@@ -28,8 +28,8 @@ class Pin(db.Model):
 
     # Relationships go here
     user = db.relationship("User", back_populates='pins')
-    pinned_boards = db.relationship("PinnedBoard", back_populates='pins', cascade="all, delete-orphan")
-    boards = db.relationship("Board", secondary="pinned_boards", back_populates="pins")
+    # boards = db.relationship("Board", secondary="pinned_boards", back_populates="pins")
+    pinned_boards = db.relationship("Board", secondary="pinned_boards", back_populates="pinned_boards")
 
 
 

@@ -27,8 +27,8 @@ class Board(db.Model):
 
     # Relationships go here
     user = db.relationship("User", back_populates='boards')
-    pins = db.relationship("Pin", secondary="pinned_boards", back_populates="boards")
-    pinned_boards = db.relationship("PinnedBoard", back_populates='boards', cascade="all, delete-orphan")
+    # pins = db.relationship("Pin", secondary="pinned_boards", back_populates="boards")
+    pinned_boards = db.relationship("Board", secondary="pinned_boards", back_populates="pinned_boards")
 
 
     def to_dict(self):
