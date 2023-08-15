@@ -33,7 +33,7 @@ def deletePinToBoard(boardId, pinId):
 def get_all_board():
 
   all_boards = Board.query.all()
-  # print("------>", all_boards)
+
   return [board.to_dict() for board in all_boards]
 
   #  get one pin by id
@@ -146,23 +146,5 @@ def addPinToBoard():
   return {"errors": validation_errors_to_error_messages(form.errors)}
 
 
-
-
-
-
-
-# # Get all PinnedBoards
-# @board_routes.route('/pinned')
-# def get_boards_with_pins():
-#     all_boards = PinnedBoard.query.all()
-#     print("these are all boards-------->", [board.to_dict() for board in all_boards])
-#     return [board.to_dict() for board in all_boards]
-
-# # Get PinnedBoard by ID
-# @board_routes.route('/pinned/<int:id>')
-# @login_required
-# def get_pinned_board(id):
-#   one_pinned_board = PinnedBoard.query.get(id)
-#   return one_pinned_board.to_dict()
 
 

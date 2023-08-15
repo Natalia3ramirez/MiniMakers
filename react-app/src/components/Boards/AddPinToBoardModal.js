@@ -17,13 +17,10 @@ const AddPinToBoard = ({ pin_id }) => {
   const user = useSelector(state => state.session.user)
   const boards = useSelector(state => state.pinnedBoards.allPinnedBoards)
   const boardsArr = boards ? Object.values(boards) : [];
-  console.log("the boards", boardsArr)
   const pin = useSelector((state) => state.pins.singlePin)
 
   const userBoards = boardsArr.length ? boardsArr.filter(board => board.user_id === user.id) : [];
 
-  console.log("filtered ----->", userBoards)
-  console.log("the user boards----->", userBoards)
   const [board_id, setBoardId] = useState('');
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();

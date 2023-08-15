@@ -19,7 +19,7 @@ export default function SinglePin() {
   const { closeModal } = useModal();
   const pin = useSelector((state) => state.pins.singlePin)
   const user = useSelector((state) => state.session.user)
-  console.log("this is the pin---->", pin)
+  // console.log("this is the pin---->", pin)
 
   useEffect(() => {
     dispatch(getSinglePinThunk(pinId))

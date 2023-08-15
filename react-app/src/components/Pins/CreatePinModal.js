@@ -68,11 +68,10 @@ const CreatePinModal = () => {
 		await dispatch(getAllPinsThunk())
 
 
-		if (data) {
+		if (data)  {
 			setErrors(data);
-		}  else if (frontendErrors){
 			setFrontendErrors(frontendErrors)
-		}else {
+		}  else {
       await history.push('/profile')
 			await closeModal();
 		}

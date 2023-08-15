@@ -68,7 +68,6 @@ def sign_up():
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
 
-        print("The form------>", form)
 
         image_file = form.data["image"]
         image_file.filename = get_unique_filename(image_file.filename)

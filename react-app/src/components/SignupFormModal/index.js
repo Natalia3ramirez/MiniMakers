@@ -35,7 +35,7 @@ function SignupFormModal() {
 			frontendErrors.firstName = "First Name must be between 2 and 50 characters"
 		}
 		if (hasEmptySpaces(firstName)){
-			frontendErrors.firstName = "Characters are required in the Name"
+			frontendErrors.firstName = "Characters are required in the Name. No empty spaces"
 		}
 		if (!lastName || lastName.length < 2 || lastName.length > 50) {
 			frontendErrors.firstName = "Last Name must be between 2 and 50 characters"
@@ -82,11 +82,10 @@ function SignupFormModal() {
 			const data = await dispatch(signUp(formData));
 
 
-			if (data) {
+			if (data)  {
 				setErrors(data);
-			} else if (frontendErrors){
 				setFrontendErrors(frontendErrors)
-			} else {
+			}  else {
 				await history.push('/home')
 				await closeModal();
 			}

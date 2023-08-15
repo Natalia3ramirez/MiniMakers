@@ -11,7 +11,6 @@ const DeleteBoardModal = ({ boardId }) => {
   const { closeModal } = useModal();
   const board = useSelector((state) => state.pinnedBoards.singlePinnedBoard)
 
-  // console.log("this is the pinid-------->", pinId)
 
   const submitDelete = async (e) => {
     e.preventDefault()

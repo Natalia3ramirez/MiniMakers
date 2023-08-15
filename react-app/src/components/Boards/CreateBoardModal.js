@@ -5,10 +5,6 @@ import { createNewBoardThunk, getAllBoardsThunk } from '../../store/board'
 import './Boards.css'
 import { useModal } from '../../context/Modal'
 
-function hasEmptySpaces(string) {
-	const regex = /\s/;
-	return regex.test(string);
-}
 
 
 const CreateBoardModal = () => {
@@ -29,9 +25,7 @@ const CreateBoardModal = () => {
 	useEffect(() => {
 		const frontendErrors = {}
 
-		if (hasEmptySpaces(name)) {
-			frontendErrors.name = "Characters are required in the name"
-		}
+
 		if (name.length < 3) {
 			frontendErrors.name = "Name is must be at least 3 characters to create a Pin"
 		}
