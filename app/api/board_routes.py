@@ -29,15 +29,16 @@ def deletePinToBoard(boardId, pinId):
 
 # get all boards
 @board_routes.route('/')
+# @login_required
 def get_all_board():
 
   all_boards = Board.query.all()
-  print("------>", all_boards)
+  # print("------>", all_boards)
   return [board.to_dict() for board in all_boards]
 
   #  get one pin by id
 @board_routes.route('/<int:id>')
-@login_required
+# @login_required
 def get_board(id):
   one_board = Board.query.get(id)
   return one_board.to_dict()
@@ -128,6 +129,9 @@ def addPinToBoard():
 
     if not board or not pin:
       return {"error": "Invalid board_id or pin_id"}, 400
+
+    if PinnedBoard.query.filter_by(pin_id=pin.id, board_id=board.id).first():
+      return {'errors': "This pin already exists in this board"}, 400
 
 
     board.pinned_boards.append(PinnedBoard(pin_id=pin.id))

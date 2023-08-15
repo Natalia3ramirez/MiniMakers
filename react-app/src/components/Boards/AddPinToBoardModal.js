@@ -16,10 +16,14 @@ const AddPinToBoard = ({pin_id}) => {
   const boards = useSelector(state => state.pinnedBoards.allPinnedBoards)
   const boardsArr = boards ? Object.values(boards) : [];
   console.log("the boards", boardsArr)
+  const pin = useSelector((state) => state.pins.singlePin)
 
   const userBoards = boardsArr.length ? boardsArr.filter(board => board.user_id === user.id) : [];
 
-   
+  // const filtered = userBoards.filter(board => board.boardImages.some(image => pin.images !== image))
+  console.log("filtered ----->", userBoards)
+  // const pins = board.boardImages ? pinsArr.filter(pin => board.boardImages.some(image => pin.images.includes(image))) : [];
+  console.log("the user boards----->", userBoards)
   const[board_id, setBoardId] = useState('');
   // const [description, setDescription] = useState('');
   // const [frontendErrors, setFrontendErrors] = useState({});
@@ -32,6 +36,7 @@ const AddPinToBoard = ({pin_id}) => {
 	}, [dispatch])
 
   const handleButtonClick = (board) => {
+
     setBoardId(board.id);
   };
 

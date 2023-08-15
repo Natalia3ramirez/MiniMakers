@@ -21,7 +21,7 @@ const SingleBoard = () => {
   const ulRef = useRef();
   const { closeModal } = useModal();
   const board = useSelector((state) => state.pinnedBoards.singlePinnedBoard)
-  // console.log("the board---->", board)
+  const user = useSelector((state) => state.session.user)
   const allPins = useSelector((state) => state.pins.allPins)
   const pinsArr = Object.values(allPins)
   // console.log("the pins------->", pinsArr)
@@ -66,10 +66,13 @@ const SingleBoard = () => {
   const closeMenu = () => setShowMenu(false);
 
   // const closeMenu = () => setShowMenu(false);
+  const boardUser =  user.id === board.user_id
 
   return (
     <div className="single-pin-container">
       <h1>{board.name}</h1>
+      {user && boardUser && (
+
       <div>
 
         <OpenModalButton
@@ -84,6 +87,7 @@ const SingleBoard = () => {
         />
 
       </div>
+      )}
 
       <div>
         {pins.length ? (
@@ -91,11 +95,14 @@ const SingleBoard = () => {
             {pins.map((pin) => (
               <div>
                 <PinCard key={pin.id} pin={pin} />
-                <OpenModalButton
-                  buttonText="Delete"
-                  onItemClick={closeMenu}
-                  modalComponent={<DeletePinFromBoard boardId={boardId} pinId={pin.id}/>}
-                />
+                {user && boardUser && (
+                  <OpenModalButton
+                    buttonText="Delete"
+                    onItemClick={closeMenu}
+                    modalComponent={<DeletePinFromBoard boardId={boardId} pinId={pin.id}/>}
+                  />
+
+                )}
               </div>
             ))}
           </div>

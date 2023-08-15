@@ -38,6 +38,7 @@ def get_all_pins():
 
 #  get one pin by id
 @pin_routes.route('/<int:id>')
+# @login_required
 def get_pin(id):
     one_pin = Pin.query.get(id)
     return one_pin.to_dict()
