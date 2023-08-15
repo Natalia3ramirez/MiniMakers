@@ -48,6 +48,9 @@ const CreatePinModal = () => {
 		e.preventDefault();
 		setSubmitted(true)
 
+		const hasFrontendErrors = Object.keys(frontendErrors).length > 0;
+		if (!hasFrontendErrors) {
+
 		const formData = new FormData();
 		formData.append("title", title);
 		formData.append("images", images);
@@ -56,13 +59,9 @@ const CreatePinModal = () => {
 		formData.append("website", website);
     formData.append('user_id', user.id)
 
-
 		setImageLoading(true);
 
     if(!images) return null
-
-
-
 
 		const data = await dispatch(createNewPinThunk(formData));
 		await dispatch(getAllPinsThunk())
@@ -70,13 +69,13 @@ const CreatePinModal = () => {
 
 		if (data)  {
 			setErrors(data);
-			setFrontendErrors(frontendErrors)
 		}  else {
       await history.push('/profile')
 			await closeModal();
 		}
+	}
 
-	};
+};
 
 
   return (

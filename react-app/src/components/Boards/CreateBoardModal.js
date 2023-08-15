@@ -25,13 +25,19 @@ const CreateBoardModal = () => {
 	useEffect(() => {
 		const frontendErrors = {}
 
-
+		if (!name) {
+      frontendErrors.name = "Name is required to create a Pin"
+    }
 		if (name.length < 3) {
 			frontendErrors.name = "Name is must be at least 3 characters to create a Pin"
 		}
 		if (name.length > 50) {
 			frontendErrors.name = "Name is must be 50 characters or less to create a Pin"
 		}
+		if (description.length > 500) {
+			frontendErrors.description = "Description must be 500 characters or less"
+		}
+
 
 		setFrontendErrors(frontendErrors)
 	}, [name])
@@ -40,26 +46,30 @@ const CreateBoardModal = () => {
 		e.preventDefault();
 		setSubmitted(true)
 
-		const formData = new FormData();
-		formData.append("name", name);
-		formData.append("description", description);
-		formData.append('user_id', user.id)
+		const hasFrontendErrors = Object.keys(frontendErrors).length > 0;
+		if (!hasFrontendErrors) {
+
+
+
+			const formData = new FormData();
+			formData.append("name", name);
+			formData.append("description", description);
+			formData.append('user_id', user.id)
 
 
 
 
-		const data = await dispatch(createNewBoardThunk(formData));
+			const data = await dispatch(createNewBoardThunk(formData));
 
-		await dispatch(getAllBoardsThunk())
+			await dispatch(getAllBoardsThunk())
 
 
-		if (data) {
-			setErrors(data);
-		} else if (frontendErrors.name) {
-			setFrontendErrors(frontendErrors)
-		} else {
-			// await history.push('/profile')
-			await closeModal();
+			if (data) {
+				setErrors(data);
+			} else {
+				// await history.push('/profile')
+				await closeModal();
+			}
 		}
 
 	};
@@ -96,6 +106,9 @@ const CreateBoardModal = () => {
 					onChange={(e) => setDescription(e.target.value)}
 					className="modal-textarea"
 				/>
+				{frontendErrors.description && submitted && (
+					<p className="modal-error">{frontendErrors.description}</p>
+				)}
 
 				<button type="submit" className="modal-button">
 					Create

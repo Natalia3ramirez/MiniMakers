@@ -12,17 +12,14 @@ const UpdatePinModal = ({ pin }) => {
   const history = useHistory();
   const dispatch = useDispatch();
   const { closeModal } = useModal();
-  const user = useSelector(state => state.session.user)
-
+  const user = useSelector(state => state.session.user);
   const [title, setTitle] = useState(pin.title);
-  // const [images, setImages] = useState(null);
-  // const [imageLoading, setImageLoading] = useState(false);
   const [description, setDescription] = useState(pin.description);
   const [alt_text, set_alt_text] = useState(pin.altText);
   const [website, setWebsite] = useState(pin.website);
-  // const [images, setImages] = useState(null);
   const [frontendErrors, setFrontendErrors] = useState({});
   const [errors, setErrors] = useState([]);
+  const [submitted, setSubmitted] = useState(false);
 
   console.log("this is the user----->", user)
 
@@ -38,23 +35,16 @@ const UpdatePinModal = ({ pin }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    setSubmitted(true)
+
+    const hasFrontendErrors = Object.keys(frontendErrors).length > 0;
+		if (!hasFrontendErrors) {
+
     const formData = new FormData()
     formData.append("title", title)
     formData.append("description", description)
     formData.append("alt_text", alt_text)
     formData.append("website", website)
-    // console.log("THis is the edit title ----->", title)
-
-
-    // const editedPinData = {
-    //   user_id: user.id,
-    //   title,
-    //   description,
-    //   alt_text,
-    //   website,
-    //   // images: images,
-
-    // };
 
     try {
       const data = await dispatch(updatePinThunk(formData, pin.id));
@@ -70,7 +60,8 @@ const UpdatePinModal = ({ pin }) => {
     await closeModal()
 
 
-  };
+  }
+}
 
 
   return (

@@ -34,16 +34,16 @@ function SignupFormModal() {
 		if (!firstName || firstName.length < 2 || firstName.length > 50) {
 			frontendErrors.firstName = "First Name must be between 2 and 50 characters"
 		}
-		if (hasEmptySpaces(firstName)){
+		if (hasEmptySpaces(firstName)) {
 			frontendErrors.firstName = "Characters are required in the Name. No empty spaces"
 		}
 		if (!lastName || lastName.length < 2 || lastName.length > 50) {
 			frontendErrors.firstName = "Last Name must be between 2 and 50 characters"
 		}
-		if (hasEmptySpaces(lastName)){
+		if (hasEmptySpaces(lastName)) {
 			frontendErrors.lastName = "Characters are required in the Last Name"
 		}
-		if (!email.length || email.length < 5 ) {
+		if (!email.length || email.length < 5) {
 			frontendErrors.email = "Email is required"
 		}
 		if (birthdate.length < 2) {
@@ -65,6 +65,9 @@ function SignupFormModal() {
 		e.preventDefault();
 		setSubmitted(true)
 
+		const hasFrontendErrors = Object.keys(frontendErrors).length > 0;
+		if (!hasFrontendErrors && password === confirmPassword) {
+
 		const formData = new FormData();
 		formData.append("first_name", firstName);
 		formData.append("last_name", lastName);
@@ -78,14 +81,12 @@ function SignupFormModal() {
 
 
 
-		if (password === confirmPassword) {
 			const data = await dispatch(signUp(formData));
+		
 
-
-			if (data)  {
+			if (data) {
 				setErrors(data);
-				setFrontendErrors(frontendErrors)
-			}  else {
+			} else {
 				await history.push('/home')
 				await closeModal();
 			}
@@ -115,18 +116,18 @@ function SignupFormModal() {
 				<label>
 					First Name
 					<input
-					placeholder="First Name"
+						placeholder="First Name"
 						type="text"
 						value={firstName}
 						onChange={(e) => setFirstName(e.target.value)}
 						required
 					/>
 				</label>
-				{frontendErrors.firstName && submitted  && <p className='on-submit-errors'>{frontendErrors.firstName}</p>}
+				{frontendErrors.firstName && submitted && <p className='on-submit-errors'>{frontendErrors.firstName}</p>}
 				<label>
 					Last Name
 					<input
-					placeholder="Last Name"
+						placeholder="Last Name"
 						type="text"
 						value={lastName}
 						onChange={(e) => setLastName(e.target.value)}
@@ -149,14 +150,14 @@ function SignupFormModal() {
 				<label>
 					Email
 					<input
-					placeholder="Email"
+						placeholder="Email"
 						type="text"
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
 						required
 					/>
 				</label>
-				{frontendErrors.email && submitted &&  <p className='on-submit-errors'>{frontendErrors.email}</p>}
+				{frontendErrors.email && submitted && <p className='on-submit-errors'>{frontendErrors.email}</p>}
 				<label >
 					Birthday
 					<input
@@ -178,7 +179,7 @@ function SignupFormModal() {
 				<label>
 					Password
 					<input
-					placeholder="Password"
+						placeholder="Password"
 						type="password"
 						value={password}
 						onChange={(e) => setPassword(e.target.value)}
@@ -189,7 +190,7 @@ function SignupFormModal() {
 				<label>
 					Confirm Password
 					<input
-					placeholder="Confirm Password"
+						placeholder="Confirm Password"
 						type="password"
 						value={confirmPassword}
 						onChange={(e) => setConfirmPassword(e.target.value)}
