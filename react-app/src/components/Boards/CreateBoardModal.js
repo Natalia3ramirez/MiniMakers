@@ -13,23 +13,23 @@ function hasEmptySpaces(string) {
 
 const CreateBoardModal = () => {
 
-  const history = useHistory();
-  const dispatch = useDispatch();
-  const { closeModal } = useModal();
-  const user = useSelector(state => state.session.user)
+	const history = useHistory();
+	const dispatch = useDispatch();
+	const { closeModal } = useModal();
+	const user = useSelector(state => state.session.user)
 
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
-  const [frontendErrors, setFrontendErrors] = useState({});
-  const [errors, setErrors] = useState([]);
+	const [name, setName] = useState('');
+	const [description, setDescription] = useState('');
+	const [frontendErrors, setFrontendErrors] = useState({});
+	const [errors, setErrors] = useState([]);
 	const [submitted, setSubmitted] = useState(false)
 
 
 
-  useEffect(() => {
+	useEffect(() => {
 		const frontendErrors = {}
 
-		if (hasEmptySpaces(name)){
+		if (hasEmptySpaces(name)) {
 			frontendErrors.name = "Characters are required in the name"
 		}
 		if (name.length < 3) {
@@ -42,77 +42,75 @@ const CreateBoardModal = () => {
 		setFrontendErrors(frontendErrors)
 	}, [name])
 
-  const handleSubmit = async (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
 		setSubmitted(true)
 
 		const formData = new FormData();
 		formData.append("name", name);
 		formData.append("description", description);
-    formData.append('user_id', user.id)
+		formData.append('user_id', user.id)
 
 
 
 
 		const data = await dispatch(createNewBoardThunk(formData));
 
-    await dispatch(getAllBoardsThunk())
+		await dispatch(getAllBoardsThunk())
 
 
 		if (data) {
 			setErrors(data);
-		} else if (frontendErrors.name){
+		} else if (frontendErrors.name) {
 			setFrontendErrors(frontendErrors)
-		}else {
-      // await history.push('/profile')
+		} else {
+			// await history.push('/profile')
 			await closeModal();
 		}
 
 	};
 
 
-  return (
-    <div>
-      <h1>Create board</h1>
-      <form onSubmit={handleSubmit}
-			encType="multipart/form-data">
+	return (
+		<div className="create-board-modal">
+			<h1 className="modal-title">Create Board</h1>
+			<form onSubmit={handleSubmit} encType="multipart/form-data">
 				<ul>
 					{errors.map((error, idx) => (
 						<li key={idx}>{error}</li>
 					))}
 				</ul>
 
-				<label>
-					Name
-					<input
-						type="text"
-            placeholder='Like "Activities for Kids"  or "Recipes for Kids"'
-						value={name}
-						onChange={(e) => setName(e.target.value)}
-						required
-					/>
-				</label>
-				{frontendErrors.name && submitted && <p className='on-submit-errors'>{frontendErrors.name}</p>}
-        <label>
-					Description
-					<textarea
-						type="text"
-            placeholder='Tell everyone what your Board is about 😃'
-						value={description}
-						onChange={(e) => setDescription(e.target.value)}
-					/>
-				</label>
+				<div className="modal-label">Name</div>
+				<input
+					type="text"
+					placeholder='Like "Activities for Kids" or "Recipes for Kids"'
+					value={name}
+					onChange={(e) => setName(e.target.value)}
+					required
+					className="modal-input"
+				/>
+				{frontendErrors.name && submitted && (
+					<p className="modal-error">{frontendErrors.name}</p>
+				)}
 
+				<div className="modal-label">Description</div>
+				<textarea
+					type="text"
+					placeholder="Tell everyone what your Board is about 😃"
+					value={description}
+					onChange={(e) => setDescription(e.target.value)}
+					className="modal-textarea"
+				/>
 
-				<button type="submit"  className="save-pin-button" >Create </button>
-
+				<button type="submit" className="modal-button">
+					Create
+				</button>
 			</form>
-
-    </div>
-
+		</div>
 
 
-  )
+	)
 
 }
 
