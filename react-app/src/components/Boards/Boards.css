@@ -58,8 +58,7 @@
 }
 
 .modal-button:hover {
-  background-color: red;
-  color: white
+  background: rgb(221, 217, 217);
 }
 
 

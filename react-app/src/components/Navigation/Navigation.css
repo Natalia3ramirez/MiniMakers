@@ -153,3 +153,19 @@
 .dropdown-user-icon:hover {
   cursor: pointer
 }
+
+
+.nav-create-board button:hover,
+.nav-create-pin button:hover {
+  background: rgb(221, 217, 217);
+}
+
+
+.create-dropdown {
+  width: 100px;
+  background-color: white;
+  border: 1px solid black;
+  /* display: block;
+  justify-content: center;
+  align-items: center; */
+}

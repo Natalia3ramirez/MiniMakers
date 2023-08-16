@@ -34,7 +34,7 @@ function CreateButton({ user }) {
   //   dispatch(logout());
   // };
 
-  const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
+  const ulClassName = "create-dropdown" + (showMenu ? "" : " hidden");
   const closeMenu = () => setShowMenu(false);
 
   return (
@@ -46,7 +46,7 @@ function CreateButton({ user }) {
       <ul className={ulClassName} ref={ulRef}>
 
         <>
-        <div>
+        <div className='nav-create-board'>
 
           <OpenModalButton
             buttonText="Create Board"
@@ -54,7 +54,7 @@ function CreateButton({ user }) {
             modalComponent={<CreateBoardModal />}
           />
         </div>
-        <div>
+        <div className='nav-create-pin'>
 
           <OpenModalButton
             buttonText="Create Pin"
