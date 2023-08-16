@@ -4,7 +4,8 @@ import { getAllPinsThunk } from "../../store/pin";
 import './LandingPage.css';
 import { useHistory } from "react-router-dom";
 import PinCard from "./PinCard";
-
+import MyWrapper from "./Masonry";
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
 
 const LandingPage = () => {
   const dispatch = useDispatch();
@@ -18,29 +19,19 @@ const LandingPage = () => {
   if(!pins.length) return null
 
   return (
-    <>
-      < div className="grid landing-page-container" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 200 }'>
+    <ResponsiveMasonry
+        columnsCountBreakPoints={{ 350: 1, 750: 2, 1026: 5 }}
+      >
+        <Masonry>
+            {pins.map((pin) => (
+              <PinCard key={pin.id} pin={pin} />
+            ))}
 
-          {pins.map((pin) => (
-              <PinCard key={pin.id} pin={pin}/>
-          ))}
-      </div >
-    </>
+        </Masonry>
+      </ResponsiveMasonry>
   )
 }
 
 export default LandingPage
 
 
-  // < div >
-  //     <h2>List of Pins</h2>
-  //     <ul>
-  //       {pins.map((pin) => (
-  //         <li key={pin.id}>
-  //           <h3>{pin.title}</h3>
-  //           <p>{pin.description}</p>
-  //           {/* Render other pin details as needed */}
-  //         </li>
-  //       ))}
-  //     </ul>
-  //   </div >

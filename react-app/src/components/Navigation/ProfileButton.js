@@ -52,7 +52,7 @@ function ProfileButton({ user }) {
 
         <img onClick={onClick} src={user.image} alt={user.name} />
         <button className="user-icon-container" onClick={openMenu}>
-          <span class="material-symbols-outlined">expand_more</span>
+          <span className="material-symbols-outlined">expand_more</span>
         </button>
       </div>
       ):(

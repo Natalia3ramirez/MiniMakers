@@ -9,18 +9,23 @@ button {
 }
 
 
-.landing-page-container {
-  gap: 5px;
-  display: grid;
-  grid-template-columns: repeat(6, 2fr);
-  grid-gap: 5px;
-  /* padding-left: 50px; */
-  width: 800px;
+
+.pin {
+  margin: 7px
 }
 
 .pin-image {
-  width: 161px;
-  height: 250px;
+  width: 100%;
   object-fit: cover;
+  border-radius: 21px;
+}
+
+.single-pin-wrapper {
   cursor: pointer;
+}
+
+
+.pin-owner-icon {
+  object-fit: cover;
+  border-radius: 25px;
 }
