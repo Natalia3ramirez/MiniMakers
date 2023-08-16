@@ -19,7 +19,7 @@ const LandingPage = () => {
 
   return (
     <>
-      < div className="landing-page-container">
+      < div className="grid landing-page-container" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 200 }'>
 
           {pins.map((pin) => (
               <PinCard key={pin.id} pin={pin}/>

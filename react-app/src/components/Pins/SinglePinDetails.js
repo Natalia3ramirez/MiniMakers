@@ -37,30 +37,26 @@ export default function SinglePin() {
   return (
     <div className="single-pin-container">
       <div>
-        <img style={{ width: '250px', height: '300px' }} src={pin.images} alt={pin.name} />
+        <img className="single-pin-image"  src={pin.images} alt={pin.name} />
       </div>
-      <div>
-        <div>
-          <h2>{pin.title}</h2>
-          <p>{pin.description}</p>
-        </div>
-        <div>
+      <div className='pin-title-description-container'>
+        <div className='details-save-pin'>
           <OpenModalButton
             buttonText="Save"
             // onItemClick={closeMenu}
             modalComponent={<AddPinToBoard pin_id={pin.id} />}
           />
         </div>
-        {/* <div>
-          <img src={user.image} style={{ width: '50px', height: '50px' }} alt={user.firstName} />
-          <p>{user.firstName}</p>
-        </div> */}
+        <div className='pin-title-description'>
+          <h2>{pin.title}</h2>
+          <p>{pin.description}</p>
+        </div>
+
         <div>
-          {/* <UserCard user={user}/> */}
           <div onClick={onClick}>
             <div>
               <div className='profile-user-image'>
-                <img style={{ width: '75px', height: '75px' }} src={user.image} alt={user.name} />
+                <img  src={user.image} alt={user.name} />
                 <p>@{pin.user.firstName}</p>
               </div>
             </div>
@@ -68,7 +64,7 @@ export default function SinglePin() {
         </div>
         {user && pinUser && (
 
-        <div>
+        <div className='delete-edit-pin'>
           <OpenModalButton
             buttonText="Delete"
             // onItemClick={closeMenu}

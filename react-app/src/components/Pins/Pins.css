@@ -1,6 +1,11 @@
 .single-pin-container {
   display: flex;
   justify-content: center;
+  height: 75%;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 21px;
+  margin-left: 150px;
+  margin-right: 150px
 }
 
 
@@ -24,7 +29,7 @@
   width: 400px;
   max-width: 85%;
   position: relative;
-  text-align: left; /* Adjusted for label alignment */
+  text-align: left;
   margin: 50px auto 0;
 }
 
@@ -180,7 +185,7 @@
 
 .edit-pin-container p {
   margin-bottom: 20px;
-  color: #333; /* Adjust as needed */
+  color: #333;
 }
 
 .edit-pin-container label {
@@ -229,9 +234,15 @@
   color: white;
 }
 
-.edit-pin-container button:hover {
-  background-color: red;
-  color: white;
+
+.delete-edit-pin button:hover,
+.cancel-pin-button:hover {
+  background-color: rgb(221, 217, 217);
+}
+
+.save-pin-button:hover,
+.details-save-pin button:hover {
+  background-color: rgb(174, 0, 0);
 }
 
 
@@ -241,3 +252,86 @@
   justify-content: end;
   align-items: center;
 }
+
+
+
+/* Single details page */
+
+.single-pin-image {
+  height: 100%;
+  width: 100%;
+  border-top-left-radius: 21px;
+  border-bottom-left-radius: 21px;
+
+}
+
+
+.pin-title-description h2 {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+}
+
+
+.pin-title-description-container {
+  padding: 30px;
+
+}
+
+
+.details-save-pin {
+  display: flex;
+  justify-content: end;
+
+}
+
+
+.details-save-pin button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 21px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.profile-user-image img {
+  height: 50px;
+  width: 50px;
+  border-radius: 35px;
+  object-fit: cover;
+  margin-right: 10px
+}
+
+
+.profile-user-image {
+  display: flex;
+  margin-top: 45px;
+  margin-bottom: 45px
+}
+
+
+.delete-edit-pin {
+  display: flex;
+  justify-content: center;
+  margin-top: 230px;
+  gap: 20px
+
+}
+
+.delete-edit-pin button {
+  background-color: rgb(232, 231, 231);
+  color: rgb(86, 85, 85);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 21px;
+  cursor: pointer;
+  font-weight: bold;
+
+}
+
+

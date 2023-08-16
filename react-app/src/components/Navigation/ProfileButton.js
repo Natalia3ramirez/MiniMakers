@@ -47,16 +47,26 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button className="user-icon" onClick={openMenu}>
-        <div className="user-icon-container">
-          <span class="material-symbols-outlined">expand_more</span>
+     {user ? (
+      <div className="user-icon" >
 
-        </div>
-      </button>
+        <img onClick={onClick} src={user.image} alt={user.name} />
+        <button className="user-icon-container" onClick={openMenu}>
+          <span class="material-symbols-outlined">expand_more</span>
+        </button>
+      </div>
+      ):(
+        <div className="user-icon" >
+        <button className="user-icon-container" onClick={openMenu}>
+          <span class="material-symbols-outlined">expand_more</span>
+        </button>
+      </div>
+
+      ) }
 
       <div className={ulClassName} ref={ulRef}>
         {user ? (
-          <>
+          <div>
             <div>Currently in</div>
             <div className='user-menu-dropdown-container' onClick={onClick}>
               <img className="dropdown-user-icon" style={{ width: '55px', height: '55px' }} src={user.image} alt={user.first_name} />
@@ -66,9 +76,12 @@ function ProfileButton({ user }) {
               <button className="logout-button" onClick={handleLogout}>Log Out</button>
             </p>
 
-          </>
+          </div>
+
         ) : (
-          <>
+          <div>
+
+
             <OpenModalButton
               buttonText="Log In"
               onItemClick={closeMenu}
@@ -80,7 +93,7 @@ function ProfileButton({ user }) {
               onItemClick={closeMenu}
               modalComponent={<SignupFormModal />}
             />
-          </>
+          </div>
         )}
       </div>
     </>
