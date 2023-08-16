@@ -26,14 +26,14 @@ const UpdateBoardModal = () => {
       frontendErrors.name = "Name is required to create a Pin"
     }
     if (name.length < 3) {
-			frontendErrors.name = "Name is must be at least 3 characters to create a Pin"
-		}
-		if (name.length > 50) {
-			frontendErrors.name = "Name is must be 50 characters or less to create a Pin"
-		}
+      frontendErrors.name = "Name is must be at least 3 characters to create a Pin"
+    }
+    if (name.length > 50) {
+      frontendErrors.name = "Name is must be 50 characters or less to create a Pin"
+    }
     if (description.length > 500) {
-			frontendErrors.description = "Description must be 500 characters or less"
-		}
+      frontendErrors.description = "Description must be 500 characters or less"
+    }
 
     setFrontendErrors(frontendErrors)
   }, [name])
@@ -43,72 +43,61 @@ const UpdateBoardModal = () => {
 
 
     const hasFrontendErrors = Object.keys(frontendErrors).length > 0;
-		if (!hasFrontendErrors) {
+    if (!hasFrontendErrors) {
 
 
 
-    const formData = new FormData()
-    formData.append("name", name)
-    formData.append("description", description)
+      const formData = new FormData()
+      formData.append("name", name)
+      formData.append("description", description)
 
 
 
-    try {
-      const data = await dispatch(updateBoardThunk(formData, board.id));
-      if (data) {
-        setErrors(data);
+      try {
+        const data = await dispatch(updateBoardThunk(formData, board.id));
+        if (data) {
+          setErrors(data);
 
+        }
+      } catch (error) {
+        console.error("An error occurred:", error.message);
       }
-    } catch (error) {
-      console.error("An error occurred:", error.message);
+
+      await dispatch(getSingleBoardThunk(board.id))
+      await closeModal()
     }
 
-    await dispatch(getSingleBoardThunk(board.id))
-    await closeModal()
-  }
-
-};
+  };
 
 
   return (
-    <div>
-     <h1>Edit your board</h1>
-      <form onSubmit={handleSubmit}
-			encType="multipart/form-data">
-				{/* <ul>
-					{errors.map((error, idx) => (
-						<li key={idx}>{error}</li>
-					))}
-				</ul> */}
-
-				<label>
-					Name
-					<input
-						type="text"
-            placeholder='Like "Activities for Kids"  or "Recipes for Kids"'
-						value={name}
-						onChange={(e) => setName(e.target.value)}
-						required
-					/>
-				</label>
-				{frontendErrors.name && <p className='on-submit-errors'>{frontendErrors.name}</p>}
+    <div className="edit-board-container">
+      <h1>Edit your board</h1>
+      <form onSubmit={handleSubmit} encType="multipart/form-data">
         <label>
-					Description
-					<textarea
-						type="text"
-            placeholder='Tell everyone what your Board is about 😃'
-						value={description}
-						onChange={(e) => setDescription(e.target.value)}
-					/>
-				</label>
-
-
-				<button type="submit" onClick={handleSubmit} className="save-pin-button" >Done</button>
-
-			</form>
-
+          Name
+          <input
+            type="text"
+            placeholder='Like "Activities for Kids"  or "Recipes for Kids"'
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+        </label>
+        {frontendErrors.name && <p className='on-submit-errors'>{frontendErrors.name}</p>}
+        <label>
+          Description
+          <textarea
+            type="text"
+            placeholder="What's your board about?"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            className='description-box'
+          />
+        </label>
+        <button type="submit" onClick={handleSubmit} className="save-pin-button">Done</button>
+      </form>
     </div>
-
 
 
   )
