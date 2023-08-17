@@ -27,6 +27,7 @@ function SignupFormModal() {
 	const [submitted, setSubmitted] = useState(false)
 	const { closeModal } = useModal();
 	const [frontendErrors, setFrontendErrors] = useState({})
+	// const [birthdateError, setBirthdateError] = useState("");
 
 
 	useEffect(() => {
@@ -55,8 +56,22 @@ function SignupFormModal() {
 		if (confirmPassword.length < 2) {
 			frontendErrors.confirmPassword = "Confirm Password is required"
 		}
+		const today = new Date();
+		const birthdateDate = new Date(birthdate);
+		const ageYears = today.getFullYear() - birthdateDate.getFullYear();
+
+		if (today.getMonth() < birthdateDate.getMonth() ||
+			(today.getMonth() === birthdateDate.getMonth() && today.getDate() < birthdateDate.getDate())) {
+			ageYears--;
+		}
+
+		if (ageYears < 18) {
+			frontendErrors.birthdate = "You must be at least 18 years or older to sign up";
+		}
+
+
 		setFrontendErrors(frontendErrors)
-	}, [email, firstName, lastName, confirmPassword, password])
+	}, [email, firstName, lastName, confirmPassword, password, birthdate])
 
 
 	// console.log('PROFILE IMAGE--->', image)
@@ -68,21 +83,21 @@ function SignupFormModal() {
 		const hasFrontendErrors = Object.keys(frontendErrors).length > 0;
 		if (!hasFrontendErrors && password === confirmPassword) {
 
-		const formData = new FormData();
-		formData.append("first_name", firstName);
-		formData.append("last_name", lastName);
-		formData.append("about_me", aboutMe);
-		formData.append("email", email);
-		formData.append("password", password);
-		formData.append("birthdate", birthdate);
-		formData.append("image", image);
+			const formData = new FormData();
+			formData.append("first_name", firstName);
+			formData.append("last_name", lastName);
+			formData.append("about_me", aboutMe);
+			formData.append("email", email);
+			formData.append("password", password);
+			formData.append("birthdate", birthdate);
+			formData.append("image", image);
 
-		setImageLoading(true);
+			setImageLoading(true);
 
 
 
 			const data = await dispatch(signUp(formData));
-		
+
 
 			if (data) {
 				setErrors(data);
