@@ -12,6 +12,9 @@ const CreatePinModal = () => {
   const dispatch = useDispatch();
   const { closeModal } = useModal();
   const user = useSelector(state => state.session.user)
+  const pins = Object.values(useSelector(state => state.pins.allPins))
+ const newPin = pins[pins.length-1]
+ console.log("the new pin", newPin)
 
   const [title, setTitle] = useState('');
   const [images, setImages] = useState(null);
@@ -41,8 +44,12 @@ const CreatePinModal = () => {
             frontendErrors.images = "An image is required to create a Pin."
         }
 
+        if(!newPin) return null
+
         setFrontendErrors(frontendErrors)
     }, [title, images])
+
+
 
   const handleSubmit = async (e) => {
         e.preventDefault();
@@ -57,7 +64,7 @@ const CreatePinModal = () => {
         formData.append("description", description);
         formData.append("alt_text", altText);
         formData.append("website", website);
-    formData.append('user_id', user.id)
+        formData.append('user_id', user.id)
 
         setImageLoading(true);
 
@@ -67,10 +74,11 @@ const CreatePinModal = () => {
         await dispatch(getAllPinsThunk())
 
 
+
         if (data)  {
             setErrors(data);
         }  else {
-      await history.push('/profile')
+            await history.push('/profile')
             await closeModal();
         }
     }

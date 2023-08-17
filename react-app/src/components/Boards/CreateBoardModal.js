@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
-import { createNewBoardThunk, getAllBoardsThunk } from '../../store/board'
+import { useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.min'
+import { createNewBoardThunk, getAllBoardsThunk, getSingleBoard, getSingleBoardThunk } from '../../store/board'
 import './Boards.css'
 import { useModal } from '../../context/Modal'
+
 
 
 
@@ -19,6 +20,11 @@ const CreateBoardModal = () => {
 	const [frontendErrors, setFrontendErrors] = useState({});
 	const [errors, setErrors] = useState([]);
 	const [submitted, setSubmitted] = useState(false)
+	const location = useLocation()
+	const currentPath = location.pathname
+
+	const newBoard = useSelector(state =>state.pinnedBoards.singlePinnedBoards)
+
 
 
 
@@ -38,9 +44,11 @@ const CreateBoardModal = () => {
 			frontendErrors.description = "Description must be 500 characters or less"
 		}
 
-
 		setFrontendErrors(frontendErrors)
 	}, [name])
+
+
+
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -49,26 +57,24 @@ const CreateBoardModal = () => {
 		const hasFrontendErrors = Object.keys(frontendErrors).length > 0;
 		if (!hasFrontendErrors) {
 
-
-
 			const formData = new FormData();
 			formData.append("name", name);
 			formData.append("description", description);
 			formData.append('user_id', user.id)
 
-
-
-
 			const data = await dispatch(createNewBoardThunk(formData));
 
-			await dispatch(getAllBoardsThunk())
-
+			if(!newBoard) return null
 
 			if (data) {
 				setErrors(data);
 			} else {
-				// await history.push('/boards/${}')
-				await closeModal();
+				if(currentPath.startsWith('/pins/')) await closeModal()
+				else {
+					await dispatch(getAllBoardsThunk())
+					await history.push(`/profile`)
+					await closeModal();
+				}
 			}
 		}
 
