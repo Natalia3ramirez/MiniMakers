@@ -87,7 +87,6 @@ const AddPinToBoard = ({ pin_id }) => {
           <div>
 
             {userBoards.map((board) => (
-              // <PinBoardCard />
               <div key={board.id}>
                 <img style={{ width: '75px', height: '75px' }} src={board?.boardImages[0]} />
                 <button key={board.id} onClick={() => handleButtonClick(board)}  >{board.name}</button>

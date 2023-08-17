@@ -19,7 +19,7 @@ const UserProfilePage = () => {
 
   const filteredBoards = boardsArr.filter(board => board.user_id === user.id)
   const filteredPins = pinsArr.filter(pin => pin.user_id === user.id)
-
+  console.log("this is the pins----->", filteredBoards)
   const [selectDisplay, setSelectDisplay] = useState("pins")
 
 
@@ -73,8 +73,26 @@ const UserProfilePage = () => {
         </ResponsiveMasonry>
         <div className='pin-board-card-container'>
           {selectDisplay === "boards" && (filteredBoards.map((board) => (
+            <div>
+              <PinBoardCard key={board.id} board={board} />
+              {board.pinLen === 1 ? (
+                <div className='board-preview'>
+                  <p className='pin-board-name'>{board.name}</p>
+                  <p className='pin-len'>{board.pinLen} Pin</p>
+                </div>
+              )
+                :
+                (
+                  <div className='board-preview'>
+                    <p className='pin-board-name'>{board.name}</p>
+                    <p className='pin-len'>{board.pinLen} Pins</p>
+                  </div>
 
-            <PinBoardCard key={board.id} board={board} />)
+                )}
+            </div>
+
+          )
+
           ))}
         </div>
 
