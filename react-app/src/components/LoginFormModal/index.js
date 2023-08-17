@@ -68,8 +68,9 @@ function LoginFormModal() {
             required
           />
         </label>
+        <div className='login-demo-container'>
         <button className="submit-button" type="submit">Log In</button>
-        <div>
+          <p>OR</p>
           <button onClick={demoUser} className="demo-user-button">Demo User</button>
         </div>
       </form>

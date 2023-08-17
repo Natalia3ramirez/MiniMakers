@@ -17,7 +17,7 @@ const UpdatePinModal = ({ pin }) => {
   const user = useSelector(state => state.session.user);
   const [title, setTitle] = useState(pin.title);
   const [description, setDescription] = useState(pin.description);
-  const [alt_text, set_alt_text] = useState(pin.altText);
+  const [alt_text, set_alt_text] = useState(pin.alt_text);
   const [website, setWebsite] = useState(pin.website);
   const [frontendErrors, setFrontendErrors] = useState({});
   const [errors, setErrors] = useState([]);

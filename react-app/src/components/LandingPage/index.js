@@ -4,7 +4,6 @@ import { getAllPinsThunk } from "../../store/pin";
 import './LandingPage.css';
 import { useHistory } from "react-router-dom";
 import PinCard from "./PinCard";
-import MyWrapper from "./Masonry";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
 
 const LandingPage = () => {

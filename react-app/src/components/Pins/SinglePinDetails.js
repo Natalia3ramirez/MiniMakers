@@ -42,7 +42,7 @@ export default function SinglePin() {
       <div className='pin-title-description-container'>
         <div className='details-save-pin'>
           <OpenModalButton
-            buttonText="Save"
+            buttonText="Save to a Board"
             // onItemClick={closeMenu}
             modalComponent={<AddPinToBoard pin_id={pin.id} />}
           />

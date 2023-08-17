@@ -13,8 +13,11 @@ const PinCard = ({ pin }) => {
         <div className="single-pin-wrapper" onClick={onClick}>
             <div className='pin' >
                 <img className='pin-image' src={pin.images} alt="Pin" />
-                <img className="pin-owner-icon" style={{ width: '35px', height: '35px' }} src={user.image} alt={user.first_name}/>
-                {user.first_name}
+                <div className='pin-owner-icon-container'>
+
+                    <img className="pin-owner-icon" style={{ width: '27px', height: '27px' }} src={user.image} alt={user.first_name} />
+                    <span>{user.first_name} {user.last_name}</span>
+                </div>
 
             </div>
         </div>

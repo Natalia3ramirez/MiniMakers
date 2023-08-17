@@ -257,6 +257,7 @@
   width: 100%;
   border-top-left-radius: 21px;
   border-bottom-left-radius: 21px;
+  object-fit: cover;
 
 }
 
@@ -273,6 +274,10 @@
 .pin-title-description-container {
   padding: 30px;
 
+}
+
+.pin-title-description {
+  margin-top: 100px
 }
 
 
@@ -294,26 +299,13 @@
   margin-top: 15px;
 }
 
-.profile-user-image img {
-  height: 50px;
-  width: 50px;
-  border-radius: 35px;
-  object-fit: cover;
-  margin-right: 10px
-}
 
-
-.profile-user-image {
-  display: flex;
-  margin-top: 45px;
-  margin-bottom: 45px
-}
 
 
 .delete-edit-pin {
   display: flex;
   justify-content: center;
-  margin-top: 230px;
+  margin-top: 20px;
   gap: 20px
 
 }
