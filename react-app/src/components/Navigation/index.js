@@ -14,17 +14,14 @@ function Navigation({ isLoaded }) {
 				<div className="navlink-home">
 					<NavLink exact to="/home" className="home-button">Home</NavLink>
 				</div>
-				<div className="navlink-create">
 					{sessionUser && (
+				<div className="navlink-create">
 						<div>
 							<CreateButton user={sessionUser}></CreateButton>
 						</div>
-
-					)}
 				</div>
-
+					)}
 			</div>
-
 			{isLoaded && (
 				<div className="user-menu">
 					<ProfileButton user={sessionUser} />

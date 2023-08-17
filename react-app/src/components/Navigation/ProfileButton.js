@@ -56,11 +56,22 @@ function ProfileButton({ user }) {
         </button>
       </div>
       ):(
-        <div className="user-icon" >
-        <button className="user-icon-container" onClick={openMenu}>
-          <span class="material-symbols-outlined">expand_more</span>
-        </button>
-      </div>
+        <>
+        <div className='user-icon-login'>
+          <OpenModalButton
+              buttonText="Log In"
+              onItemClick={closeMenu}
+              modalComponent={<LoginFormModal />}
+            />
+        </div>
+        <div className='user-icon-signup'>
+            <OpenModalButton
+              buttonText="Sign Up"
+              onItemClick={closeMenu}
+              modalComponent={<SignupFormModal />}
+            />
+        </div>
+        </>
 
       ) }
 
@@ -80,7 +91,6 @@ function ProfileButton({ user }) {
 
         ) : (
           <div>
-
 
             <OpenModalButton
               buttonText="Log In"
