@@ -93,11 +93,6 @@
   cursor: pointer;
 }
 
-/* .user-icon .material-symbols-outlined {
-  font-size: 24px;
-  color: #333;
-} */
-
 
 .user-icon-container {
   display: flex;
@@ -117,8 +112,6 @@
 
 
 .user-menu {
-  /* margin-top: 15px;
-  margin-right: 100px; */
   position: absolute;
   left: 100%; /* Position to the right edge of the button */
   transform: translateX(-50px)

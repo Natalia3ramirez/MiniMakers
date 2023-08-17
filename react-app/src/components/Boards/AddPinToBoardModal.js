@@ -23,6 +23,7 @@ const AddPinToBoard = ({ pin_id }) => {
 
   const [board_id, setBoardId] = useState('');
   const [showMenu, setShowMenu] = useState(false);
+  const [selectedBoardId, setSelectedBoardId] = useState(null);
   const ulRef = useRef();
 
   const [errors, setErrors] = useState([]);
@@ -54,7 +55,7 @@ const AddPinToBoard = ({ pin_id }) => {
   }, [showMenu]);
 
   const handleButtonClick = (board) => {
-
+    setSelectedBoardId(board.id);
     setBoardId(board.id);
   };
 
@@ -77,23 +78,31 @@ const AddPinToBoard = ({ pin_id }) => {
 
 
   return (
-    <div>
+    <div className='pin-to-board-container'>
       {userBoards.length ? (
 
-        <div>
-
+        <div className='pin-to-board-content'>
           <h1>Add to a board</h1>
-
           <div>
-
             {userBoards.map((board) => (
-              <div key={board.id}>
-                <img style={{ width: '75px', height: '75px' }} src={board?.boardImages[0]} />
-                <button key={board.id} onClick={() => handleButtonClick(board)}  >{board.name}</button>
+              <div
+                key={board.id}
+                className={`select-board-for-pin ${selectedBoardId === board.id ? 'selected' : ''}`}
+                onClick={() => handleButtonClick(board)}
+              >
+                {board.boardImages[0] ? (
+                  <img src={board.boardImages[0]} alt={board.name} />
+                )
+                  :
+                  (
+                    <img src={'https://garden.spoonflower.com/c/11034657/p/f/m/t2ST4w6akYxbx2bXxMt2LvMpYhUWRq7aC_sbhfOxQFqMvj7Xksa9yPA/Light%20grey.%20Light%20gray.%20Blank%20solid%20colout.jpg'} alt={board.name} />
+                  )}
+                <span>{board.name}</span>
               </div>
-
             ))}
-            <button onClick={handleSubmit}>Add Pin</button>
+            <div className='add-pin-button-container'>
+              <button onClick={handleSubmit} className='add-pin-button'>Add Pin</button>
+            </div>
           </div >
         </div>
       ) : (
@@ -107,19 +116,9 @@ const AddPinToBoard = ({ pin_id }) => {
             />
           </div>
         </div>
-
-      )
-
-      }
-
-
-
+      )}
     </div>
-
-
-
   )
-
 }
 
 
