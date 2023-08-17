@@ -39,3 +39,9 @@ button {
 .pin-owner-icon-container span {
   margin-left: 5px
 }
+
+
+.masonry-container,
+.profile-masonry {
+  margin: 0 70px 0 70px
+}

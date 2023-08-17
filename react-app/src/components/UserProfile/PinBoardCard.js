@@ -9,7 +9,7 @@ const PinBoardCard = ({ board }) => {
         history.push(`boards/${board.id}`)
     }
     return (
-        <div onClick={onClick}>
+        <div className='select-board' onClick={onClick}>
   <div className='pinned-board-container'>
     <div className='board-images'>
       <img className='board-image-1' src={board.boardImages[0] ? board.boardImages[0] : 'https://garden.spoonflower.com/c/11034657/p/f/m/t2ST4w6akYxbx2bXxMt2LvMpYhUWRq7aC_sbhfOxQFqMvj7Xksa9yPA/Light%20grey.%20Light%20gray.%20Blank%20solid%20colout.jpg'} alt={board.name} />

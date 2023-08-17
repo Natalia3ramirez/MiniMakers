@@ -61,8 +61,10 @@ const UserProfilePage = () => {
       </div>
 
       <div className='profile-pins'>
+        <div className='profile-masonry'>
+
         <ResponsiveMasonry
-          columnsCountBreakPoints={{ 350: 1, 750: 2, 1026: 5 }}
+          columnsCountBreakPoints={{ 350: 1, 750: 2, 1020: 5 }}
         >
           <Masonry>
             {selectDisplay === "pins" && (filteredPins.map((pin) => (
@@ -103,6 +105,7 @@ const UserProfilePage = () => {
 
 
     </div>
+        </div>
   )
 }
 

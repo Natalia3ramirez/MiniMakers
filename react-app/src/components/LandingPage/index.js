@@ -18,8 +18,9 @@ const LandingPage = () => {
   if(!pins.length) return null
 
   return (
+    <div className='masonry-container'>
     <ResponsiveMasonry
-        columnsCountBreakPoints={{ 350: 1, 750: 2, 1026: 5 }}
+        columnsCountBreakPoints={{ 350: 1, 750: 2, 1020: 5 }}
       >
         <Masonry>
             {pins.map((pin) => (
@@ -28,6 +29,8 @@ const LandingPage = () => {
 
         </Masonry>
       </ResponsiveMasonry>
+
+    </div>
   )
 }
 
