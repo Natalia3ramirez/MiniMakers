@@ -52,7 +52,7 @@ const UserProfilePage = () => {
           <img style={{ width: '110px', height: '110px' }} src={user.image} alt={user.name} />
         </div>
         <div className="boards-pins-buttons">
-          <h1>{user.first_name}</h1>
+          <h1>{user.first_name} {user.last_name}</h1>
           <span>@{user.first_name}</span>
           <p>{user.about_me}</p>
           <button onClick={() => handleSelectDisplay('pins')} class="active">Pins</button>
