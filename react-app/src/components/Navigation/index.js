@@ -8,10 +8,12 @@ import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import './Navigation.css';
 import logo from './Logo/minimakers.png'
+import SearchBar from '../Search';
 
 function Navigation({ isLoaded }) {
 	const sessionUser = useSelector(state => state.session.user);
 	const history = useHistory();
+	
 	// console.log("nav session user", sessionUser)
 
 	const handleLogoClick = () => {
@@ -38,6 +40,10 @@ function Navigation({ isLoaded }) {
 											<CreateButton user={sessionUser}></CreateButton>
 										</div>
 									</div>
+
+								</div>
+								<div className='nav-bar'>
+									<SearchBar />
 
 								</div>
 								<div className="user-menu">
