@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import CreateButton from './CreateButton';
@@ -7,10 +7,16 @@ import OpenModalButton from '../OpenModalButton';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import './Navigation.css';
+import logo from './Logo/minimakers.png'
 
 function Navigation({ isLoaded }) {
 	const sessionUser = useSelector(state => state.session.user);
-	console.log("nav session user", sessionUser)
+	const history = useHistory();
+	// console.log("nav session user", sessionUser)
+
+	const handleLogoClick = () => {
+		history.push('/home');
+	};
 
 
 	return (
@@ -24,7 +30,7 @@ function Navigation({ isLoaded }) {
 						<div className="home-create-container">
 							<div className="home-create-container">
 								<div className="navlink-home">
-									<NavLink exact to="/home" className="home-button">Home</NavLink>
+									<NavLink exact to="/home" className="home-button" onClick={handleLogoClick}><img src={logo} className="logo" /></NavLink>
 								</div>
 							</div>
 							<div className="navlink-create">
