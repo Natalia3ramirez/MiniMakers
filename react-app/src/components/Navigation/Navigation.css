@@ -57,7 +57,7 @@
 }
 
 .login-signup-container {
-  margin-left: 775px
+  margin-right: 25px
 }
 
 
@@ -256,4 +256,17 @@
   width: 150px;
   height: 45px;
   /* object-fit: cover; */
+}
+
+.logout-logo {
+  width: 150px;
+  height: 45px;
+
+}
+
+.logout-nav-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

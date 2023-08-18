@@ -22,54 +22,57 @@ function Navigation({ isLoaded }) {
 	return (
 		<>
 
-		{ isLoaded && (
-			<>
-				<div className="navigation">
-					{sessionUser ? (
-						<>
-						<div className="home-create-container">
-							<div className="home-create-container">
-								<div className="navlink-home">
-									<NavLink exact to="/home" className="home-button" onClick={handleLogoClick}><img src={logo} className="logo" /></NavLink>
-								</div>
-							</div>
-							<div className="navlink-create">
-								<div className='create-button-container'>
-									<CreateButton user={sessionUser}></CreateButton>
-								</div>
-							</div>
+			{isLoaded && (
+				<>
+					<div className="navigation">
+						{sessionUser ? (
+							<>
+								<div className="home-create-container">
+									<div className="home-create-container">
+										<div className="navlink-home">
+											<NavLink exact to="/home" className="home-button" onClick={handleLogoClick}><img src={logo} className="logo" /></NavLink>
+										</div>
+									</div>
+									<div className="navlink-create">
+										<div className='create-button-container'>
+											<CreateButton user={sessionUser}></CreateButton>
+										</div>
+									</div>
 
-						</div>
-							<div className="user-menu">
-								<ProfileButton user={sessionUser} />
-							</div>
-						</>
-					)
-						:
-						(
-							<div className='login-signup-container'>
-								<div className='user-icon-login'>
-									<OpenModalButton
-										buttonText="Log In"
-										// onItemClick={closeMenu}
-										modalComponent={<LoginFormModal />}
-									/>
 								</div>
-								<div className='user-icon-signup'>
-									<OpenModalButton
-										buttonText="Sign Up"
-										// onItemClick={closeMenu}
-										modalComponent={<SignupFormModal />}
-									/>
+								<div className="user-menu">
+									<ProfileButton user={sessionUser} />
 								</div>
-							</div>
+							</>
 						)
-					}
+							:
+							(
+								<div className='logout-nav-bar'>
+									<img src={logo} className="logout-logo" />
+									<div className='login-signup-container'>
+										<div className='user-icon-login'>
+											<OpenModalButton
+												buttonText="Log In"
+												// onItemClick={closeMenu}
+												modalComponent={<LoginFormModal />}
+											/>
+										</div>
+										<div className='user-icon-signup'>
+											<OpenModalButton
+												buttonText="Sign Up"
+												// onItemClick={closeMenu}
+												modalComponent={<SignupFormModal />}
+											/>
+										</div>
+									</div>
+								</div>
+							)
+						}
 
-				</div>
-			</>
-		)
-		}
+					</div>
+				</>
+			)
+			}
 		</>
 	);
 }
