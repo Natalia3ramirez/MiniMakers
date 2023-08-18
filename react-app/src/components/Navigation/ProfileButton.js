@@ -66,7 +66,7 @@ function ProfileButton({ user }) {
               <img className="dropdown-user-icon" style={{ width: '55px', height: '55px' }} src={user.image} alt={user.first_name} />
               <span>{user.first_name}</span>
             </div>
-            <p>
+            <p className='logout-button-container'>
               <button className="logout-button" onClick={handleLogout}>Log Out</button>
             </p>
           </div>

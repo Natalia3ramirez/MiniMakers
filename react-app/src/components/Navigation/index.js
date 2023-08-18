@@ -21,6 +21,7 @@ function Navigation({ isLoaded }) {
 				<div className="navigation">
 					{sessionUser ? (
 						<>
+						<div className="home-create-container">
 							<div className="home-create-container">
 								<div className="navlink-home">
 									<NavLink exact to="/home" className="home-button">Home</NavLink>
@@ -31,6 +32,8 @@ function Navigation({ isLoaded }) {
 									<CreateButton user={sessionUser}></CreateButton>
 								</div>
 							</div>
+
+						</div>
 							<div className="user-menu">
 								<ProfileButton user={sessionUser} />
 							</div>
@@ -38,7 +41,7 @@ function Navigation({ isLoaded }) {
 					)
 						:
 						(
-							<>
+							<div className='login-signup-container'>
 								<div className='user-icon-login'>
 									<OpenModalButton
 										buttonText="Log In"
@@ -53,7 +56,7 @@ function Navigation({ isLoaded }) {
 										modalComponent={<SignupFormModal />}
 									/>
 								</div>
-							</>
+							</div>
 						)
 					}
 

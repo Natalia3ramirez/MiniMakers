@@ -8,7 +8,7 @@
 
 .navigation {
   display: flex;
-  justify-content: space-between;
+  justify-content:space-between;
   align-items: center;
   list-style: none;
   padding: 0;
@@ -57,6 +57,10 @@
   background-color: white;
   font-size: 14px;
 
+}
+
+.login-signup-container {
+  margin-left: 775px
 }
 
 
@@ -130,15 +134,23 @@
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
   /* padding-bottom: 20px; */
   padding-top: 20px;
-  padding-left: 10px;
-  padding-right: 10px;
-  width: 100px
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100px;
+  margin-top: 125px;
+  margin-right: 125px
 
 }
 
 .logout-button {
   border: none;
   background: white;
+}
+
+.logout-button:hover {
+  background: rgb(221, 217, 217);
+  width: 100%;
+  border-radius: 7px;
 }
 
 
@@ -159,6 +171,7 @@
   border-radius: 7px;
 }
 
+.logout-button-container,
 .nav-create-board,
 .nav-create-pin {
   display: flex;
