@@ -56,6 +56,7 @@ function SignupFormModal() {
 		if (confirmPassword.length < 2) {
 			frontendErrors.confirmPassword = "Confirm Password is required"
 		}
+		
 		const today = new Date();
 		const birthdateDate = new Date(birthdate);
 		let ageYears = today.getFullYear() - birthdateDate.getFullYear();
@@ -69,7 +70,6 @@ function SignupFormModal() {
 			frontendErrors.birthdate = "You must be at least 18 years or older to sign up";
 		}
 
-
 		setFrontendErrors(frontendErrors)
 	}, [email, firstName, lastName, confirmPassword, password, birthdate])
 
@@ -81,36 +81,38 @@ function SignupFormModal() {
 		setSubmitted(true)
 
 		const hasFrontendErrors = Object.keys(frontendErrors).length > 0;
-		if (!hasFrontendErrors && password === confirmPassword) {
+		if (!hasFrontendErrors) {
+		if (password === confirmPassword) {
 
-			const formData = new FormData();
-			formData.append("first_name", firstName);
-			formData.append("last_name", lastName);
-			formData.append("about_me", aboutMe);
-			formData.append("email", email);
-			formData.append("password", password);
-			formData.append("birthdate", birthdate);
-			formData.append("image", image);
+				const formData = new FormData();
+				formData.append("first_name", firstName);
+				formData.append("last_name", lastName);
+				formData.append("about_me", aboutMe);
+				formData.append("email", email);
+				formData.append("password", password);
+				formData.append("birthdate", birthdate);
+				formData.append("image", image);
 
-			setImageLoading(true);
-
-
-
-			const data = await dispatch(signUp(formData));
+				setImageLoading(true);
 
 
-			if (data) {
-				setErrors(data);
+
+				const data = await dispatch(signUp(formData));
+
+
+				if (data) {
+					setErrors(data);
+				} else {
+					await history.push('/home')
+					await closeModal();
+				}
 			} else {
-				await history.push('/home')
-				await closeModal();
+				setErrors([
+					"Confirm Password field must be the same as the Password field",
+				]);
 			}
-		} else {
-			setErrors([
-				"Confirm Password field must be the same as the Password field",
-			]);
-		}
-	};
+		};
+	}
 
 
 
@@ -123,11 +125,7 @@ function SignupFormModal() {
 			</div>
 			<form onSubmit={handleSubmit}
 				encType="multipart/form-data">
-				<ul>
-					{errors.map((error, idx) => (
-						<li key={idx}>{error}</li>
-					))}
-				</ul>
+
 				<label>
 					First Name
 					<input
@@ -213,6 +211,11 @@ function SignupFormModal() {
 					/>
 				</label>
 				{frontendErrors.confirmPassword && submitted && <p className='on-submit-errors'>{frontendErrors.confirmPassword}</p>}
+				<ul>
+					{errors.map((error, idx) => (
+						<li key={idx}>{error}</li>
+					))}
+				</ul>
 				<button type="submit">Sign Up</button>
 				{(imageLoading) && <p>Loading...</p>}
 			</form>
