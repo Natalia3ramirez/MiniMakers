@@ -56,7 +56,7 @@ function SignupFormModal() {
 		if (confirmPassword.length < 2) {
 			frontendErrors.confirmPassword = "Confirm Password is required"
 		}
-		
+
 		const today = new Date();
 		const birthdateDate = new Date(birthdate);
 		let ageYears = today.getFullYear() - birthdateDate.getFullYear();
@@ -82,7 +82,7 @@ function SignupFormModal() {
 
 		const hasFrontendErrors = Object.keys(frontendErrors).length > 0;
 		if (!hasFrontendErrors) {
-		if (password === confirmPassword) {
+			if (password === confirmPassword) {
 
 				const formData = new FormData();
 				formData.append("first_name", firstName);

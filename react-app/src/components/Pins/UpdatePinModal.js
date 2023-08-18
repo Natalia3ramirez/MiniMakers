@@ -30,9 +30,12 @@ const UpdatePinModal = ({ pin }) => {
     if (!title) {
       frontendErrors.title = "Title is required to create a Pin"
     }
+    if(description && description.length > 500){
+      frontendErrors.description = "Description must be 500 characters or less"
+    }
 
     setFrontendErrors(frontendErrors)
-  }, [title])
+  }, [title, description])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -78,7 +81,7 @@ const UpdatePinModal = ({ pin }) => {
         <form onSubmit={handleSubmit}
           encType="multipart/form-data">
 
-          {frontendErrors.images && <p className='on-submit-errors'>{frontendErrors.images}</p>}
+          {/* {frontendErrors.images && <p className='on-submit-errors'>{frontendErrors.images}</p>} */}
           <label>
             Title
             <input
@@ -105,6 +108,7 @@ const UpdatePinModal = ({ pin }) => {
               onChange={(e) => setDescription(e.target.value)}
             />
           </label>
+          {frontendErrors.description && <p className='on-submit-errors'>{frontendErrors.description}</p>}
           <label>
             Add alt Text
             <input

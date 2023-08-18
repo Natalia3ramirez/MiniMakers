@@ -34,7 +34,7 @@ export default function SinglePin() {
 
   return (
     <div className="single-pin-container">
-      <div>
+      <div className='detail-pin-image-container'>
         <img className="single-pin-image"  src={pin.images} alt={pin.name} />
       </div>
       <div className='pin-title-description-container'>
