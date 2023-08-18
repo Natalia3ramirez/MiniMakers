@@ -19,7 +19,7 @@ export default function SinglePin() {
   const { closeModal } = useModal();
   const pin = useSelector((state) => state.pins.singlePin)
   const user = useSelector((state) => state.session.user)
-  // console.log("this is the pin---->", pin)
+  console.log("this is the pin---->", pin)
 
   useEffect(() => {
     dispatch(getSinglePinThunk(pinId))
@@ -27,9 +27,7 @@ export default function SinglePin() {
 
   if (!pin.id) return null
 
-  const onClick = () => {
-    history.push('/profile')
-  }
+
 
   // const closeMenu = () => setShowMenu(false);
   const pinUser =  user.id === pin.user_id
@@ -43,7 +41,6 @@ export default function SinglePin() {
         <div className='details-save-pin'>
           <OpenModalButton
             buttonText="Save to a Board"
-            // onItemClick={closeMenu}
             modalComponent={<AddPinToBoard pin_id={pin.id} />}
           />
         </div>
@@ -53,10 +50,10 @@ export default function SinglePin() {
         </div>
 
         <div>
-          <div onClick={onClick}>
+          <div >
             <div>
               <div className='profile-user-image'>
-                <img  src={user.image} alt={user.name} />
+                <img  src={pin.user.image} alt={pin.user.firstName} />
                 <p>@{pin.user.firstName}</p>
               </div>
             </div>

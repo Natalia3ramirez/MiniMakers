@@ -15,8 +15,8 @@ const PinCard = ({ pin }) => {
                 <img className='pin-image' src={pin.images} alt="Pin" />
                 <div className='pin-owner-icon-container'>
 
-                    <img className="pin-owner-icon" style={{ width: '27px', height: '27px' }} src={user.image} alt={user.first_name} />
-                    <span>{user.first_name} {user.last_name}</span>
+                    <img className="pin-owner-icon" style={{ width: '27px', height: '27px' }} src={pin.user.image} alt={pin.user.firstName} />
+                    <span>{pin.user.firstName} {pin.user.lastName}</span>
                 </div>
 
             </div>
