@@ -76,7 +76,7 @@ function ProfileButton({ user }) {
       ) }
 
       <div className={ulClassName} ref={ulRef}>
-        {user && (
+        {user ? (
           <div>
             <div>Currently in</div>
             <div className='user-menu-dropdown-container' onClick={onClick}>
@@ -87,19 +87,19 @@ function ProfileButton({ user }) {
               <button className="logout-button" onClick={handleLogout}>Log Out</button>
             </p>
           </div>
-        // ) : (
-        //   <div>
-        //     <OpenModalButton
-        //       buttonText="Log In"
-        //       onItemClick={closeMenu}
-        //       modalComponent={<LoginFormModal />}
-        //     />
-        //     <OpenModalButton
-        //       buttonText="Sign Up"
-        //       onItemClick={closeMenu}
-        //       modalComponent={<SignupFormModal />}
-        //     />
-        //   </div>
+        ) : (
+          <div>
+            <OpenModalButton
+              buttonText="Log In"
+              onItemClick={closeMenu}
+              modalComponent={<LoginFormModal />}
+            />
+            <OpenModalButton
+              buttonText="Sign Up"
+              onItemClick={closeMenu}
+              modalComponent={<SignupFormModal />}
+            />
+          </div>
         )}
       </div>
     </>
