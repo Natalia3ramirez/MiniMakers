@@ -25,7 +25,7 @@ function SplashPage() {
                 src='https://i.pinimg.com/564x/bd/dc/f3/bddcf31fdb1edb050ade7801397a52fe.jpg'
                 alt='Photo 1'
                 className="splash-image"
-                style={{ height: '300px'}}
+                style={{ height: '300px' }}
               />
             <img
                 src='https://i.pinimg.com/564x/22/d1/a4/22d1a4b95758e4ccd9389c5076a86496.jpg'
@@ -68,6 +68,7 @@ function SplashPage() {
           </Masonry>
         </ResponsiveMasonry>
       </div>
+      <div className="fade-effect"></div>
     </div>
   );
 }
