@@ -47,6 +47,7 @@
   font-size: 14px;
   border-radius: 24px;
   text-decoration: none;
+  position: relative
   /* transition: background-color 0.3s ease, transform 0.3s ease; */
 }
 
@@ -55,6 +56,7 @@
   border: none;
   background-color: white;
   font-size: 14px;
+
 }
 
 
@@ -153,16 +155,33 @@
 .nav-create-board button:hover,
 .nav-create-pin button:hover {
   background: rgb(221, 217, 217);
+  width: 100%;
+  border-radius: 7px;
 }
+
+.nav-create-board,
+.nav-create-pin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 
 .create-dropdown {
-  width: 100px;
-  background-color: white;
-  border: 1px solid black;
-
+  /* width: 100px;
+  background-color: white; */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  border-radius: 15px;
+  /* margin-top: 50px; */
 }
 
+.create-button.active {
+  display: flex;
+  justify-content: center;
+  margin-top: 55px;
+}
 
 /* profile login and signup */
 
@@ -207,4 +226,17 @@
 
 .user-icon-login button:hover {
   background-color: rgb(174, 0, 0);
+}
+
+
+/*  create dropdown */
+
+
+.create-button {
+  /* Add the styles you want for the active button here */
+  /* For example, you can change the background color or add a border */
+  background-color: #ddd;
+  border: 1px solid #aaa;
+  color: #333;
+
 }

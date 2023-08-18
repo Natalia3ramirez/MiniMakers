@@ -58,7 +58,7 @@ function SignupFormModal() {
 		}
 		const today = new Date();
 		const birthdateDate = new Date(birthdate);
-		const ageYears = today.getFullYear() - birthdateDate.getFullYear();
+		let ageYears = today.getFullYear() - birthdateDate.getFullYear();
 
 		if (today.getMonth() < birthdateDate.getMonth() ||
 			(today.getMonth() === birthdateDate.getMonth() && today.getDate() < birthdateDate.getDate())) {

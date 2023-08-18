@@ -113,7 +113,7 @@ const SingleBoard = () => {
           >
             <Masonry>
               {pins.map((pin) => (
-                <div>
+                <div className='boards-pins'>
                   <PinCard key={pin.id} pin={pin} />
                   {user && boardUser && (
                     <OpenModalButton

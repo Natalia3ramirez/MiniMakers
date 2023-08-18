@@ -29,25 +29,18 @@ function CreateButton({ user }) {
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
 
-  // const handleCreate = (e) => {
-  //   e.preventDefault();
-  //   dispatch(logout());
-  // };
-
   const ulClassName = "create-dropdown" + (showMenu ? "" : " hidden");
+  const buttonClassName = "create-button" + (showMenu ? " active" : "");
   const closeMenu = () => setShowMenu(false);
 
   return (
     <>
-      <button onClick={openMenu}>
+      <button onClick={openMenu} className={buttonClassName}>
         Create
-
       </button>
-      <ul className={ulClassName} ref={ulRef}>
+      <div className={ulClassName} ref={ulRef}>
 
-        <>
         <div className='nav-create-board'>
-
           <OpenModalButton
             buttonText="Create Board"
             onItemClick={closeMenu}
@@ -55,7 +48,6 @@ function CreateButton({ user }) {
           />
         </div>
         <div className='nav-create-pin'>
-
           <OpenModalButton
             buttonText="Create Pin"
             onItemClick={closeMenu}
@@ -63,9 +55,7 @@ function CreateButton({ user }) {
           />
         </div>
 
-        </>
-
-      </ul>
+      </div>
     </>
   );
 }

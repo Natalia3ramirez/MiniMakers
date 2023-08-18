@@ -16,7 +16,7 @@ function Navigation({ isLoaded }) {
 				</div>
 					{sessionUser && (
 				<div className="navlink-create">
-						<div>
+						<div className='create-button-container'>
 							<CreateButton user={sessionUser}></CreateButton>
 						</div>
 				</div>
