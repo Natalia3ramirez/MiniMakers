@@ -11,6 +11,7 @@ import { getAllPinsThunk } from '../../store/pin';
 import UpdateBoardModal from './UpdateBoardModal';
 import DeleteBoardModal from './DeleteBoardModal';
 import DeletePinFromBoard from './DeletePinFromBoardModal';
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
 
 
 const SingleBoard = () => {
@@ -24,7 +25,6 @@ const SingleBoard = () => {
   const user = useSelector((state) => state.session.user)
   const allPins = useSelector((state) => state.pins.allPins)
   const pinsArr = Object.values(allPins)
-  // console.log("the pins------->", pinsArr)
 
   const pins = board.boardImages ? pinsArr.filter(pin => board.boardImages.some(image => pin.images.includes(image))) : [];
 
@@ -59,73 +59,80 @@ const SingleBoard = () => {
   if (!board.id) return null
 
   const onClick = () => {
-    history.push('/profile')
+    history.push('/home')
   }
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
   const closeMenu = () => setShowMenu(false);
 
-  // const closeMenu = () => setShowMenu(false);
-  const boardUser =  user.id === board.user_id
+
+  const boardUser = user.id === board.user_id
 
   return (
 
-    <div className="single-pin-container">
-      <h1>{board.name}</h1>
-      {user && boardUser && (
-
-      <div>
-
-        <OpenModalButton
-          buttonText="Edit"
-          onItemClick={closeMenu}
-          modalComponent={<UpdateBoardModal />}
-        />
-        <OpenModalButton
-          buttonText="Delete"
-          onItemClick={closeMenu}
-          modalComponent={< DeleteBoardModal boardId={boardId} />}
-        />
-
+    <div className="board-details-container">
+      <div className='board-details-name'>
+        <h1>{board.name}</h1>
       </div>
+      <div className='profile-user-image'>
+        <img style={{ width: '90px', height: '90px' }} src={user.image} alt={user.name} />
+      </div>
+      <div className='board-description'>{board.description}</div>
+      {user && boardUser && (
+        <>
+        <div className="edit-add-board-container">
+          <div className='edit-add-board'>
+
+            <OpenModalButton
+              className='edit-delete-board-details'
+              buttonText="Edit board"
+              onItemClick={closeMenu}
+              modalComponent={<UpdateBoardModal />}><span class="material-symbols-outlined edit-icon">edit</span></OpenModalButton>
+          </div>
+          <button onClick={onClick} className='push-pin'> Add pins</button>
+        </div>
+        {board.pinLen === 1 ? (
+          <div className='board-pin-length'>
+          {board.pinLen} Pin
+        </div>
+        )
+      :
+      (
+          <div className='board-pin-length'>
+            {board.pinLen} Pins
+          </div>
+      )}
+        </>
+
       )}
 
-      <div className='pin-card-container'>
+      <div className='pins-in-board-container'>
         {pins.length ? (
-          <div className="landing-page-container">
-            {pins.map((pin) => (
-              <div>
-                <PinCard key={pin.id} pin={pin} />
-                {user && boardUser && (
-                  <OpenModalButton
-                    buttonText="Delete"
-                    onItemClick={closeMenu}
-                    modalComponent={<DeletePinFromBoard boardId={boardId} pinId={pin.id}/>}
-                  />
+          <ResponsiveMasonry
+            columnsCountBreakPoints={{ 350: 1, 750: 2, 1020: 5 }}
+          >
+            <Masonry>
+              {pins.map((pin) => (
+                <div>
+                  <PinCard key={pin.id} pin={pin} />
+                  {user && boardUser && (
+                    <OpenModalButton
+                      buttonText="Delete"
+                      onItemClick={closeMenu}
+                      modalComponent={<DeletePinFromBoard boardId={boardId} pinId={pin.id} />}
+                    />
 
-                )}
-              </div>
-            ))}
-          </div>
+                  )}
+                </div>
+              ))}
+            </Masonry>
+          </ResponsiveMasonry>
 
         )
           :
-          (
-            <div>
-
-              <h1> New Board</h1>
-              <p>There aren’t any Pins on this board yet</p>
-            </div>
-
-          )
+          ('')
         }
-
-
       </div>
-
-
-
-
     </div>
   )
 

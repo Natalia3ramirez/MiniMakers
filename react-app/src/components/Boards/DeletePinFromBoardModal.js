@@ -26,10 +26,10 @@ const DeletePinFromBoard = ({ boardId, pinId }) => {
   };
 
   return (
-    <div className='confirm-delete-container'>
+    <div className='confirm-delete-pin-container'>
       <h1>Are you sure?</h1>
       <p>Once you delete a Pin from a Board, you can't undo it!</p>
-      <div>
+      <div className='cancel-delete-pin-from-board'>
         <button type="sumbit" className='cancel-delete-pin' onClick={submitCancel}>
           Cancel
         </button>

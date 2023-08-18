@@ -6,10 +6,10 @@
   width: 450px;
   margin: 0 auto;
   padding: 30px;
-  border: 1px solid #ccc;
   background-color: white;
   border-radius: 35px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 650px;
+  overflow-y: auto;
 }
 
 .signup-modal-container h1 {
@@ -85,3 +85,7 @@
 }
 
 
+.profile-image input {
+  padding-top: 10px;
+  padding-left: 5px;
+}

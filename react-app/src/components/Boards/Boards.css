@@ -121,10 +121,6 @@
   color: white;
 }
 
-/* .edit-board-container button:hover {
-  background-color: red;
-  color: white;
-} */
 
 .description-box {
   height: 100px
@@ -146,20 +142,7 @@
   align-items: center;
 }
 
-/*
-.board-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 20px;
-  margin: 20px 0;
-} */
 
-/* .board-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-} */
 
 .select-board-for-pin.selected {
   background-color: rgb(232, 231, 231);
@@ -215,3 +198,135 @@
 
 }
 
+
+
+/* board details page */
+
+
+.board-details-container {
+  margin: 0 70px 0 70px
+}
+
+.board-details-name {
+  display: flex;
+  justify-content: center;
+}
+
+.edit-delete-board-details {
+  position:relative
+}
+
+
+
+.board-details-container .profile-user-image {
+  display: flex;
+  justify-content: center;
+
+}
+
+.profile-user-image img {
+  margin-top: 0px;
+  margin-bottom: 40px
+}
+
+
+.cancel-delete-pin,
+.cancel-delete-board {
+  background-color: rgb(232, 231, 231);
+  color: rgb(86, 85, 85);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 21px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.delete-board {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 21px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.confirm-delete-container-boards {
+  background-color: white;
+  border-radius: 21px;
+  padding: 20px;
+  width: 400px;
+  max-width: 85%;
+  position: relative;
+  text-align: center;
+  margin: 25px auto 0;
+}
+
+
+
+.cancel-delete-pin-from-board {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirm-delete-pin-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#modal-content {
+  padding: 35px
+}
+
+.board-description {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px
+}
+
+
+.add-pins-to-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add-pins-to-board p {
+  margin-top: 0px;
+  font-size: 12px;
+}
+
+
+.edit-add-board-container button {
+  width: 75px;
+  height: 45px;
+  font-size: 11px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  cursor: pointer;
+  background-color:rgb(232, 231, 231);
+  border: none
+}
+
+.edit-add-board > button {
+  margin-right: 0px
+}
+
+
+.edit-add-board-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 50px;
+}
+
+.board-pin-length {
+  margin-left: 10px
+}

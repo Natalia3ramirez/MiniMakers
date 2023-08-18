@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 import { updateBoardThunk, getSingleBoardThunk } from '../../store/board'
 import './Boards.css'
 import { useModal } from '../../context/Modal'
+import OpenModalButton from '../OpenModalButton';
+import DeleteBoardModal from './DeleteBoardModal';
 
 
 
@@ -15,9 +17,26 @@ const UpdateBoardModal = () => {
   const user = useSelector(state => state.session.user)
   const board = useSelector(state => state.pinnedBoards.singlePinnedBoard)
   const [name, setName] = useState(board.name);
+  const [showMenu, setShowMenu] = useState(false);
   const [description, setDescription] = useState(board.description);
   const [frontendErrors, setFrontendErrors] = useState({});
   const [errors, setErrors] = useState([]);
+  const ulRef = useRef();
+
+  useEffect(() => {
+    if (!showMenu) return;
+
+    const closeMenu = (e) => {
+      if (!ulRef.current.contains(e.target)) {
+        setShowMenu(false);
+      }
+    };
+
+    document.addEventListener("click", closeMenu);
+
+    return () => document.removeEventListener("click", closeMenu);
+  }, [showMenu]);
+
 
 
   useEffect(() => {
@@ -69,6 +88,8 @@ const UpdateBoardModal = () => {
 
   };
 
+  const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
+  const closeMenu = () => setShowMenu(false);
 
   return (
     <div className="edit-board-container">
@@ -95,6 +116,12 @@ const UpdateBoardModal = () => {
             className='description-box'
           />
         </label>
+        <OpenModalButton
+            buttonText="Delete"
+            onItemClick={closeMenu}
+            modalComponent={< DeleteBoardModal boardId={board.id} />}
+          />
+
         <button type="submit" onClick={handleSubmit} className="save-pin-button">Done</button>
       </form>
     </div>

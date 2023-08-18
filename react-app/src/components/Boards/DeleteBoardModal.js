@@ -25,11 +25,11 @@ const DeleteBoardModal = ({ boardId }) => {
   };
 
   return (
-    <div className='confirm-delete-container'>
+    <div className='confirm-delete-container-boards'>
       <h1>Delete this board?</h1>
       <p>The board {board.name} and {board.pinLen} pins will be removed from your profile.</p>
-      <div>
-        <button type="sumbit" className='cancel-delete-pin' onClick={submitCancel}>
+      <div className='cancel-delete-board-buttons'>
+        <button type="sumbit" className='cancel-delete-board' onClick={submitCancel}>
           Cancel
         </button>
         <button type="submit" className='delete-board' onClick={submitDelete}>Delete</button>
