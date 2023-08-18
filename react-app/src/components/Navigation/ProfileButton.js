@@ -35,7 +35,8 @@ function ProfileButton({ user }) {
 
   const handleLogout = (e) => {
     e.preventDefault();
-    dispatch(logout());
+    history.push('/')
+   dispatch(logout());
   };
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
@@ -45,38 +46,20 @@ function ProfileButton({ user }) {
     history.push('/profile')
   };
 
+  console.log("this is the user", user)
+
   return (
     <>
-     {user ? (
-      <div className="user-icon" >
+    {user && (
 
+
+      <div className="user-icon" >
         <img onClick={onClick} src={user.image} alt={user.name} />
         <button className="user-icon-container" onClick={openMenu}>
           <span className="material-symbols-outlined">expand_more</span>
         </button>
-      </div>
-      ):(
-        <>
-        <div className='user-icon-login'>
-          <OpenModalButton
-              buttonText="Log In"
-              onItemClick={closeMenu}
-              modalComponent={<LoginFormModal />}
-            />
-        </div>
-        <div className='user-icon-signup'>
-            <OpenModalButton
-              buttonText="Sign Up"
-              onItemClick={closeMenu}
-              modalComponent={<SignupFormModal />}
-            />
-        </div>
-        </>
+        <div className={ulClassName} ref={ulRef}>
 
-      ) }
-
-      <div className={ulClassName} ref={ulRef}>
-        {user ? (
           <div>
             <div>Currently in</div>
             <div className='user-menu-dropdown-container' onClick={onClick}>
@@ -87,23 +70,17 @@ function ProfileButton({ user }) {
               <button className="logout-button" onClick={handleLogout}>Log Out</button>
             </p>
           </div>
-        ) : (
-          <div>
-            <OpenModalButton
-              buttonText="Log In"
-              onItemClick={closeMenu}
-              modalComponent={<LoginFormModal />}
-            />
-            <OpenModalButton
-              buttonText="Sign Up"
-              onItemClick={closeMenu}
-              modalComponent={<SignupFormModal />}
-            />
-          </div>
-        )}
+
       </div>
+      </div>
+
+)}
+
     </>
   );
 }
 
 export default ProfileButton;
+
+
+
