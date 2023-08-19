@@ -15,13 +15,12 @@ function LoginFormModal() {
 
 
 
-
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = await dispatch(login(email, password));
     if (data) {
-      setErrors(data);
+      setErrors(["Invalid credentials"]);
+      return
     } else {
       history.push('/home')
       closeModal()
