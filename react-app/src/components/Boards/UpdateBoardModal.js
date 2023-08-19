@@ -21,6 +21,7 @@ const UpdateBoardModal = () => {
   const [description, setDescription] = useState(board.description);
   const [frontendErrors, setFrontendErrors] = useState({});
   const [errors, setErrors] = useState([]);
+  const [submitted, setSubmitted] = useState(false);
   const ulRef = useRef();
 
   useEffect(() => {
@@ -40,25 +41,28 @@ const UpdateBoardModal = () => {
 
 
   useEffect(() => {
-    const frontendErrors = {}
+    const frontendErrors = {};
+
     if (!name) {
-      frontendErrors.name = "Name is required to create a Pin"
+      frontendErrors.name = "Name is required to update a board";
     }
     if (name.length < 3) {
-      frontendErrors.name = "Name is must be at least 3 characters to create a Pin"
+      frontendErrors.name = "Name must be at least 3 characters to update a board";
     }
     if (name.length > 50) {
-      frontendErrors.name = "Name is must be 50 characters or less to create a Pin"
+      frontendErrors.name = "Name must be 50 characters or less to update a board";
     }
-    if (description.length > 500) {
+    if(description && description.length > 500){
       frontendErrors.description = "Description must be 500 characters or less"
     }
 
-    setFrontendErrors(frontendErrors)
-  }, [name])
+    setFrontendErrors(frontendErrors);
+  }, [name, description]);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setSubmitted(true)
 
 
     const hasFrontendErrors = Object.keys(frontendErrors).length > 0;
@@ -105,7 +109,7 @@ const UpdateBoardModal = () => {
             required
           />
         </label>
-        {frontendErrors.name && <p className='on-submit-errors'>{frontendErrors.name}</p>}
+        {frontendErrors.name && submitted && <p className='on-submit-errors'>{frontendErrors.name}</p>}
         <label>
           Description
           <textarea
@@ -116,6 +120,7 @@ const UpdateBoardModal = () => {
             className='description-box'
           />
         </label>
+        {frontendErrors.description && submitted && <p className='on-submit-errors'>{frontendErrors.description}</p>}
         <OpenModalButton
             buttonText="Delete"
             onItemClick={closeMenu}
