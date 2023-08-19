@@ -53,8 +53,14 @@ function SignupFormModal() {
 		if (password.length < 6) {
 			frontendErrors.password = "Password must be at least 6 characters"
 		}
+		if (aboutMe.length > 500) {
+			frontendErrors.aboutMe = "About Me must be less than 500 characters"
+		}
 		if (confirmPassword.length < 2) {
 			frontendErrors.confirmPassword = "Confirm Password is required"
+		}
+		if (!image){
+			frontendErrors.image = 'Your profile image is required'
 		}
 
 		const today = new Date();
@@ -67,11 +73,11 @@ function SignupFormModal() {
 		}
 
 		if (ageYears < 18) {
-			frontendErrors.birthdate = "You must be at least 18 years or older to sign up";
+			frontendErrors.birthdate = "You must be 18 years or older to sign up";
 		}
 
 		setFrontendErrors(frontendErrors)
-	}, [email, firstName, lastName, confirmPassword, password, birthdate])
+	}, [email, firstName, lastName, confirmPassword, password, birthdate, image, aboutMe])
 
 
 	// console.log('PROFILE IMAGE--->', image)
@@ -160,6 +166,7 @@ function SignupFormModal() {
 					/>
 					Describe yourself in 500 characters or less!
 				</label>
+				{frontendErrors.aboutMe && submitted && <p className='on-submit-errors'>{frontendErrors.aboutMe}</p>}
 				<label>
 					Email
 					<input
@@ -189,6 +196,7 @@ function SignupFormModal() {
 						onChange={(e) => setImage(e.target.files[0])}
 					/>
 				</label>
+				{frontendErrors.image && submitted && <p className='on-submit-errors'>{frontendErrors.image}</p>}
 				<label>
 					Password
 					<input

@@ -40,12 +40,12 @@ const CreateBoardModal = () => {
 		if (name.length > 50) {
 			frontendErrors.name = "Name is must be 50 characters or less to create a Pin"
 		}
-		if (description.length > 500) {
-			frontendErrors.description = "Description must be 500 characters or less"
-		}
+		if(description && description.length > 500){
+      frontendErrors.description = "Description must be 500 characters or less"
+    }
 
 		setFrontendErrors(frontendErrors)
-	}, [name])
+	}, [name, description])
 
 
 
