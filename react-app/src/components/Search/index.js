@@ -26,7 +26,8 @@ function SearchBar({onSearch}) {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className='search-bar-container'>
+      <span class="material-symbols-outlined">search</span>
       <input
         type="text"
         placeholder="Feature coming soon..."

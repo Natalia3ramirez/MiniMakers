@@ -270,3 +270,41 @@
   justify-content: space-between;
   align-items: center;
 }
+
+
+
+/*  search bar */
+
+/* .search-bar-container input{
+  width: 75%
+}
+
+.nav-bar {
+  width: 100%
+} */
+
+.nav-bar {
+  width: 60%;
+  margin-left: -100px;
+}
+
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  background-color: #f2f3f4;
+  border: 1px solid #ddd;
+  border-radius: 50px;
+  padding: 5px 10px;
+  width: 100%;
+  margin: 10px auto;
+}
+
+.search-bar-container input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 14px;
+  padding: 10px;
+  width: 100%
+}
