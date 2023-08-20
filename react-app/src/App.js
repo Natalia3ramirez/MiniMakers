@@ -10,6 +10,7 @@ import CreatePinModal from "./components/Pins/CreatePinModal";
 import UserProfilePage from "./components/UserProfile";
 import SingleBoard from "./components/Boards/SingleBoardDetailsPage";
 import SplashPage from "./components/SplashPage";
+import SearchResultPage from "./components/Search/SearchResult";
 
 
 function App() {
@@ -53,6 +54,11 @@ function App() {
           <Route path="/boards/:boardId">
             <ProtectedRoute>
               <SingleBoard />
+            </ProtectedRoute>
+          </Route>
+          <Route path="/search">
+            <ProtectedRoute>
+              <SearchResultPage />
             </ProtectedRoute>
           </Route>
         </Switch>

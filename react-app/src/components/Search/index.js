@@ -1,38 +1,42 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { getAllPinsThunk } from "../../store/pin";
-import  "./Search.css"
+import "./Search.css";
 
+function SearchBar() {
+  const [searchQuery, setSearchQuery] = useState("");
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const pins = useSelector((state) => state.pins.allPins);
+  const pinsArr = Object.values(pins);
 
-function SearchBar({onSearch}) {
-  // const [searchQuery, setSearchQuery] = useState('');
-  // const dispatch = useDispatch();
-  // const pins = useSelector(state => state.pins)
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
 
-  // const handleSearchChange = (e) => {
-  //   e.preventDefault();
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      if (searchQuery.trim() !== "") {
+        history.push(`/search?query=${encodeURIComponent(searchQuery)}`);
+      }
+    }
+  };
 
-  //   const filterdSearch = pins.filter(pin => pin.title.toLowerCase().includes(pin.toLowerCase()))
-
-  //   setSearchQuery(e.target.value);
-  //   onSearch(e.target.value);
-  // };
-
-
-
-  //   useEffect(() => {
-  //   dispatch(getAllPinsThunk());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(getAllPinsThunk());
+  }, [dispatch]);
 
   return (
-    <div className='search-bar-container'>
-      <span class="material-symbols-outlined">search</span>
+    <div className="search-bar-container">
+      <span className="material-symbols-outlined">search</span>
       <input
         type="text"
-        placeholder="Feature coming soon..."
-        // value={searchQuery}
-        // onChange={handleSearchChange}
+        placeholder="Search for pins..."
+        value={searchQuery}
+        onChange={handleSearchChange}
+        onKeyPress={handleKeyPress}
       />
     </div>
   );

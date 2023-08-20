@@ -119,7 +119,7 @@ def seed_pins():
   pin17 = Pin(
     user_id=  1,
     title= "Nature Bracelet Craft",
-    images= "https://www.pinterest.com/pin/569635052868330433/",
+    images= "https://i.pinimg.com/564x/c6/9d/22/c69d22ecc4e30678610570f75930c09c.jpg",
     description= "Go on a nature walk and create beautiful bracelets using collected natural treasures.",
     created_at= datetime(year=2023, month=3, day=18, hour=10, minute=0, second=0)
   )
