@@ -55,6 +55,10 @@
   color: rgb(148, 147, 147)
 }
 
+.boards-pins-buttons p {
+  word-break: break-word;
+}
+
 /* pin board card */
 
 .pinned-board-container {
