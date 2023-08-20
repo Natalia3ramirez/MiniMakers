@@ -119,7 +119,7 @@ def seed_pins():
   pin17 = Pin(
     user_id=  1,
     title= "Nature Bracelet Craft",
-    images= "https://i.pinimg.com/564x/5f/1e/2d/5f1e2d99bd1859e374e3c824dce7567f.jpg",
+    images= "https://www.pinterest.com/pin/569635052868330433/",
     description= "Go on a nature walk and create beautiful bracelets using collected natural treasures.",
     created_at= datetime(year=2023, month=3, day=18, hour=10, minute=0, second=0)
   )
@@ -144,79 +144,109 @@ def seed_pins():
     description= "Combine art and movement by stomping on bubble wrap covered in paint.",
     created_at= datetime(year=2022, month=11, day=10, hour=14, minute=45, second=0)
   )
-  # pin21 = Pin(
-  #   user_id= 2,
-  #   title= "Indoor Balloon Tennis",
-  #   images= ,
-  #   description= "Set up a fun and active indoor balloon tennis game for kids.",
-  #   created_at= datetime(year=2022, month=10, day=5, hour=12, minute=0, second=0)
-  # )
-  # pin22 = Pin(
-  #   user_id= 2,
-  #   title= "Colorful Fruit Popsicles",
-  #   images= ,
-  #   description= "Make refreshing and healthy fruit popsicles in a variety of vibrant colors.",
-  #   created_at= datetime(year=2022, month=9, day=18, hour=9, minute=30, second=0)
-  # )
-  # pin23 = Pin(
-  #   user_id= 2,
-  #   title= "DIY Paper Plate Masks",
-  #   images= ,
-  #   description= "Create imaginative paper plate masks with kids for dress-up and play.",
-  #   created_at= datetime(year=2022, month=8, day=10, hour=14, minute=15, second=0)
-  # )
-  # pin24 = Pin(
-  #   user_id= 2,
-  #   title= "Rainbow Water Blob",
-  #   images= ,
-  #   description= "Build a colorful and squishy water blob for sensory play on a hot day.",
-  #   created_at= datetime(year=2022, month=7, day=22, hour=11, minute=0, second=0)
-  # )
-  # pin25 = Pin(
-  #   user_id= 2,
-  #   title= "Nature Scavenger Hunt",
-  #   images= ,
-  #   description= "Go outdoors and explore with a nature scavenger hunt, finding various items.",
-  #   created_at= datetime(year=2022, month=6, day=15, hour=13, minute=30, second=0)
-  # )
-  # pin26 = Pin(
-  #   user_id= 3,
-  #   title= "Homemade Playdough",
-  #   images= ,
-  #   description= "Mix up your own playdough in a rainbow of colors for creative playtime.",
-  #   created_at= datetime(year=2022, month=5, day=8, hour=10, minute=45, second=0)
-  # )
-  # pin27 = Pin(
-  #   user_id= 3,
-  #   title= "Glowing Jar Fireflies",
-  #   images= ,
-  #   description= "Craft glowing fireflies in a jar with glow sticks for a magical nighttime effect.",
-  #   created_at= datetime(year=2022, month=4, day=30, hour=20, minute=0, second=0)
-  # )
-  # pin28 = Pin(
-  #   user_id= 3,
-  #   title= "Creative Collage Art",
-  #   images= ,
-  #   description= "Encourage creativity by making unique collage art with various materials.",
-  #   created_at= datetime(year=2022, month=3, day=12, hour=15, minute=15, second=0)
-  # )
-  # pin29 = Pin(
-  #   user_id= 3,
-  #   title= "Outdoor Chalk Obstacle Course",
-  #   images= ,
-  #   description= "Design an exciting outdoor obstacle course with chalk and creative challenges.",
-  #   created_at= datetime(year=2022, month=2, day=5, hour=9, minute=0, second=0)
-  # )
+  pin21 = Pin(
+    user_id= 2,
+    title= "Indoor Balloon Tennis",
+    images= "https://i.pinimg.com/236x/34/10/27/34102773644101096748aa31de4f4931.jpg" ,
+    description= "Set up a fun and active indoor balloon tennis game for kids.",
+    created_at= datetime(year=2022, month=10, day=5, hour=12, minute=0, second=0)
+  )
+  pin22 = Pin(
+    user_id= 2,
+    title= "Colorful Fruit Popsicles",
+    images="https://i.pinimg.com/236x/92/91/ad/9291ad6793fa01e783589cdef1c20391.jpg" ,
+    description= "Make refreshing and healthy fruit popsicles in a variety of vibrant colors.",
+    created_at= datetime(year=2022, month=9, day=18, hour=9, minute=30, second=0)
+  )
+  pin23 = Pin(
+    user_id= 2,
+    title= "DIY Paper Plate Masks",
+    images= "https://i.pinimg.com/236x/0a/bc/78/0abc78e5c77d63b70e112b322b69f296.jpg",
+    description= "Create imaginative paper plate masks with kids for dress-up and play.",
+    created_at= datetime(year=2022, month=8, day=10, hour=14, minute=15, second=0)
+  )
+  pin24 = Pin(
+    user_id=2,
+    title="Edible Rainbow Necklace",
+    images="https://i.pinimg.com/236x/ae/6a/02/ae6a02aa314909d362ce67d6f5a1fcf6.jpg",
+    description="Engage kids in making and wearing their own edible rainbow necklaces using fruit loops.",
+    created_at=datetime(year=2022, month=4, day=8, hour=9, minute=0, second=0)
+  )
+
+  pin25 = Pin(
+    user_id=2,
+    title="DIY Cardboard Marble Run",
+    images="https://i.pinimg.com/564x/73/ae/15/73ae15ab18bcdc10f7bf8b3590aeaabd.jpg",
+    description="Build a creative and customizable marble run using cardboard and tubes.",
+    created_at=datetime(year=2022, month=3, day=25, hour=15, minute=15, second=0)
+  )
+
+  pin26 = Pin(
+    user_id=3,
+    title="Water Balloon Painting",
+    images="https://i.pinimg.com/564x/e4/89/ec/e489ec360a3ea66b5b8125fb5f4b54be.jpg",
+    description="Combine water balloons and paint to create unique and colorful artworks.",
+    created_at=datetime(year=2022, month=2, day=12, hour=12, minute=30, second=0)
+  )
+  pin27 = Pin(
+    user_id= 3,
+    title= "Glowing Jar Fireflies",
+    images="https://i.pinimg.com/236x/7c/9e/e0/7c9ee0f4d2e86478332b23924a869950.jpg",
+    description= "Craft glowing fireflies in a jar with glow sticks for a magical nighttime effect.",
+    created_at= datetime(year=2022, month=4, day=30, hour=20, minute=0, second=0)
+  )
+  pin28 = Pin(
+    user_id= 3,
+    title= "Creative Collage Art",
+    images="https://i.pinimg.com/736x/2f/07/14/2f07143ef9727d1aad98c8e4ca82b7cb.jpg",
+    description= "Encourage creativity by making unique collage art with various materials.",
+    created_at= datetime(year=2022, month=3, day=12, hour=15, minute=15, second=0)
+  )
+  pin29 = Pin(
+    user_id= 3,
+    title= "Outdoor Chalk Obstacle Course",
+    images="https://i.pinimg.com/236x/71/9e/07/719e07265ec34a7f82e908406167b855.jpg",
+    description= "Design an exciting outdoor obstacle course with chalk and creative challenges.",
+    created_at= datetime(year=2022, month=2, day=5, hour=9, minute=0, second=0)
+  )
   # pin30 = Pin(
-  #   user_id= 3,
-  #   title= "Edible Marshmallow Playdough",
-  #   images= ,
-  #   description= "Make edible playdough using marshmallows and a few simple ingredients.",
-  #   created_at= datetime(year=2022, month=1, day=20, hour=12, minute=30, second=0)
+  #   user_id=4,
+  #   title="Dinosaur Ice Excavation Sensory Play",
+  #   images="https://i.pinimg.com/564x/12/aa/7c/12aa7cc651ab033fba44d1d5a582e371.jpg",
+  #   description="Freeze toys in ice and let kids excavate them using tools for a cool sensory experience.",
+  #   created_at=datetime(year=2021, month=11, day=18, hour=10, minute=0, second=0)
   # )
 
+  # pin31 = Pin(
+  #   user_id=4,
+  #   title="Sensory Bottles for Babies",
+  #   images="https://i.pinimg.com/564x/bd/19/a8/bd19a8b3f75fade07ee299dbcae79ce4.jpg",
+  #   description="Create sensory bottles filled with various materials to engage and stimulate babies.",
+  #   created_at=datetime(year=2021, month=12, day=22, hour=14, minute=45, second=0)
+  # )
+
+  # pin32 = Pin(
+  #   user_id=1,
+  #   title="Glow in the Dark Painting",
+  #   images="https://i.pinimg.com/564x/87/21/07/872107237bbd4f7746b77de473bda4e6.jpg",
+  #   description="Create stunning glow in the dark paintings with neon colors and black lights.",
+  #   created_at=datetime(year=2022, month=5, day=20, hour=13, minute=45, second=0)
+  # )
+
+
+  # pin36 = Pin(
+  #   user_id=3,
+  #   title="Outdoor Nature Art",
+  #   images="",
+  #   description="Use leaves, sticks, and other natural elements to make beautiful outdoor nature art.",
+  #   created_at=datetime(year=2022, month=1, day=3, hour=9, minute=0, second=0)
+  # )
+
+
+
+
   pin_item_list = [pin1, pin2, pin3, pin4, pin5, pin6, pin7, pin8, pin9, pin10,
-pin11, pin12, pin13, pin14, pin15, pin16, pin17, pin18, pin19, pin20]
+pin11, pin12, pin13, pin14, pin15, pin16, pin17, pin18, pin19, pin20, pin21, pin22, pin23, pin24, pin25, pin26, pin27, pin28, pin29]
 
   pins_list = [db.session.add(pin_item) for pin_item in pin_item_list]
   db.session.commit()

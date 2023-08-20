@@ -12,7 +12,7 @@ def seed_users():
         email='demo@aa.io',
         password='password',
         birthdate=date(1992, 1, 1),
-        image='https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=400&q=60')
+        image='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScGQQPJTeRXYxfbXVhLLXPl4aCJCexZ4dS7Q&usqp=CAU')
     marnie = User(
         first_name='marnie',
         last_name='marns',
@@ -28,7 +28,7 @@ def seed_users():
         email='bobbie@aa.io',
         password='password',
         birthdate=date(1992, 1, 3),
-        image='https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=400&q=60')
+        image='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRifV3RIprnL4_-ZPwLX8Q8pnrgM7NtJ8jmoYoJAEoRGSusms7qritvgIL2QYSKOHdHeFQ&usqp=CAU')
 
     db.session.add(demo)
     db.session.add(marnie)

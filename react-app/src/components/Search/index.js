@@ -6,9 +6,9 @@ import  "./Search.css"
 
 
 function SearchBar({onSearch}) {
-  const [searchQuery, setSearchQuery] = useState('');
-  const dispatch = useDispatch();
-  const pins = useSelector(state => state.pins)
+  // const [searchQuery, setSearchQuery] = useState('');
+  // const dispatch = useDispatch();
+  // const pins = useSelector(state => state.pins)
 
   // const handleSearchChange = (e) => {
   //   e.preventDefault();
@@ -21,9 +21,9 @@ function SearchBar({onSearch}) {
 
 
 
-    useEffect(() => {
-    dispatch(getAllPinsThunk());
-  }, [dispatch]);
+  //   useEffect(() => {
+  //   dispatch(getAllPinsThunk());
+  // }, [dispatch]);
 
   return (
     <div className='search-bar-container'>
@@ -31,7 +31,7 @@ function SearchBar({onSearch}) {
       <input
         type="text"
         placeholder="Feature coming soon..."
-        value={searchQuery}
+        // value={searchQuery}
         // onChange={handleSearchChange}
       />
     </div>

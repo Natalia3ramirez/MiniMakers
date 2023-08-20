@@ -33,6 +33,8 @@ export default function SinglePin() {
   const pinUser =  user.id === pin.user_id
 
   return (
+    <div className='pin-details-container'>
+
     <div className="single-pin-container">
       <div className='detail-pin-image-container'>
         <img className="single-pin-image"  src={pin.images} alt={pin.name} />
@@ -77,6 +79,7 @@ export default function SinglePin() {
 
       </div>
 
+    </div>
     </div>
   )
 
