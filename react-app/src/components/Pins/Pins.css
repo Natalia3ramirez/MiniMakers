@@ -245,6 +245,7 @@
   background-color: rgb(221, 217, 217);
 }
 
+.create-board-button button:hover,
 .save-pin-button:hover,
 .details-save-pin button:hover,
 .confirm-delete-container .delete-pin:hover {

@@ -23,9 +23,9 @@ function SearchResultPage() {
       const filtered = pinsArr.filter((pin) =>
         pin.title.toLowerCase().includes(searchQuery.toLowerCase())
       );
-      setFilteredPins(filtered); // Update filteredPins with search results
+      setFilteredPins(filtered);
     } else {
-      setFilteredPins([]); // Reset filteredPins if searchQuery is empty
+      setFilteredPins([]); 
     }
   }, [searchQuery, pinsArr]);
 
