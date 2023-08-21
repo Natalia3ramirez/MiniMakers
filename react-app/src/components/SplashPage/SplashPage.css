@@ -93,8 +93,8 @@
 
 .splash-images-container {
   margin: -100px;
-  overflow: hidden;
-  position: relative
+  /* position: relative;
+  overflow: hidden; */
 }
 
 
