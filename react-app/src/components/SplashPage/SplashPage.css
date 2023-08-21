@@ -3,14 +3,13 @@
   flex-direction: column;
   align-items: center;
   background-color: #fff;
-  /* padding: 20px; */
   height: 30vh;
   margin-top: 125px;
 }
 
 .splash {
   text-align: center;
-  margin-bottom: 300px;
+  margin-bottom: 230px;
 }
 
 .splash-title {
@@ -31,10 +30,7 @@
 }
 
 .splash-images {
-  /* margin-top: -70px; */
   width: 100%;
-
-
 }
 
 .splash-images img {
@@ -46,6 +42,7 @@
   max-width: 300px;
   border-radius: 10px;
   margin-top: auto;
+
 }
 
 
@@ -62,3 +59,4 @@
 .splash-images-container {
   margin: -100px
 }
+
