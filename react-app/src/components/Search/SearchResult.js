@@ -23,23 +23,25 @@ function SearchResultPage() {
       const filtered = pinsArr.filter((pin) =>
         pin.title.toLowerCase().includes(searchQuery.toLowerCase())
       );
-      setFilteredPins(filtered);
+      setFilteredPins(filtered); // Update filteredPins with search results
+    } else {
+      setFilteredPins([]); // Reset filteredPins if searchQuery is empty
     }
-  }, [searchQuery]);
-
-  if (!searchQuery || !filteredPins.length) {
-    return <div>No search results found.</div>;
-  }
+  }, [searchQuery, pinsArr]);
 
   return (
     <div className="masonry-container">
-      <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 1020: 5 }}>
-        <Masonry>
-          {filteredPins.map((pin) => (
-            <PinCard key={pin.id} pin={pin} />
-          ))}
-        </Masonry>
-      </ResponsiveMasonry>
+      {filteredPins.length === 0 ? (
+        <div>No search results found.</div>
+      ) : (
+        <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 1020: 5 }}>
+          <Masonry>
+            {filteredPins.map((pin) => (
+              <PinCard key={pin.id} pin={pin} />
+            ))}
+          </Masonry>
+        </ResponsiveMasonry>
+      )}
     </div>
   );
 }
