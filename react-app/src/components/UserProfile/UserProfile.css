@@ -136,6 +136,10 @@
 
 .pin-board-name {
   margin-bottom: 0px;
+  max-width: 200px;
+  white-space: nowrap; /* Prevent line breaks */
+  overflow: hidden; /* Hide overflow */
+  text-overflow: ellipsis;
 }
 
 

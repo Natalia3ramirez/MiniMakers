@@ -180,6 +180,9 @@
   flex-direction: row;
   align-items: center;
   margin: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
 }
 
@@ -223,7 +226,7 @@
 
 
 .board-details-container {
-  margin: 0 70px 0 70px
+  margin: 125px 70px 0 70px;
 }
 
 .board-details-name {
