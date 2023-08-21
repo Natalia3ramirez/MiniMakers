@@ -14,6 +14,10 @@
 
 }
 
+.profile-container {
+  margin-top: 125px
+}
+
 .profile-user-image-container {
   display: flex;
   flex-direction: column;

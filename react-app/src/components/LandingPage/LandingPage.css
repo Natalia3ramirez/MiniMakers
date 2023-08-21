@@ -44,5 +44,6 @@ button {
 
 .masonry-container,
 .profile-masonry {
-  margin: 0 70px 0 70px
+  margin: 125px 70px 0 70px;
+
 }

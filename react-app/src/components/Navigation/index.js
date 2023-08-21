@@ -13,7 +13,7 @@ import SearchBar from '../Search';
 function Navigation({ isLoaded }) {
 	const sessionUser = useSelector(state => state.session.user);
 	const history = useHistory();
-	
+
 	// console.log("nav session user", sessionUser)
 
 	const handleLogoClick = () => {
@@ -25,7 +25,7 @@ function Navigation({ isLoaded }) {
 		<>
 
 			{isLoaded && (
-				<>
+				<div className="navigation-container">
 					<div className="navigation">
 						{sessionUser ? (
 							<>
@@ -76,7 +76,7 @@ function Navigation({ isLoaded }) {
 						}
 
 					</div>
-				</>
+				</div>
 			)
 			}
 		</>

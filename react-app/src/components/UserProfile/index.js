@@ -43,7 +43,7 @@ const UserProfilePage = () => {
 
 
   return (
-    <div>
+    <div className="profile-container">
       <div className='profile-user-image-container'>
         <div className='profile-user-image'>
           <img style={{ width: '110px', height: '110px' }} src={user.image} alt={user.name} />
