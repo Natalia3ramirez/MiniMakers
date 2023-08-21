@@ -12,14 +12,14 @@ def seed_pins():
     created_at= datetime(year=2023, month=8, day=1, hour=12, minute=30, second=0)
   )
   pin2 = Pin(
-    user_id= 1,
+    user_id= 2,
     title= "Crafty Paper Plate Animals",
     images= "https://i.pinimg.com/564x/a3/99/d9/a399d977381503b439fd68eec9a27cd5.jpg",
     description= "Transform simple paper plates into adorable animal crafts with your kids.",
     created_at= datetime(year=2023, month=3, day=12, hour=11, minute=0, second=0)
   )
   pin3 = Pin(
-    user_id= 1,
+    user_id= 3,
     title= "DIY Rainbow Slime",
     images= "https://i.pinimg.com/564x/79/b4/8e/79b48e602758a8950dbb7c8e778e1cdf.jpg",
     description= "Create colorful and squishy slime with this easy DIY recipe.",
@@ -40,28 +40,28 @@ def seed_pins():
     created_at= datetime(year=2023, month=6, day=20, hour=14, minute=45, second=0)
   )
   pin6 = Pin(
-    user_id= 1,
+    user_id= 2,
     title= "Rainbow Fruit Salad",
     images= "https://i.pinimg.com/564x/9b/f7/8c/9bf78cee1fc69511e83fb2130375ae4d.jpg",
     description= "Serve up a colorful and delicious fruit salad that kids will love.",
     created_at= datetime(year=2023, month=5, day=10, hour=9, minute=30, second=0)
   )
   pin7 = Pin(
-    user_id= 1,
+    user_id= 3,
     title= "Indoor Obstacle Course",
     images= "https://i.pinimg.com/564x/fd/4b/55/fd4b55eb432de78a80db32cea3985e35.jpg",
     description= "Build a fun indoor obstacle course to keep kids active and entertained.",
     created_at= datetime(year=2023, month=4, day=5, hour=16, minute=15, second=0)
   )
   pin8 = Pin(
-    user_id=  1,
+    user_id=  3,
     title= "DIY Fruit and Veggie Stamps",
     images= "https://i.pinimg.com/564x/6e/77/95/6e7795ff570e6f6f7a574274f9a43abe.jpg",
     description= "Create unique artwork using cut fruits and veggies as stamps for painting.",
     created_at= datetime(year=2023, month=2, day=18, hour=14, minute=30, second=0)
   )
   pin9 = Pin(
-    user_id= 1,
+    user_id= 2,
     title= "Balloon Rocket Experiment",
     images= "https://i.pinimg.com/564x/89/f6/7d/89f67d76a1f4adf3e262fd8f75629a25.jpg",
     description= "Explore the science of motion with a fun balloon rocket experiment.",
@@ -82,21 +82,21 @@ def seed_pins():
     created_at= datetime(year=2022, month=11, day=10, hour=10, minute=30, second=0)
   )
   pin12 = Pin(
-    user_id=1,
+    user_id=3,
     title="Artistic Salt Painting",
     images="https://i.pinimg.com/564x/07/03/9f/07039fd0208e630db026c600aa77ca06.jpg",
     description="Create beautiful watercolor-like paintings using salt and liquid watercolors.",
     created_at= datetime(year=2023, month=6, day=10, hour=9, minute=30, second=0)
   )
   pin13 = Pin(
-   user_id=1,
+   user_id=2,
    title="Homemade Veggie Chips",
    images="https://i.pinimg.com/564x/7a/c4/f2/7ac4f2f35b15e32636758cddefb14c86.jpg",
    description="Bake crispy and flavorful veggie chips using a variety of colorful vegetables.",
    created_at= datetime(year=2023, month=7, day=28, hour=11, minute=45, second=0)
   )
   pin14 = Pin(
-   user_id=1,
+   user_id=2,
    title="Upcycled Cardboard Crafts",
    images="https://i.pinimg.com/564x/60/16/ae/6016aebc0519927fb9fa31a916cf0769.jpg",
    description="Turn cardboard boxes into imaginative crafts like cars, houses, and robots.",
@@ -110,7 +110,7 @@ def seed_pins():
     created_at= datetime(year=2023, month=5, day=20, hour=16, minute=15, second=0)
   )
   pin16 = Pin(
-    user_id= 1,
+    user_id= 3,
     title= "Healthy Banana Oat Cookies",
     images= "https://i.pinimg.com/564x/5f/1e/2d/5f1e2d99bd1859e374e3c824dce7567f.jpg",
     description= "These healthy and chewy Banana Oat cookies require only two ingredients - bananas and oats, plus your favorite add-ins! Perfect for breakfast on the go!",
@@ -131,7 +131,7 @@ def seed_pins():
     created_at= datetime(year=2023, month=2, day=10, hour=11, minute=15, second=0)
   )
   pin19 = Pin(
-    user_id= 1,
+    user_id= 3,
     title= "Rainbow Rice Sensory Play",
     images= "https://i.pinimg.com/564x/7b/1d/a4/7b1da4891a018b15c872397867233aee.jpg",
     description= "Create a colorful sensory play activity with dyed rice and fun scoops.",
@@ -152,7 +152,7 @@ def seed_pins():
     created_at= datetime(year=2022, month=10, day=5, hour=12, minute=0, second=0)
   )
   pin22 = Pin(
-    user_id= 2,
+    user_id= 3,
     title= "Colorful Fruit Popsicles",
     images="https://i.pinimg.com/236x/92/91/ad/9291ad6793fa01e783589cdef1c20391.jpg" ,
     description= "Make refreshing and healthy fruit popsicles in a variety of vibrant colors.",
@@ -174,7 +174,7 @@ def seed_pins():
   )
 
   pin25 = Pin(
-    user_id=2,
+    user_id=1,
     title="DIY Cardboard Marble Run",
     images="https://i.pinimg.com/564x/73/ae/15/73ae15ab18bcdc10f7bf8b3590aeaabd.jpg",
     description="Build a creative and customizable marble run using cardboard and tubes.",
@@ -203,7 +203,7 @@ def seed_pins():
     created_at= datetime(year=2022, month=3, day=12, hour=15, minute=15, second=0)
   )
   pin29 = Pin(
-    user_id= 3,
+    user_id= 1,
     title= "Outdoor Chalk Obstacle Course",
     images="https://i.pinimg.com/236x/71/9e/07/719e07265ec34a7f82e908406167b855.jpg",
     description= "Design an exciting outdoor obstacle course with chalk and creative challenges.",
