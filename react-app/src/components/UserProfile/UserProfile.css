@@ -7,6 +7,9 @@
 
 }
 
+.profile-pins > .profile-masonry {
+  margin-top: 0px;
+}
 
 .profile-user-image {
   display: flex;

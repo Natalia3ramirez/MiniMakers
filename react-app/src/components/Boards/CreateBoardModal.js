@@ -62,13 +62,14 @@ const CreateBoardModal = () => {
 			formData.append("description", description);
 			formData.append('user_id', user.id)
 
+
 			const data = await dispatch(createNewBoardThunk(formData));
 
-			if(!newBoard) return null
 
 			if (data) {
 				setErrors(data);
 			} else {
+				console.log('Before closing modal and navigating');
 				if(currentPath.startsWith('/pins/')) await closeModal()
 				else {
 					await dispatch(getAllBoardsThunk())
