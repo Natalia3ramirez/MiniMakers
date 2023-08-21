@@ -251,8 +251,7 @@
 
 
 .create-button {
-  /* Add the styles you want for the active button here */
-  /* For example, you can change the background color or add a border */
+
   background-color: #ddd;
   border: 1px solid #aaa;
   color: #333;
@@ -293,7 +292,7 @@
 } */
 
 .nav-bar {
-  width: 65%;
+  width: 55%;
   margin-left: -100px;
 }
 
