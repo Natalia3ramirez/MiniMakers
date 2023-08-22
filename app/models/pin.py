@@ -11,7 +11,6 @@ class Pin(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    user_id = (db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
     title = db.Column(db.String(50), nullable=False)
     images = db.Column(db.String(255), nullable=False)
     description = db.Column(db.String(500), nullable=True)
@@ -30,7 +29,7 @@ class Pin(db.Model):
     user = db.relationship("User", back_populates='pins')
     boards = db.relationship("Board", secondary=add_prefix_for_prod("pinned_boards"), back_populates="pins")
     pinned_boards = db.relationship("PinnedBoard", back_populates='pins', cascade="all, delete-orphan")
-
+    comments = db.relationship('Comment', back_populates='pin', cascade="all, delete-orphan")
 
 
     def to_dict(self):
@@ -42,7 +41,6 @@ class Pin(db.Model):
             'description': self.description,
             'alt_text': self.alt_text,
             'website': self.website,
-            'user_id': self.user_id,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
             'user': {
@@ -50,6 +48,7 @@ class Pin(db.Model):
                 'firstName': self.user.first_name,
                 'lastName': self.user.last_name,
                 'image': self.user.image
-            }
+            },
+            'comments': [comment.to_dict() for comment in self.comments]
         }
 

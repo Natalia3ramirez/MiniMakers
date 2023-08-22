@@ -28,6 +28,7 @@ class User(db.Model, UserMixin):
     # Relationships go here
     boards = db.relationship("Board", back_populates='user', cascade="all, delete-orphan")
     pins = db.relationship("Pin", back_populates='user', cascade="all, delete-orphan")
+    comments = db.relationship("Comment", back_populates='user', cascade="all, delete-orphan")
 
 
 

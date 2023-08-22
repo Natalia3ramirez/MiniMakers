@@ -5,5 +5,5 @@ from .update_pin_form import UpdatePinForm
 from .create_board_form import BoardForm
 from .update_board_form import UpdateBoardForm
 from .pinned_board_form import PinnedBoardForm
-
+from .comment_form import CommentForm
 
