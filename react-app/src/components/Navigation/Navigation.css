@@ -130,6 +130,20 @@
 
 }
 
+/* .user-dropdown-container {
+  display: flex;
+
+} */
+
+.user-menu-dropdown-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.currently-in {
+  margin-bottom: 10px;
+}
 
 .user-menu .profile-dropdown {
   transform: translateX(-70px);

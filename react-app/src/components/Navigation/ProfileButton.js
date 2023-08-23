@@ -62,7 +62,7 @@ function ProfileButton({ user }) {
         <div className={ulClassName} ref={ulRef}>
 
           <div className='user-dropdown-container'>
-            <div>Currently in</div>
+            <div className='currently-in'>Currently in</div>
             <div className='user-menu-dropdown-container' onClick={onClick}>
               <img className="dropdown-user-icon" style={{ width: '55px', height: '55px' }} src={user.image} alt={user.first_name} />
               <span>{user.first_name}</span>

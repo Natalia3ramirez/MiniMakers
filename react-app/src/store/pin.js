@@ -28,7 +28,7 @@ export const deletePin = (pinId) => ({
 
 // Thunk
 export const getAllPinsThunk = () => async (dispatch) => {
-  const response = await fetch('/api/pins');
+  const response = await fetch('/api/pins/');
 
   if (response.ok) {
     const data = await response.json();
