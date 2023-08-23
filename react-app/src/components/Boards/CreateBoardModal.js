@@ -32,13 +32,13 @@ const CreateBoardModal = () => {
 		const frontendErrors = {}
 
 		if (!name) {
-      frontendErrors.name = "Name is required to create a Pin"
+      frontendErrors.name = "Name is required to create a Board"
     }
 		if (name.length < 3) {
-			frontendErrors.name = "Name is must be at least 3 characters to create a Pin"
+			frontendErrors.name = "Name is must be at least 3 characters to create a Board"
 		}
 		if (name.length > 50) {
-			frontendErrors.name = "Name is must be 50 characters or less to create a Pin"
+			frontendErrors.name = "Name is must be 50 characters or less to create a Board"
 		}
 		if(description && description.length > 500){
       frontendErrors.description = "Description must be 500 characters or less"
