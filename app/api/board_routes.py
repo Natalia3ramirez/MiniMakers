@@ -133,10 +133,7 @@ def addPinToBoard():
     if PinnedBoard.query.filter_by(pin_id=pin.id, board_id=board.id).first():
       return {'errors': "This pin already exists in this board"}, 400
 
-
     board.pinned_boards.append(PinnedBoard(pin_id=pin.id))
-
-
 
     db.session.commit()
     return board.to_dict()

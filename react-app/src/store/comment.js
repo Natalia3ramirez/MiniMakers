@@ -37,9 +37,11 @@ export const deleteComment = (commentId) => ({
 
 
 export const createNewCommentThunk = (formData, pinId) => async (dispatch) => {
-  const response = await fetch(`/api/comments/${pinId}`, {
+
+
+  const response = await fetch(`/api/pins/${pinId}/comments`, {
     method: "POST",
-    body: formData,
+    body: formData
 
   });
   if (response.ok) {
@@ -83,8 +85,9 @@ export default function reducer(state = initialState, action) {
   switch (action.type) {
 
     case NEW_COMMENT:
+      console.log("the state", state)
       newState = { ...state, singlePin: { ...state.pin } }
-      newState.pin[action.comment.id] = action.comment;
+      newState.singlePin[action.comment.id] = action.comment;
       return newState
 
     // case DELETE_PIN:

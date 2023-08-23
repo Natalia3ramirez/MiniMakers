@@ -67,16 +67,24 @@ export default function SinglePin() {
             {comments.length ? (
               <h3 className="comment-title">{pin.commentsLen} Comments</h3>
             ):(
-              <h3 className="comment-title">What do you think?</h3>
+              <div className='comments'>
+                <div>
+                  <h4>Comments</h4>
+                  <p>No comments yet! Add one to start the conversation.</p>
+                </div>
+
+                <h3 className="comment-title">What do you think?</h3>
+              </div>
             )
           }
             <div className='submit-comment'>
-              <CreateComment pin_id={pin.id} />
+              <CreateComment pin={pin} />
             </div>
             <div className='display-comments-container'>
               {comments.map((comment) => (
                 <div key={comment.id}>
                   <p>{comment.created_at}</p>
+                  <p>{comment.message}</p>
                   {/* <h3>{review.comment}</h3>
                   <p>{review.rating.toFixed(1)}</p>
                   <p>

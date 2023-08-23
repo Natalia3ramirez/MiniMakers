@@ -6,12 +6,13 @@ import { getSinglePinThunk } from '../../store/pin'
 import './Comments.css'
 
 
-const CreateComment = (pin) => {
+const CreateComment = () => {
   const history = useHistory();
   const dispatch = useDispatch();
 
   const user = useSelector(state => state.session.user)
-  // const pin = useSelector(state => state.pins.singlePin)
+  const pin = useSelector(state => state.pins.singlePin)
+  console.log("This is the pin", pin)
 
   const [message, setMessage] = useState('');
   const [frontendErrors, setFrontendErrors] = useState({});
@@ -38,13 +39,13 @@ const CreateComment = (pin) => {
     if (!hasFrontendErrors) {
 
       const formData = new FormData();
+      formData.append("user_id", user.id);
+      formData.append("pin_id", pin.id);   
       formData.append("message", message);
-      formData.append('user_id', user.id);
-      formData.append('pin_id', pin.id)
 
 
-      const data = await dispatch(createNewCommentThunk(formData));
-      await dispatch(getSinglePinThunk())
+      const data = await dispatch(createNewCommentThunk(formData, pin.id));
+      await dispatch(getSinglePinThunk(pin.id))
 
 
       if (data) {
