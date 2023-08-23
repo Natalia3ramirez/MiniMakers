@@ -27,6 +27,6 @@ def createComment(pinId):
 
         db.session.add(new_comment)
         db.session.commit()
-        
+
         return new_comment.to_dict()
     return {"errors": validation_errors_to_error_messages(form.errors)}

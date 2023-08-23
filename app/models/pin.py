@@ -33,6 +33,11 @@ class Pin(db.Model):
 
 
     def to_dict(self):
+
+        pinComments = [comment.to_dict() for comment in self.comments]
+
+
+        commentsLen = len(pinComments)
         return {
             'id': self.id,
             'user_id': self.user_id,
@@ -49,6 +54,7 @@ class Pin(db.Model):
                 'lastName': self.user.last_name,
                 'image': self.user.image
             },
-            'comments': [comment.to_dict() for comment in self.comments]
+            'comments': pinComments,
+            'commentsLen': commentsLen
         }
 
