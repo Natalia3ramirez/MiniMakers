@@ -54,14 +54,14 @@ function ProfileButton({ user }) {
 
 
       <div className="user-icon" >
-        
+
         <img onClick={onClick} src={user.image} alt={user.name} />
         <button className="user-icon-container" onClick={openMenu}>
           <span className="material-symbols-outlined">expand_more</span>
         </button>
         <div className={ulClassName} ref={ulRef}>
 
-          <div>
+          <div className='user-dropdown-container'>
             <div>Currently in</div>
             <div className='user-menu-dropdown-container' onClick={onClick}>
               <img className="dropdown-user-icon" style={{ width: '55px', height: '55px' }} src={user.image} alt={user.first_name} />
