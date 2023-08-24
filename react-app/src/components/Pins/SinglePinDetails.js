@@ -20,7 +20,9 @@ export default function SinglePin() {
   const { closeModal } = useModal();
   const pin = useSelector((state) => state.pins.singlePin)
   const user = useSelector((state) => state.session.user)
-  const comments = pin.comments || []
+  const commentsArr = pin.comments || [];
+  const comments = commentsArr.reverse()
+
   // console.log("this is the pin---->", pin)
 
   useEffect(() => {

@@ -12,7 +12,6 @@ const CreateComment = () => {
 
   const user = useSelector(state => state.session.user)
   const pin = useSelector(state => state.pins.singlePin)
-  console.log("This is the pin", pin)
 
   const [message, setMessage] = useState('');
   const [frontendErrors, setFrontendErrors] = useState({});
@@ -36,57 +35,60 @@ const CreateComment = () => {
     setSubmitted(true)
 
     const hasFrontendErrors = Object.keys(frontendErrors).length > 0;
-    if (!hasFrontendErrors) {
-
+    if (hasFrontendErrors) {
+     return
+    }
       const formData = new FormData();
       formData.append("user_id", user.id);
-      formData.append("pin_id", pin.id);   
+      formData.append("pin_id", pin.id);
       formData.append("message", message);
 
 
       const data = await dispatch(createNewCommentThunk(formData, pin.id));
       await dispatch(getSinglePinThunk(pin.id))
-
+      setMessage("")
 
       if (data) {
         setErrors(data);
-      } else {
-        await history.push(`/pins/${pin.id}`)
       }
-    }
   };
 
   return (
     <div className="pin-comment-container">
-    <form encType="multipart/form-data">
+      <form encType="multipart/form-data">
         <ul>
-            {errors.map((error, idx) => (
-                <li key={idx} className="modal-error">
-                    {error}
-                </li>
-            ))}
+          {errors.map((error, idx) => (
+            <li key={idx} className="modal-error">
+              {error}
+            </li>
+          ))}
         </ul>
 
-        <label className="modal-label">
-
-            <textarea
-                className="modal-textarea"
+        <label className="comment-label">
+          <div className='comment-button-container'>
+            <img className="pin-owner-icon" style={{ width: '30px', height: '30px' }} src={pin.user.image} alt={pin.user.firstName} />
+            <div className='comment-and-button'>
+              <input
+                className="comment-textarea"
                 type="text"
                 placeholder="Add a comment"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-            />
-        <button
-            type="submit"
-            onClick={handleSubmit}
-            className="modal-button save-pin-button"
-        >
-            😃
-        </button>
+              />
+              <button
+                type="submit"
+                onClick={handleSubmit}
+                className="modal-button submit-comment"
+              >
+                😃
+              </button>
+            </div>
+          </div>
+
         </label>
 
-    </form>
-</div>
+      </form>
+    </div>
 
 
   )

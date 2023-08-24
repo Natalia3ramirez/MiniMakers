@@ -85,7 +85,6 @@ export default function reducer(state = initialState, action) {
   switch (action.type) {
 
     case NEW_COMMENT:
-      console.log("the state", state)
       newState = { ...state, singlePin: { ...state.pin } }
       newState.singlePin[action.comment.id] = action.comment;
       return newState

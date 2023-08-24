@@ -1,0 +1,20 @@
+.comment-and-button {
+  border: 1px solid black;
+  border-radius: 21px
+}
+
+.comment-textarea {
+  width: 215px;
+  border-radius: 21px 0 0 21px;
+  border: none
+}
+
+.comment-button-container {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.submit-comment {
+  border-radius: 30px;
+}
