@@ -37,6 +37,7 @@ export default function SinglePin() {
   // const closeMenu = () => setShowMenu(false);
   const pinUser = user.id === pin.user_id
 
+
   return (
     <div className='pin-details-container'>
 
@@ -88,12 +89,15 @@ export default function SinglePin() {
                 <div key={comment.id}>
                   <p>{comment.created_at}</p>
                   <p>{comment.message}</p>
-                  {/* <button>···</button> */}
-                  <OpenModalButton
-                    buttonText="···"
-                    // onItemClick={closeMenu}
-                    modalComponent={<DeleteEditComment commentId={comment.id} pinId={pin.id} />}
-                  />
+                  {user.id === comment.user_id ? (
+                    <div>
+                      <OpenModalButton
+                        buttonText="···"
+                        modalComponent={<DeleteEditComment commentId={comment.id} pinId={pin.id} comment={comment}/>}
+                      />
+
+                    </div>
+                    ):('')}
                 </div>
               ))}
             </div>

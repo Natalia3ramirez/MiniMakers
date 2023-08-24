@@ -3,11 +3,13 @@ import { useModal } from "../../context/Modal";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { deleteCommentThunk } from "../../store/comment";
 import { getSinglePinThunk } from "../../store/pin";
+import UpdateCommentModal from "./UpdateComment";
+import OpenModalButton from '../OpenModalButton';
 
 
 
 
-const DeleteEditComment = ({ commentId, pinId }) => {
+const DeleteEditComment = ({ commentId, pinId, comment }) => {
   const dispatch = useDispatch()
   const history = useHistory();
   const { closeModal } = useModal();
@@ -28,6 +30,14 @@ const DeleteEditComment = ({ commentId, pinId }) => {
     <div className='confirm-delete-comment-container'>
       <div>
         <button type="submit" className='delete-comment' onClick={submitDelete}>Delete</button>
+      </div>
+      <div>
+        <OpenModalButton
+          buttonText="Edit"
+          // onItemClick={closeMenu}
+          modalComponent={<UpdateCommentModal comment={comment} />}
+        />
+        {/* <UpdateCommentModal comment={comment} /> */}
       </div>
     </div>
   )

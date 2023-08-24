@@ -1,6 +1,7 @@
 
 const NEW_COMMENT = 'pins/NEW_COMMENT';
 const DELETE_COMMENT = 'pins/DELETE_COMMENT'
+
 // Action Creator
 
 export const createNewComment = (comment) => ({
@@ -16,24 +17,24 @@ export const deleteComment = (commentId) => ({
 
 // Thunk
 
-// export const updatePinThunk = (formData, pinId) => async (dispatch) => {
-//   const response = await fetch(`/api/pins/update/${pinId}`, {
-//     method: "PUT",
-//     body: formData
-//   });
+export const updateCommentThunk = (formData, commentId) => async (dispatch) => {
+  const response = await fetch(`/api/comments/update/${commentId}`, {
+    method: "PUT",
+    body: formData
+  });
 
-//   if (response.ok) {
-//     const data = await response.json();
+  if (response.ok) {
+    const data = await response.json();
 
-//     dispatch(createNewPin(formData));
-//     return data;
-//   } else if (response.status < 500) {
-//     const data = await response.json();
-//     if (data.errors) {
-//       return data.errors;
-//     }
-//   }
-// }
+    dispatch(createNewComment(formData));
+    return data;
+  } else if (response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors;
+    }
+  }
+}
 
 
 export const createNewCommentThunk = (formData, pinId) => async (dispatch) => {
