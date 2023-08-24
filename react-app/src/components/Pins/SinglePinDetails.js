@@ -11,6 +11,7 @@ import UserCard from '../UserProfile/UserCard';
 import { useHistory } from 'react-router';
 import AddPinToBoard from '../Boards/AddPinToBoardModal';
 import CreateComment from '../Comments/CreateComment';
+import DeleteEditComment from '../Comments/DeleteEditComment';
 
 
 export default function SinglePin() {
@@ -68,7 +69,7 @@ export default function SinglePin() {
           <div className='pin-comments-container'>
             {comments.length ? (
               <h3 className="comment-title">{pin.commentsLen} Comments</h3>
-            ):(
+            ) : (
               <div className='comments'>
                 <div>
                   <h4>Comments</h4>
@@ -78,7 +79,7 @@ export default function SinglePin() {
                 <h3 className="comment-title">What do you think?</h3>
               </div>
             )
-          }
+            }
             <div className='submit-comment'>
               <CreateComment pin={pin} />
             </div>
@@ -87,11 +88,12 @@ export default function SinglePin() {
                 <div key={comment.id}>
                   <p>{comment.created_at}</p>
                   <p>{comment.message}</p>
-                  {/* <h3>{review.comment}</h3>
-                  <p>{review.rating.toFixed(1)}</p>
-                  <p>
-                    {review.user.firstName} {review.user.lastName}
-                  </p> */}
+                  {/* <button>···</button> */}
+                  <OpenModalButton
+                    buttonText="···"
+                    // onItemClick={closeMenu}
+                    modalComponent={<DeleteEditComment commentId={comment.id} pinId={pin.id} />}
+                  />
                 </div>
               ))}
             </div>
