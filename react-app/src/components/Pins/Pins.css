@@ -283,6 +283,17 @@
 }
 
 
+#delete-edit-pin-modal > button{
+  background-color: white;
+  color: black;
+  font-size: 18px;
+  margin-right: 60px
+}
+
+#delete-edit-pin-modal > button:hover {
+  background-color: rgb(221, 217, 217);
+}
+
 
 .pin-title-description-container {
   padding: 30px;
@@ -298,8 +309,7 @@
 
 .details-save-pin {
   display: flex;
-  justify-content: end;
-
+  justify-content: space-between;
 }
 
 

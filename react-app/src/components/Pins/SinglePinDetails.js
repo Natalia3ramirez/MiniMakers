@@ -12,6 +12,7 @@ import { useHistory } from 'react-router';
 import AddPinToBoard from '../Boards/AddPinToBoardModal';
 import CreateComment from '../Comments/CreateComment';
 import DeleteEditComment from '../Comments/DeleteEditComment';
+import DeleteEditPin from './DeleteEditPin';
 
 
 export default function SinglePin() {
@@ -47,10 +48,21 @@ export default function SinglePin() {
         </div>
         <div className='pin-title-description-container'>
           <div className='details-save-pin'>
-            <OpenModalButton
-              buttonText="Save to a Board"
-              modalComponent={<AddPinToBoard pin={pin} />}
-            />
+            <div id='delete-edit-pin-modal'>
+              <OpenModalButton
+                buttonText="···"
+                modalComponent={<DeleteEditPin pin={pin} pinId={pin.id} />}
+              />
+            </div>
+            <div className='save-to-board'>
+              <OpenModalButton
+                buttonText="Save to a Board"
+                modalComponent={<AddPinToBoard pin={pin} />}
+              />
+
+            </div>
+            <div>
+            </div>
           </div>
           <div className='pin-title-description'>
             <h2>{pin.title}</h2>
@@ -93,16 +105,16 @@ export default function SinglePin() {
                     <div>
                       <OpenModalButton
                         buttonText="···"
-                        modalComponent={<DeleteEditComment commentId={comment.id} pinId={pin.id} comment={comment}/>}
+                        modalComponent={<DeleteEditComment commentId={comment.id} pinId={pin.id} comment={comment} />}
                       />
 
                     </div>
-                    ):('')}
+                  ) : ('')}
                 </div>
               ))}
             </div>
           </div>
-          {user && pinUser && (
+          {/* {user && pinUser && (
 
             <div className='delete-edit-pin'>
               <OpenModalButton
@@ -116,7 +128,7 @@ export default function SinglePin() {
                 modalComponent={<UpdatePinModal pin={pin} />}
               />
             </div>
-          )}
+          )} */}
 
         </div>
 
