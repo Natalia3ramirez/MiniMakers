@@ -31,7 +31,7 @@ const DeleteEditComment = ({ commentId, pinId, comment }) => {
       <div>
         <button type="submit" className='delete-comment' onClick={submitDelete}>Delete</button>
       </div>
-      <div>
+      <div className='edit-comment'>
         <OpenModalButton
           buttonText="Edit"
           // onItemClick={closeMenu}

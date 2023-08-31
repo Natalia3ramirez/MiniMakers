@@ -103,7 +103,7 @@ export default function SinglePin() {
                   <p>{comment.created_at}</p>
                   <p>{comment.message}</p>
                   {user.id === comment.user_id ? (
-                    <div>
+                    <div className='delete-edit-comment-modal'>
                       <OpenModalButton
                         buttonText="···"
                         modalComponent={<DeleteEditComment commentId={comment.id} pinId={pin.id} comment={comment} />}
@@ -119,22 +119,6 @@ export default function SinglePin() {
             <div className='submit-comment'>
               <CreateComment pin={pin} />
             </div>
-          {/* {user && pinUser && (
-
-            <div className='delete-edit-pin'>
-              <OpenModalButton
-                buttonText="Delete"
-                // onItemClick={closeMenu}
-                modalComponent={<DeletePinModal pinId={pin.id} />}
-              />
-              <OpenModalButton
-                buttonText="Edit"
-                // onItemClick={closeMenu}
-                modalComponent={<UpdatePinModal pin={pin} />}
-              />
-            </div>
-          )} */}
-
         </div>
 
       </div>

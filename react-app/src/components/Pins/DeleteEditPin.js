@@ -32,18 +32,22 @@ const DeleteEditPin = ({ pinId, pin }) => {
 
       {/* {user && pinUser && ( */}
 
-        <div className='delete-edit-pin'>
+      <div className='delete-edit-pin'>
+        <div className='delete-pin-button'>
           <OpenModalButton
             buttonText="Delete"
             // onItemClick={closeMenu}
             modalComponent={<DeletePinModal pinId={pin.id} />}
           />
+        </div>
+        <div className='edit-pin-button'>
           <OpenModalButton
             buttonText="Edit"
             // onItemClick={closeMenu}
             modalComponent={<UpdatePinModal pin={pin} />}
           />
         </div>
+      </div>
       {/* )} */}
     </div>
 
