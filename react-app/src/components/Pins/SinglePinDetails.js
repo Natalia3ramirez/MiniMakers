@@ -49,10 +49,12 @@ export default function SinglePin() {
         <div className='pin-title-description-container'>
           <div className='details-save-pin'>
             <div id='delete-edit-pin-modal'>
+              {user && pinUser && (
               <OpenModalButton
                 buttonText="···"
                 modalComponent={<DeleteEditPin pin={pin} pinId={pin.id} />}
               />
+              )}
             </div>
             <div className='save-to-board'>
               <OpenModalButton
@@ -64,6 +66,7 @@ export default function SinglePin() {
             <div>
             </div>
           </div>
+          <div className='scroll-bar-pin'>
           <div className='pin-title-description'>
             <h2>{pin.title}</h2>
             <p>{pin.description}</p>
@@ -93,9 +96,7 @@ export default function SinglePin() {
               </div>
             )
             }
-            <div className='submit-comment'>
-              <CreateComment pin={pin} />
-            </div>
+
             <div className='display-comments-container'>
               {comments.map((comment) => (
                 <div key={comment.id}>
@@ -107,13 +108,17 @@ export default function SinglePin() {
                         buttonText="···"
                         modalComponent={<DeleteEditComment commentId={comment.id} pinId={pin.id} comment={comment} />}
                       />
-
                     </div>
                   ) : ('')}
                 </div>
               ))}
             </div>
           </div>
+
+          </div>
+            <div className='submit-comment'>
+              <CreateComment pin={pin} />
+            </div>
           {/* {user && pinUser && (
 
             <div className='delete-edit-pin'>

@@ -1,26 +1,56 @@
 .comment-and-button {
-  border: 1px solid black;
-  border-radius: 21px
+  height: 35px;
+  border-radius: 21px;
+  background-color: rgb(232, 231, 231);
+  margin-bottom: 2px;
+  margin-left: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .comment-textarea {
   width: 215px;
+  height: 95%;
   border-radius: 21px 0 0 21px;
-  border: none
+  border: none;
+  background-color: rgb(232, 231, 231);
 }
 
 .comment-button-container {
   display: flex;
   align-content: center;
   justify-content: center;
+
 }
 
 .submit-comment {
-  border-radius: 30px;
+  /* border-radius: 21px; */
+  /* height: 100%; */
+  border: none;
+  /* background-color: rgb(232, 231, 231); */
+
 }
 
-.display-comments-container {
-  max-height: 100px; /* Set a desired maximum height for the container */
+.comment-and-button > button {
+  background-color: rgb(232, 231, 231);
+  border-radius: 21px;
+}
+
+.comment-and-button > input:focus {
+  outline: none; /* Remove the default focus outline */
+  border-color: #007bff; /* Change border color when focused */
+ 
+}
+
+/* .comment-form {
+  display: flex;
+  justify-content: center;
+
+} */
+
+.scroll-bar-pin {
+  max-height: 450px; /* Set a desired maximum height for the container */
   overflow-y: auto; /* Enable vertical scrollbar when content overflows */
 }
 

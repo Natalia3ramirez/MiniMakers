@@ -68,7 +68,7 @@ const AddPinToBoard = ({ pin_id }) => {
 
 
     await dispatch(addPinToBoardThunk(formData));
-    await dispatch(getAllBoardsThunk())
+    // await dispatch(getAllBoardsThunk())
     await history.push(`/boards/${board_id}`)
     await closeModal();
   };
