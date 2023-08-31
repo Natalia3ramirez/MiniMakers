@@ -84,11 +84,10 @@ export default function SinglePin() {
             </div>
             <div className='pin-comments-container'>
               {comments.length ? (
-                <h3 className="comment-title">{pin.commentsLen} Comments</h3>
+               ''
               ) : (
                 <div className='comments'>
                   <div>
-                    <h4>Comments</h4>
                     <p>No comments yet! Add one to start the conversation.</p>
                   </div>
 

@@ -1,6 +1,6 @@
 .single-pin-container {
   display: flex;
-  width: 820px;
+  width: 720px;
   height: 75%;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
   border-radius: 21px;
@@ -267,7 +267,7 @@
   width: 360px;
   border-top-left-radius: 21px;
   border-bottom-left-radius: 21px;
-  /* object-fit: cover; */
+  object-fit: cover;
 
 }
 
