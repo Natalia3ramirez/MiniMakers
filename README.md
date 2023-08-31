@@ -1,6 +1,21 @@
-# Flask React Project
+# Welcome to MiniMakers! 🧩
 
-This is the starter for the Flask React project.
+A Pinterest clone allowing users to visually discover, collect, and organize images on themed  boards and engage with others.
+
+You can check it out here [live](https://minimakers-sfxn.onrender.com)!
+
+## Tools and Frameworks
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) 
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) 
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) 
+![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white) 
+![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white) 
+![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-%23FCA121.svg?style=for-the-badge&logo=sqlalchemy&logoColor=white)
+
+
 
 ## Getting started
 1. Clone this repository (only this branch)
@@ -146,3 +161,35 @@ your site just below the name of the Web Service at the top of the page.
 
 [Render.com]: https://render.com/
 [Dashboard]: https://dashboard.render.com/
+
+
+## Features
+### Users
+* A User can sign up, log in, and log out.
+* A User can use a demo login to navigate through the site.
+* A User must be authorized for posting Pins and Boards.
+* When Users are logged in or logged out they are redirected to the index page.
+
+### Pins 
+* Logged in users can post pins.
+* Logged in users can edit, and delete their own pins.
+* All users can view pins
+  
+### Boards
+* Logged in users can create boards to organize their pins.
+* Logged in users can edit and delete their own boards.
+* Only the user can view their own board.
+
+### Comments
+* Users can view all comments on a pin.
+* Logged in users can create new comments on a pin.
+* Logged in users can update their comments on a pin.
+* Logged in user can delete their own comment on a pin.
+
+### Search
+* Any user can search from all pins.
+
+
+## Splash Page
+![MiniMakers](https://github.com/Natalia3ramirez/MiniMakers/assets/128097160/db5b6b2d-1670-4308-a04c-a383ed271f80)
+
