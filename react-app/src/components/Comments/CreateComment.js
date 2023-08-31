@@ -66,7 +66,7 @@ const CreateComment = () => {
 
         <label className="comment-label">
           <div className='comment-button-container'>
-            <img className="pin-owner-icon" style={{ width: '30px', height: '30px' }} src={pin.user.image} alt={pin.user.firstName} />
+            <img className="pin-owner-icon" style={{ width: '30px', height: '30px' }} src={user.image} alt={user.firstName} />
             <div className='comment-and-button'>
               <input
                 className="comment-textarea"
