@@ -193,4 +193,21 @@ your site just below the name of the Web Service at the top of the page.
 ## Splash Page
 ![MiniMakers](https://github.com/Natalia3ramirez/MiniMakers/assets/128097160/db5b6b2d-1670-4308-a04c-a383ed271f80)
 
+## Sign Up
+![signup](https://github.com/Natalia3ramirez/MiniMakers/assets/128097160/da275d7e-48a4-4f09-8559-fabb3e3d46c3)
 
+## Landing Page
+![LandingPage](https://github.com/Natalia3ramirez/MiniMakers/assets/128097160/b66f9b28-198a-4b1c-9a1e-dce654967eb8)
+
+## Create a Pin
+![CreatePin](https://github.com/Natalia3ramirez/MiniMakers/assets/128097160/d5219fbd-2fe1-4156-b990-5ffebffe1e36)
+
+## Pin Details 
+![PinDetails](https://github.com/Natalia3ramirez/MiniMakers/assets/128097160/04a26d0a-ab11-4dc7-88dc-42b971331c83)
+
+## Create a Board
+![CreateBoard](https://github.com/Natalia3ramirez/MiniMakers/assets/128097160/dd0e6050-a2d7-4ccf-af5b-002ff61c4c06)
+
+## View User Boards
+
+![UsersBoards](https://github.com/Natalia3ramirez/MiniMakers/assets/128097160/44e7c6a3-6efe-4ff0-b1a0-6427121f5e19)
