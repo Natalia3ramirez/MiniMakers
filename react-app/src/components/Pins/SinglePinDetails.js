@@ -100,8 +100,12 @@ export default function SinglePin() {
             <div className='display-comments-container'>
               {comments.map((comment) => (
                 <div key={comment.id}>
-                  <p>{comment.created_at}</p>
+                  <div className='user-comment-container'>
+                  <img className="pin-owner-icon" style={{ width: '25px', height: '25px' }} src={comment.user.image} alt={comment.user.firstName} />
+                  <h3>{comment.user.firstName}</h3>
                   <p>{comment.message}</p>
+                  </div>
+                  <p>{new Date(comment.created_at).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })}</p>
                   {user.id === comment.user_id ? (
                     <div className='delete-edit-comment-modal'>
                       <OpenModalButton

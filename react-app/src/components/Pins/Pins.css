@@ -350,3 +350,9 @@
   width: 360px
 }
 
+.user-comment-container {
+  display: flex;
+  align-items: center;
+  gap: 5px
+}
+

@@ -99,3 +99,17 @@
  border: none;
  background-color: transparent;
 }
+
+.delete-edit-comment-modal {
+  display: flex;
+  justify-content: end;
+  margin-right: 35px
+}
+
+
+.display-comments-container h3,
+.display-comments-container p {
+  font-weight: lighter;
+}
+
+
