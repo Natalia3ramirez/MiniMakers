@@ -99,21 +99,26 @@ export default function SinglePin() {
 
               <div className='display-comments-container'>
                 {comments.map((comment) => (
-                  <div key={comment.id}>
+                  <div className='comment' key={comment.id}>
                     <div className='user-comment-container'>
                       <img className="pin-owner-icon" style={{ width: '25px', height: '25px' }} src={comment.user.image} alt={comment.user.firstName} />
-                      <h3>{comment.user.firstName}</h3>
-                      <p>{comment.message}</p>
-                    </div>
-                    <p>{new Date(comment.created_at).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })}</p>
-                    {user.id === comment.user_id ? (
-                      <div className='delete-edit-comment-modal'>
-                        <OpenModalButton
-                          buttonText="···"
-                          modalComponent={<DeleteEditComment commentId={comment.id} pinId={pin.id} comment={comment} />}
-                        />
+                      <div className='message-username'>
+                        {/* <h3>{comment.user.firstName}</h3> */}
+                        <p><span className='comment-user'>{comment.user.firstName}</span> {comment.message}</p>
                       </div>
-                    ) : ('')}
+                    </div>
+                    <div className="date-edit-comment">
+                      <p className='comment-created'>{new Date(comment.created_at).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })}</p>
+                      {user.id === comment.user_id ? (
+                        <div className='delete-edit-comment-modal'>
+                          <OpenModalButton
+                            buttonText="···"
+                            modalComponent={<DeleteEditComment commentId={comment.id} pinId={pin.id} comment={comment} />}
+                          />
+                        </div>
+                      ) : ('')}
+                    </div>
+
                   </div>
                 ))}
               </div>
@@ -121,6 +126,9 @@ export default function SinglePin() {
 
           </div>
           <div className='submit-comment'>
+          {comments.length ? (
+                <h3 className="comment-title">{pin.commentsLen} Comments</h3>
+              ) : ('')}
             <CreateComment pin={pin} />
           </div>
         </div>

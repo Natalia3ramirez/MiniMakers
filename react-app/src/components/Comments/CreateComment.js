@@ -21,8 +21,8 @@ const CreateComment = () => {
 
   useEffect(() => {
     const frontendErrors = {}
-    if (message.length < 3) {
-      frontendErrors.message = "Message is must be at least 3 characters to create a Pin"
+    if (message.length < 1) {
+      frontendErrors.message = "Message must be at least 1 character to create a Pin"
     }
     if (message.length > 500) {
       frontendErrors.message = "Message is must be 500 characters or less to create a Pin"

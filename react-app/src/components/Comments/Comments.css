@@ -98,18 +98,64 @@
 .delete-edit-comment-modal > button {
  border: none;
  background-color: transparent;
+ font-weight: bolder;
 }
 
-.delete-edit-comment-modal {
-  display: flex;
-  justify-content: end;
-  margin-right: 35px
+.delete-edit-comment-modal > button {
+  color: gray
 }
 
 
-.display-comments-container h3,
+/* .display-comments-container h3,
 .display-comments-container p {
   font-weight: lighter;
+} */
+
+
+.user-comment-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+}
+
+.comment-created {
+  margin: 0px;
+  font-size: 11px;
 }
 
 
+.message-username {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 7px
+}
+
+.message-username h3,
+.message-username p {
+  margin-bottom: 20px
+}
+
+.message-username p {
+  font-size: 14px;
+}
+
+.date-edit-comment {
+  display: flex;
+  align-items: center;
+  color: gray;
+  margin-left: 25px;
+  margin-top: -15px
+}
+
+
+.comment-user {
+  font-weight: bold
+}
+
+
+.comment {
+  margin-bottom: 15px
+}
