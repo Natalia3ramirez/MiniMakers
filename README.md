@@ -191,6 +191,6 @@ your site just below the name of the Web Service at the top of the page.
 
 
 ## Splash Page
-![MiniMakers](https://github.com/Natalia3ramirez/MiniMakers/assets/128097160/db5b6b2d-1670-4308-a04c-a383ed271f80){: width="100" height="100"}
+![MiniMakers](https://github.com/Natalia3ramirez/MiniMakers/assets/128097160/db5b6b2d-1670-4308-a04c-a383ed271f80)
 
 
