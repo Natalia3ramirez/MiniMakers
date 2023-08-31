@@ -80,14 +80,16 @@ const UpdateCommentModal = ({ comment }) => {
             <input
               className="update-comment-textarea"
               type="text"
-             
+
               value={message}
               onChange={(e) => setMessage(e.target.value)}
             />
           </div>
-            {frontendErrors.message && <p className='on-submit-errors'>{frontendErrors.message}</p>}
+          {frontendErrors.message && <p className='on-submit-errors'>{frontendErrors.message}</p>}
+          <div className='cancel-save-comment'>
           <button type="submit" onClick={submitCancel} className="cancel-pin-button">Cancel</button>
-            <button type="submit" onClick={handleSubmit} className="save-pin-button">Save</button>
+          <button type="submit" onClick={handleSubmit} className="update-save-comment">Save</button>
+          </div>
 
         </form>
 

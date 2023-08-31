@@ -294,7 +294,7 @@
 
 
 .pin-title-description-container {
-  padding: 30px;
+  padding: 20px;
   width: 360px
 }
 
@@ -307,6 +307,7 @@
 .details-save-pin {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 5px
 }
 
 

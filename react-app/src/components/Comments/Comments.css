@@ -9,10 +9,19 @@
   align-items: center;
 }
 
+
 .comment-textarea {
   width: 215px;
   height: 95%;
   border-radius: 21px 0 0 21px;
+  border: none;
+  background-color: rgb(232, 231, 231);
+}
+
+.update-comment-textarea {
+  width: 215px;
+  height: 95%;
+  border-radius: 21px;
   border: none;
   background-color: rgb(232, 231, 231);
 }
@@ -31,6 +40,7 @@
   /* background-color: rgb(232, 231, 231); */
 
 }
+
 
 .comment-and-button > button {
   background-color: rgb(232, 231, 231);
@@ -54,6 +64,7 @@
   overflow-y: auto; /* Enable vertical scrollbar when content overflows */
 }
 
+.cancel-pin-button,
 .delete-comment,
 .delete-edit-pin button {
   background-color: red;
@@ -65,12 +76,13 @@
   font-weight: bold;
 }
 
-
+.cancel-pin-button:hover,
 .delete-comment:hover,
 .delete-edit-pin button:hover {
   background-color: rgb(174, 0, 0);
 }
 
+.update-save-comment,
 .edit-comment button,
 .edit-pin-button button{
   background-color: rgb(232, 231, 231);
@@ -82,6 +94,7 @@
   font-weight: bold;
 }
 
+.update-save-comment:hover,
 .edit-comment button:hover,
 .edit-pin-button button:hover {
   background-color: rgb(221, 217, 217);
@@ -158,4 +171,10 @@
 
 .comment {
   margin-bottom: 15px
+}
+
+
+.cancel-save-comment {
+  display: flex;
+  justify-content: space-between;
 }
