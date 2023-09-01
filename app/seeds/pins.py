@@ -209,44 +209,158 @@ def seed_pins():
     description= "Design an exciting outdoor obstacle course with chalk and creative challenges.",
     created_at= datetime(year=2022, month=2, day=5, hour=9, minute=0, second=0)
   )
-  # pin30 = Pin(
-  #   user_id=4,
-  #   title="Dinosaur Ice Excavation Sensory Play",
-  #   images="https://i.pinimg.com/564x/12/aa/7c/12aa7cc651ab033fba44d1d5a582e371.jpg",
-  #   description="Freeze toys in ice and let kids excavate them using tools for a cool sensory experience.",
-  #   created_at=datetime(year=2021, month=11, day=18, hour=10, minute=0, second=0)
+  pin30 = Pin(
+    user_id=3,
+    title="Sidewalk Chalk Art",
+    images="https://i.pinimg.com/236x/29/8f/6a/298f6a255e921ae0a78e4ace6d41154e.jpg",
+    description="Unleash your creativity by making vibrant sidewalk chalk art on your driveway.",
+    created_at=datetime(year=2022, month=6, day=20, hour=10, minute=0, second=0)
+  )
+
+  pin31 = Pin(
+      user_id=1,
+      title="Rainbow Bubble Snakes",
+      images="https://i.pinimg.com/564x/a2/00/65/a200657a94f22d42024c2118328e675d.jpg",
+      description="Combine bubbles and empty water bottles to create colorful bubble snakes.",
+      created_at=datetime(year=2022, month=7, day=5, hour=15, minute=30, second=0)
+  )
+
+  pin32 = Pin(
+      user_id=2,
+      title="Homemade Binoculars",
+      images="https://i.pinimg.com/236x/0a/34/ca/0a34ca1dd06bf5776609bcc628d25e05.jpg",
+      description="Craft binoculars from toilet paper rolls and explore the world around you.",
+      created_at=datetime(year=2022, month=8, day=10, hour=12, minute=0, second=0)
+  )
+
+  pin33 = Pin(
+      user_id=3,
+      title="Paper Plate Animals",
+      images="https://i.pinimg.com/236x/1e/37/93/1e3793ae730e88013687f7add7b94021.jpg",
+      description="Create adorable animals using paper plates and basic craft supplies.",
+      created_at=datetime(year=2022, month=9, day=15, hour=9, minute=45, second=0)
+  )
+  pin34 = Pin(
+    user_id=3,
+    title="Bubble Wrap Stomp Painting",
+    images="https://i.pinimg.com/236x/2b/4e/5c/2b4e5cfd72b080101e86d960816ed779.jpg",
+    description="Combine bubble wrap, paint, and stomping to create a unique and colorful painting.",
+    created_at=datetime(year=2022, month=11, day=20, hour=14, minute=15, second=0)
+  )
+
+  pin35 = Pin(
+      user_id=3,
+      title="Rock Painting",
+      images="https://i.pinimg.com/236x/56/16/57/5616570eb8c2e8067777a58c3c4d07c7.jpg",
+      description="Transform ordinary rocks into works of art with vibrant paints and markers.",
+      created_at=datetime(year=2023, month=2, day=18, hour=11, minute=0, second=0)
+  )
+
+  pin36 = Pin(
+      user_id=1,
+      title="Homemade Birdhouses",
+      images="https://i.pinimg.com/236x/32/43/12/32431243aeae71b44254fb632891aab8.jpg",
+      description="Construct cozy birdhouses from wood and decorate them for feathered friends.",
+      created_at=datetime(year=2023, month=3, day=25, hour=14, minute=30, second=0)
+  )
+
+  pin37 = Pin(
+    user_id=3,
+    title="Rainbow Fruit Skewers",
+    images="https://i.pinimg.com/236x/c9/5b/c0/c95bc0ee1d1eb1b19a4d29c9b305d623.jpg",
+    description="Create colorful fruit skewers with a variety of fresh fruits for a healthy and fun treat.",
+    created_at=datetime(year=2023, month=9, day=20, hour=11, minute=30, second=0)
+  )
+
+  pin38 = Pin(
+      user_id=1,
+      title="Homemade Pizza Party",
+      images="https://i.pinimg.com/236x/da/e2/a1/dae2a15bce6fa0a9495e7473aa65bbfe.jpg",
+      description="Host a DIY pizza-making party where kids can customize their own pizza toppings.",
+      created_at=datetime(year=2023, month=10, day=15, hour=14, minute=0, second=0)
+  )
+
+  pin39 = Pin(
+      user_id=2,
+      title="Edible Rainbow Slime",
+      images="https://i.pinimg.com/236x/61/ba/45/61ba4544c85be08c43dd92a0fb516a07.jpg",
+      description="Make safe and colorful slime using edible ingredients for a tactile sensory experience.",
+      created_at=datetime(year=2023, month=11, day=5, hour=10, minute=45, second=0)
+  )
+
+  pin40 = Pin(
+      user_id=3,
+      title="Cupcake Decorating Party",
+      images="https://i.pinimg.com/236x/4e/36/78/4e36787e325b5da02786c7c1352a560d.jpg",
+      description="Organize a cupcake decorating party with various toppings and frosting options.",
+      created_at=datetime(year=2023, month=12, day=18, hour=11, minute=0, second=0)
+  )
+
+  # pin41 = Pin(
+  #     user_id=1,
+  #     title="Homemade Fruit Popsicles",
+  #     images="https://i.pinimg.com/236x/26/a0/15/26a015f1c871300d48f9021e76ce408f.jpg",
+  #     description="Blend fresh fruit and juice to create delicious and refreshing homemade popsicles.",
+  #     created_at=datetime(year=2024, month=1, day=10, hour=13, minute=30, second=0)
   # )
 
-  # pin31 = Pin(
-  #   user_id=4,
-  #   title="Sensory Bottles for Babies",
-  #   images="https://i.pinimg.com/564x/bd/19/a8/bd19a8b3f75fade07ee299dbcae79ce4.jpg",
-  #   description="Create sensory bottles filled with various materials to engage and stimulate babies.",
-  #   created_at=datetime(year=2021, month=12, day=22, hour=14, minute=45, second=0)
+  # pin42 = Pin(
+  #     user_id=2,
+  #     title="DIY Ice Cream Sundae Bar",
+  #     images="https://i.pinimg.com/236x/7f/8f/ed/7f8fedb6387a469c869307da662d33d3.jpg",
+  #     description="Set up an ice cream sundae bar with various toppings and sauces for a sweet treat.",
+  #     created_at=datetime(year=2024, month=2, day=22, hour=15, minute=0, second=0)
   # )
 
-  # pin32 = Pin(
-  #   user_id=1,
-  #   title="Glow in the Dark Painting",
-  #   images="https://i.pinimg.com/564x/87/21/07/872107237bbd4f7746b77de473bda4e6.jpg",
-  #   description="Create stunning glow in the dark paintings with neon colors and black lights.",
-  #   created_at=datetime(year=2022, month=5, day=20, hour=13, minute=45, second=0)
+  # pin43 = Pin(
+  #     user_id=3,
+  #     title="Homemade Veggie Chips",
+  #     images="https://i.pinimg.com/236x/89/fc/9b/89fc9b3c75a5f21489f15205dcb268f4.jpg",
+  #     description="Slice and bake a variety of vegetables into crispy and nutritious homemade chips.",
+  #     created_at=datetime(year=2024, month=3, day=5, hour=9, minute=15, second=0)
+  # )
+
+  # pin44 = Pin(
+  #     user_id=1,
+  #     title="Creative Cookie Decorating",
+  #     images="https://i.pinimg.com/236x/ab/f9/ba/abf9baec2d1a9dfb6ec7b3a3ee059300.jpg",
+  #     description="Provide plain cookies and an array of decorations for kids to decorate their own cookies.",
+  #     created_at=datetime(year=2024, month=4, day=12, hour=16, minute=30, second=0)
+  # )
+
+  # pin45 = Pin(
+  #     user_id=2,
+  #     title="Homemade Fruit Leather",
+  #     images="https://i.pinimg.com/236x/bc/02/9f/bc029f536e4b7b7b314e1dce2da159a9.jpg",
+  #     description="Make flavorful fruit leather using blended fruit and a dehydrator or oven.",
+  #     created_at=datetime(year=2024, month=5, day=28, hour=10, minute=0, second=0)
+  # )
+
+  # pin46 = Pin(
+  #     user_id=3,
+  #     title="Colorful Pancake Art",
+  #     images="https://i.pinimg.com/236x/57/0e/06/570e06aa9ed0b1bfcf3c021db70384ab.jpg",
+  #     description="Use colorful batter to create fun and artistic designs when making pancakes.",
+  #     created_at=datetime(year=2024, month=6, day=10, hour=16, minute=45, second=0)
+  # )
+
+  # pin47 = Pin(
+  #     user_id=1,
+  #     title="Homemade Fruit Smoothies",
+  #     images="https://i.pinimg.com/236x/89/fc/9b/89fc9b3c75a5f21489f15205dcb268f4.jpg",
+  #     description="Blend a variety of fruits and yogurt to create nutritious and delicious homemade smoothies.",
+  #     created_at=datetime(year=2024, month=7, day=22, hour=8, minute=30, second=0)
   # )
 
 
-  # pin36 = Pin(
-  #   user_id=3,
-  #   title="Outdoor Nature Art",
-  #   images="",
-  #   description="Use leaves, sticks, and other natural elements to make beautiful outdoor nature art.",
-  #   created_at=datetime(year=2022, month=1, day=3, hour=9, minute=0, second=0)
-  # )
+
+
 
 
 
 
   pin_item_list = [pin1, pin2, pin3, pin4, pin5, pin6, pin7, pin8, pin9, pin10,
-pin11, pin12, pin13, pin14, pin15, pin16, pin17, pin18, pin19, pin20, pin21, pin22, pin23, pin24, pin25, pin26, pin27, pin28, pin29]
+pin11, pin12, pin13, pin14, pin15, pin16, pin17, pin18, pin19, pin20, pin21, pin22, pin23, pin24, pin25, pin26, pin27, pin28, pin29, pin30, pin31, pin32, pin33, pin34, pin35, pin36, pin37, pin38, pin39, pin40]
 
   pins_list = [db.session.add(pin_item) for pin_item in pin_item_list]
   db.session.commit()
