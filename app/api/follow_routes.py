@@ -28,6 +28,29 @@ def delete_follow(followId):
 
 
 
+# get all of the user's followers
+
+# @follow_routes.route('/followers/<int:user_id>', methods=['GET'])
+# @login_required
+# def get_followers(user_id):
+#   try:
+#       # Query the database to get the user's followers
+#       user = User.query.get(user_id)
+#       if not user:
+#           return jsonify({"message": "User not found"}), 404
+
+#       followers = user.followers  # Assuming you have a 'followers' relationship in your User model
+
+#       # Serialize the followers' data into JSON format
+#       followers_data = [{"id": follower.id, "first_name": follower.first_name, "last_name": follower.last_name} for follower in followers]
+
+#       return jsonify({"followers": followers_data}), 200
+
+#   except Exception as e:
+#       return jsonify({"message": "An error occurred", "error": str(e)}), 500
+
+
+
 # follow a user
 
 @follow_routes.route('/new', methods=['POST'])
@@ -50,7 +73,7 @@ def follow_user():
 
 
 
-# get all followers
+# get all follows
 
 @follow_routes.route('/')
 def get_all_followers():
