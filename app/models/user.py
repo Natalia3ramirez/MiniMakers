@@ -3,6 +3,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from datetime import datetime
 from sqlalchemy.sql import func
+from .follow import Follow
 
 
 class User(db.Model, UserMixin):
@@ -29,7 +30,8 @@ class User(db.Model, UserMixin):
     boards = db.relationship("Board", back_populates='user', cascade="all, delete-orphan")
     pins = db.relationship("Pin", back_populates='user', cascade="all, delete-orphan")
     comments = db.relationship("Comment", back_populates='user', cascade="all, delete-orphan")
-
+    follows = db.relationship("Follow", foreign_keys=[Follow.current_id], back_populates='follower', cascade="all, delete-orphan", primaryjoin='User.id == Follow.current_id')
+    followee = db.relationship("Follow", foreign_keys=[Follow.following_id], back_populates='following', cascade="all, delete-orphan", primaryjoin='User.id == Follow.following_id')
 
 
     @property
@@ -51,5 +53,6 @@ class User(db.Model, UserMixin):
             'about_me': self.about_me,
             'email': self.email,
             'birthdate': self.birthdate,
-            'image': self.image
+            'image': self.image,
+            'follows': [follow.to_dict() for follow in self.follows]
         }

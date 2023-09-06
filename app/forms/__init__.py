@@ -7,3 +7,4 @@ from .update_board_form import UpdateBoardForm
 from .pinned_board_form import PinnedBoardForm
 from .comment_form import CommentForm
 from .update_comment_form import UpdateCommentForm
+from .follow_form import FollowForm
