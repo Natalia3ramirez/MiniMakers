@@ -10,7 +10,7 @@ button {
 
 
 
-.pin {
+.pin-card {
   margin: 7px
 }
 
@@ -46,4 +46,61 @@ button {
 .profile-masonry {
   margin: 125px 70px 0 70px;
 
+}
+
+
+.pin-owner-name {
+  font-size: 13px;
+  font-weight:200
+}
+
+.pin-image-title {
+  font-size: 13px;
+  font-weight: 550
+}
+
+
+
+
+
+.single-pin-wrapper.hovered {
+  position: relative;
+}
+
+
+.single-pin-wrapper button {
+  position: absolute;
+  border: none;
+  margin-right: 0px;
+  background-color: transparent;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.single-pin-wrapper  span {
+  color: white;
+}
+
+
+.single-pin-wrapper.hovered button {
+  display: flex;
+}
+
+.single-pin-wrapper.hovered .pin-card > img {
+  opacity: 1;
+  filter: brightness(0.5);
+}
+
+
+
+.button-span * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 7px;
+  margin-left: 7px;
 }
