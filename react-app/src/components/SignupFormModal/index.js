@@ -4,6 +4,19 @@ import { useModal } from "../../context/Modal";
 import { signUp } from "../../store/session";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import "./SignupForm.css";
+import { GoogleLogin} from "react-google-login"
+import {gapi } from 'gapi-script'
+
+const clientId = "403972623970-5ao82h5t1b6al5fmsemovol1194s0dut.apps.googleusercontent.com"
+
+const onSuccess = (res) => {
+	console.log("LOGIN SUCCESS! Current user: ", res.profileObj);
+}
+
+const onFailure = (res) => {
+	console.log("LOGIN FAILED! res: ", res)
+}
+
 
 
 function hasEmptySpaces(string) {
@@ -79,6 +92,15 @@ function SignupFormModal() {
 		setFrontendErrors(frontendErrors)
 	}, [email, firstName, lastName, confirmPassword, password, birthdate, image, aboutMe])
 
+	useEffect(() => {
+		function start(){
+			gapi.client.init({
+				clientId: clientId,
+				scope: ""
+			})
+		}
+		gapi.load('client:auth2', start)
+	})
 
 	// console.log('PROFILE IMAGE--->', image)
 
@@ -227,6 +249,16 @@ function SignupFormModal() {
 				<button type="submit">Sign Up</button>
 				{(imageLoading) && <p>Loading...</p>}
 			</form>
+			<div id='signinButton'>
+      <GoogleLogin
+      clientId={clientId}
+      buttonText='Login with Google'
+      onSuccess={onSuccess}
+      onFailure={onFailure}
+      cookiePolicy={'single_host_origin'}
+      isSignedIn={true}
+      />
+    </div>
 		</div>
 	);
 }
