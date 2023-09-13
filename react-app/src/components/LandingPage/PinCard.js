@@ -31,7 +31,7 @@ const PinCard = ({ pin }) => {
 
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            style={{ position: 'relative' }} // Set relative positioning
+            // style={{ position: 'relative' }}
         >
             {userBoards.length && (
                 <div className='button-span'>
@@ -46,17 +46,17 @@ const PinCard = ({ pin }) => {
                         modalComponent={<AddPinToBoard pin_id={pin.id} />}
                         style={{
                             display: isHovered ? 'flex' : 'none', // Show on hover
-                            position: 'absolute', // Position it absolutely within the wrapper
-                            top: 0,
-                            left: 0,
-                            width: '100%',
-                            height: '100%',
-                            backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            color: 'white',
-                            cursor: 'pointer',
-                            zIndex: 1,
+                            // position: 'absolute',
+                            // top: 0,
+                            // left: 0,
+                            // width: '100%',
+                            // height: '100%',
+                            // backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                            // alignItems: 'center',
+                            // justifyContent: 'center',
+                            // color: 'white',
+                            // cursor: 'pointer',
+                            // zIndex: 1,
                         }}
 
                     />
@@ -72,7 +72,7 @@ const PinCard = ({ pin }) => {
                         src={pin.user.image}
                         alt={pin.user.firstName}
                     />
-                    <span className='pin-owner-name'>
+                    <span id='pin-owner-name'>
                         {pin.user.firstName} {pin.user.lastName}
                     </span>
                 </div>

@@ -49,10 +49,6 @@ button {
 }
 
 
-.pin-owner-name {
-  font-size: 13px;
-  font-weight:200
-}
 
 .pin-image-title {
   font-size: 13px;
@@ -63,9 +59,9 @@ button {
 
 
 
-.single-pin-wrapper.hovered {
+/* .single-pin-wrapper.hovered {
   position: relative;
-}
+} */
 
 
 .single-pin-wrapper button {
@@ -85,14 +81,22 @@ button {
   color: white;
 }
 
+#pin-owner-name {
+  color: black;
+  font-size: 13px;
+  font-weight:200
+}
+
 
 .single-pin-wrapper.hovered button {
   display: flex;
 }
 
+
+
 .single-pin-wrapper.hovered .pin-card > img {
-  opacity: 1;
-  filter: brightness(0.5);
+  /* opacity: .7; */
+  /* filter: brightness(0.5); */
 }
 
 
