@@ -80,7 +80,6 @@ function SignupFormModal() {
 	}, [email, firstName, lastName, confirmPassword, password, birthdate, image, aboutMe])
 
 
-	// console.log('PROFILE IMAGE--->', image)
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();

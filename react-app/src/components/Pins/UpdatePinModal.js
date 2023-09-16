@@ -23,7 +23,7 @@ const UpdatePinModal = ({ pin }) => {
   const [errors, setErrors] = useState([]);
   const [submitted, setSubmitted] = useState(false);
 
-  // console.log("this is the user----->", user)
+
 
   useEffect(() => {
     const frontendErrors = {}

@@ -25,7 +25,6 @@ export default function SinglePin() {
   const commentsArr = pin.comments || [];
   const comments = commentsArr.reverse()
 
-  // console.log("this is the pin---->", pin)
 
   useEffect(() => {
     dispatch(getSinglePinThunk(pinId))

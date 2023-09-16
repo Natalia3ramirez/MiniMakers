@@ -21,9 +21,8 @@
   background-color: white
   /* position: relative; */
 }
-/* .navigation-container {
-  position: fixed
-} */
+
+
 
 .home-create-container {
   display: flex;
@@ -44,7 +43,6 @@
 .navlink-create {
   display: block;
   justify-content: center;
-  /* align-items: center; */
   padding: 10px 20px;
   color: white;
   font-weight: bold;
@@ -52,7 +50,6 @@
   border-radius: 24px;
   text-decoration: none;
   position: relative
-  /* transition: background-color 0.3s ease, transform 0.3s ease; */
 }
 
 
@@ -118,22 +115,16 @@
 
 .material-symbols-outlined {
   font-size: 24px;
-  color: #333; /* Adjust color as needed */
+  color: #333;
 }
 
 
 .user-menu {
   display: flex;
-  /* position: absolute;
-  left: 100%;
-  transform: translateX(-50px) */
 
 }
 
-/* .user-dropdown-container {
-  display: flex;
 
-} */
 
 .user-menu-dropdown-container {
   display: flex;
@@ -150,7 +141,6 @@
   background-color: white;
   border-radius: 10px;
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
-  /* padding-bottom: 20px; */
   padding-top: 20px;
   padding-left: 20px;
   padding-right: 20px;
@@ -200,8 +190,6 @@
 
 
 .create-dropdown {
-  /* width: 100px;
-  background-color: white; */
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
   padding: 10px;
   border-radius: 15px;
@@ -276,7 +264,6 @@
 .logo {
   width: 150px;
   height: 45px;
-  /* object-fit: cover; */
 }
 
 .logout-logo {
@@ -295,18 +282,8 @@
 
 
 
-/*  search bar */
-
-/* .search-bar-container input{
-  width: 75%
-}
-
 .nav-bar {
-  width: 100%
-} */
-
-.nav-bar {
-  width: 55%;
+  width: 56%;
   margin-left: -100px;
 }
 
@@ -329,4 +306,12 @@
   font-size: 14px;
   padding: 10px;
   width: 100%
+}
+
+
+.about-me {
+  display:flex;
+  margin-right: 40px;
+  margin-left: 40px;
+  column-gap: 17px;
 }

@@ -21,7 +21,7 @@ const UpdateCommentModal = ({ comment }) => {
   const [submitted, setSubmitted] = useState(false);
   const pin = useSelector((state) => state.pins.singlePin)
 
-  // console.log("this is the user----->", user)
+
 
   useEffect(() => {
     const frontendErrors = {}

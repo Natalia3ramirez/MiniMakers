@@ -39,6 +39,7 @@ function Navigation({ isLoaded }) {
 										<div className='create-button-container'>
 											<CreateButton user={sessionUser}></CreateButton>
 										</div>
+										
 									</div>
 
 								</div>

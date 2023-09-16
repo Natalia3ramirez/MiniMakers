@@ -14,7 +14,7 @@ const CreatePinModal = () => {
   const user = useSelector(state => state.session.user)
   const pins = Object.values(useSelector(state => state.pins.allPins))
  const newPin = pins[pins.length-1]
- console.log("the new pin", newPin)
+//  console.log("the new pin", newPin)
 
   const [title, setTitle] = useState('');
   const [images, setImages] = useState(null);

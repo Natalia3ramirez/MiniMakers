@@ -15,7 +15,6 @@ const DeleteEditPin = ({ pinId, pin }) => {
   const history = useHistory();
   const { closeModal } = useModal();
 
-  // console.log("this is the pinid-------->", pinId)
 
   const submitDelete = async (e) => {
     e.preventDefault()
