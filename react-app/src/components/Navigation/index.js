@@ -39,7 +39,7 @@ function Navigation({ isLoaded }) {
 										<div className='create-button-container'>
 											<CreateButton user={sessionUser}></CreateButton>
 										</div>
-										
+
 									</div>
 
 								</div>
@@ -55,8 +55,16 @@ function Navigation({ isLoaded }) {
 							:
 							(
 								<div className='logout-nav-bar'>
-									<img src={logo} className="logout-logo" />
+									<div>
+										<img src={logo} className="logout-logo" />
+									</div>
 									<div className='login-signup-container'>
+										<div className='about-me'>
+
+											<a href="https://www.linkedin.com/in/natalia-ramirez-750817151" target="_blank" ><i class="fa-brands fa-linkedin" style={{ color: "#4f5051", }}></i></a>
+											<a href="https://github.com/Natalia3ramirez" target="_blank"><i class="fab fa-github" style={{ color: "#4f5051", }}></i></a>
+											<a href="https://Natalia3ramirez.github.io/" target="_blank"><i class="fa-solid fa-book" style={{ color: "#4f5051", }}></i></a>
+										</div>
 										<div className='user-icon-login'>
 											<OpenModalButton
 												buttonText="Log In"

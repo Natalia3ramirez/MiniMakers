@@ -60,9 +60,6 @@
 
 }
 
-.login-signup-container {
-  margin-right: 25px
-}
 
 
 .navlink-create > .dropdown-menu {
@@ -207,7 +204,8 @@
 
 .login-signup-container {
   display: flex;
-
+  margin-right: 25px;
+  align-items: center;
 }
 
 
