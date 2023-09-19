@@ -16,6 +16,33 @@ You can check it out here [live](https://minimakers-sfxn.onrender.com)!
 ![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-%23FCA121.svg?style=for-the-badge&logo=sqlalchemy&logoColor=white)
 
 
+## Features
+### Users
+* A User can sign up, log in, and log out.
+* A User can use a demo login to navigate through the site.
+* A User must be authorized for posting Pins and Boards.
+* When Users are logged in or logged out they are redirected to the index page.
+
+### Pins 
+* Logged in users can post pins.
+* Logged in users can edit, and delete their own pins.
+* All users can view pins
+  
+### Boards
+* Logged in users can create boards to organize their pins.
+* Logged in users can edit and delete their own boards.
+* Only the user can view their own board.
+
+### Comments
+* Users can view all comments on a pin.
+* Logged in users can create new comments on a pin.
+* Logged in users can update their comments on a pin.
+* Logged in user can delete their own comment on a pin.
+
+### Bonus: Search
+* Any user can search from all pins.
+
+
 
 ## Getting started
 1. Clone this repository (only this branch)
@@ -163,31 +190,6 @@ your site just below the name of the Web Service at the top of the page.
 [Dashboard]: https://dashboard.render.com/
 
 
-## Features
-### Users
-* A User can sign up, log in, and log out.
-* A User can use a demo login to navigate through the site.
-* A User must be authorized for posting Pins and Boards.
-* When Users are logged in or logged out they are redirected to the index page.
-
-### Pins 
-* Logged in users can post pins.
-* Logged in users can edit, and delete their own pins.
-* All users can view pins
-  
-### Boards
-* Logged in users can create boards to organize their pins.
-* Logged in users can edit and delete their own boards.
-* Only the user can view their own board.
-
-### Comments
-* Users can view all comments on a pin.
-* Logged in users can create new comments on a pin.
-* Logged in users can update their comments on a pin.
-* Logged in user can delete their own comment on a pin.
-
-### Search
-* Any user can search from all pins.
 
 
 ## Splash Page
