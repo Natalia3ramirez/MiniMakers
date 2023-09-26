@@ -1,7 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { deleteCommentThunk } from "../../store/comment";
 import { deletePinThunk, getSinglePinThunk } from "../../store/pin";
 import OpenModalButton from '../OpenModalButton';
 import UpdatePinModal from "./UpdatePinModal";

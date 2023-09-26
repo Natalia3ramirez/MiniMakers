@@ -2,7 +2,6 @@ import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { deletePinThunk } from "../../store/pin";
-import OpenModalButton from "../OpenModalButton";
 
 
 const DeletePinModal = ({ pinId }) => {

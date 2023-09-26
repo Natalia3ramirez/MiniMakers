@@ -4,13 +4,12 @@ import { getAllBoardsThunk } from "../../store/board";
 import { useHistory } from "react-router-dom";
 import PinBoardCard from "./PinBoardCard";
 import PinCard from "../LandingPage/PinCard";
-import { getAllPins, getAllPinsThunk } from "../../store/pin";
+import { getAllPinsThunk } from "../../store/pin";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
 
 
 const UserProfilePage = () => {
   const dispatch = useDispatch();
-  const history = useHistory()
   const user = useSelector(state => state.session.user);
   const pins = useSelector(state => state.pins.allPins);
   const pinsArr = pins ? Object.values(pins) : [];
