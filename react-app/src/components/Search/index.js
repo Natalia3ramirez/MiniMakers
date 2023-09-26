@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { useHistory } from "react-router-dom";
 import { getAllPinsThunk } from "../../store/pin";
 import "./Search.css";
@@ -8,8 +8,8 @@ function SearchBar() {
   const [searchQuery, setSearchQuery] = useState("");
   const dispatch = useDispatch();
   const history = useHistory();
-  const pins = useSelector((state) => state.pins.allPins);
-  const pinsArr = Object.values(pins);
+  // const pins = useSelector((state) => state.pins.allPins);
+  // const pinsArr = Object.values(pins);
 
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);

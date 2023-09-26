@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
-import { addPinToBoardThunk, createNewBoardThunk, getAllBoardsThunk } from '../../store/board'
+import { addPinToBoardThunk, getAllBoardsThunk } from '../../store/board'
 import './Boards.css'
 import { useModal } from '../../context/Modal'
-import PinBoardCard from '../UserProfile/PinBoardCard'
 import CreateBoardModal from './CreateBoardModal'
 import OpenModalButton from '../OpenModalButton'
 
@@ -17,7 +16,7 @@ const AddPinToBoard = ({ pin_id }) => {
   const user = useSelector(state => state.session.user)
   const boards = useSelector(state => state.pinnedBoards.allPinnedBoards)
   const boardsArr = boards ? Object.values(boards) : [];
-  const pin = useSelector((state) => state.pins.singlePin)
+  // const pin = useSelector((state) => state.pins.singlePin)
 
   const userBoards = boardsArr.length ? boardsArr.filter(board => board.user_id === user.id) : [];
 
@@ -26,13 +25,12 @@ const AddPinToBoard = ({ pin_id }) => {
   const [selectedBoardId, setSelectedBoardId] = useState(null);
   const ulRef = useRef();
 
-  const [errors, setErrors] = useState([]);
 
 
-  const openMenu = () => {
-    if (showMenu) return;
-    setShowMenu(true);
-  };
+  // const openMenu = () => {
+  //   if (showMenu) return;
+  //   setShowMenu(true);
+  // };
 
 
 
@@ -73,7 +71,7 @@ const AddPinToBoard = ({ pin_id }) => {
     await closeModal();
   };
 
-  const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
+  // const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
   const closeMenu = () => setShowMenu(false);
 
 
