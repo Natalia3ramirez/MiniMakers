@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllBoardsThunk } from "../../store/board";
-import { useHistory } from "react-router-dom";
 import PinBoardCard from "./PinBoardCard";
 import PinCard from "../LandingPage/PinCard";
 import { getAllPinsThunk } from "../../store/pin";

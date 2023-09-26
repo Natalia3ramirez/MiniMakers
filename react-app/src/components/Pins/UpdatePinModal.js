@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { updatePinThunk, getSinglePinThunk } from '../../store/pin';
 import './Pins.css';
 import { useModal } from '../../context/Modal';
@@ -9,7 +8,7 @@ import { useModal } from '../../context/Modal';
 
 const UpdatePinModal = ({ pin }) => {
 
-  const history = useHistory();
+
   const dispatch = useDispatch();
   const { closeModal } = useModal();
   const user = useSelector(state => state.session.user);

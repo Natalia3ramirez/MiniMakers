@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, {  useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getSinglePinThunk } from '../../store/pin';
 import { useParams } from 'react-router-dom';
-import { useModal } from '../../context/Modal';
+// import { useModal } from '../../context/Modal';
 import OpenModalButton from '../OpenModalButton';
 import './Pins.css'
-import { useHistory } from 'react-router';
 import AddPinToBoard from '../Boards/AddPinToBoardModal';
 import CreateComment from '../Comments/CreateComment';
 import DeleteEditComment from '../Comments/DeleteEditComment';
@@ -15,8 +14,7 @@ import DeleteEditPin from './DeleteEditPin';
 export default function SinglePin() {
   const { pinId } = useParams();
   const dispatch = useDispatch();
-  const history = useHistory();
-  const { closeModal } = useModal();
+  // const { closeModal } = useModal();
   const pin = useSelector((state) => state.pins.singlePin)
   const user = useSelector((state) => state.session.user)
   const commentsArr = pin.comments || [];
