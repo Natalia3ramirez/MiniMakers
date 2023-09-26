@@ -3,11 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getSinglePinThunk } from '../../store/pin';
 import { useParams } from 'react-router-dom';
 import { useModal } from '../../context/Modal';
-import DeletePinModal from './DeletePinModal';
 import OpenModalButton from '../OpenModalButton';
 import './Pins.css'
-import UpdatePinModal from './UpdatePinModal';
-import UserCard from '../UserProfile/UserCard';
 import { useHistory } from 'react-router';
 import AddPinToBoard from '../Boards/AddPinToBoardModal';
 import CreateComment from '../Comments/CreateComment';

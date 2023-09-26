@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { updatePinThunk, getSinglePinThunk } from '../../store/pin';
-import DeletePinModal from './DeletePinModal';
-import OpenModalButton from '../OpenModalButton';
 import './Pins.css';
 import { useModal } from '../../context/Modal';
 

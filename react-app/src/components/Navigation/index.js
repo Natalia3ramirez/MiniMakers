@@ -14,7 +14,7 @@ function Navigation({ isLoaded }) {
 	const sessionUser = useSelector(state => state.session.user);
 	const history = useHistory();
 
-	// console.log("nav session user", sessionUser)
+
 
 	const handleLogoClick = () => {
 		history.push('/home');
